@@ -1,0 +1,16 @@
+#aichat-tools-builder .aichat-block-title{font-weight:600;margin-bottom:6px;border-left:4px solid #0d6efd;padding-left:8px;font-size:13px;letter-spacing:.5px;color:#0d2c4d;text-transform:uppercase}
+#aichat-tools-builder:empty{display:none}
+#aichat-tools-builder .card{background:#fff;border-radius:6px}
+#aichat-tools-builder .condition-row,#aichat-tools-builder .action-row{background:#f8f9fb;padding:6px 8px;border-radius:4px}
+#aichat-tools-builder .condition-row:not(:last-child),#aichat-tools-builder .action-row:not(:last-child){margin-bottom:6px}
+#aichat-tools-builder .aichat-add-condition,.aichat-add-action{margin-top:4px}
+#aichat-tools-panel-header{display:flex;gap:12px;align-items:center;margin-bottom:16px}
+#aichat-tools-panel-header h2{margin:0;font-size:20px}
+#aichat-tools-save{min-width:120px}
+
+/* ---- AI-Tools inline-style replacements ---- */
+.aichat-tools-tip{max-width:980px}
+#aichat-toggle-macros{color:#999;font-size:13px;text-decoration:none}
+#aichat-macros-advanced{display:none;opacity:.7}
+.aichat-macros-heading{color:#888}
+#aichat-testtool-result{background:#0b1020;color:#d7e1ff;padding:10px;border-radius:6px;overflow:auto;max-height:380px}

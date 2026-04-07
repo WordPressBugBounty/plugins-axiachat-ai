@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'estebandezafra/aichat',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '9eecea87d56180556d74d2275c70ee45db036a62',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => false,
+    ),
+    'versions' => array(
+        'estebandezafra/aichat' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '9eecea87d56180556d74d2275c70ee45db036a62',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'smalot/pdfparser' => array(
+            'pretty_version' => 'v2.12.4',
+            'version' => '2.12.4.0',
+            'reference' => '028d7cc0ceff323bc001d763caa2bbdf611866c4',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../smalot/pdfparser',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'symfony/polyfill-mbstring' => array(
+            'pretty_version' => 'v1.33.0',
+            'version' => '1.33.0.0',
+            'reference' => '6d857f4d76bd4b343eac26d6b539585d2bc56493',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/polyfill-mbstring',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);
