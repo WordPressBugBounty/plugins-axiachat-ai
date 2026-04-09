@@ -4,7 +4,7 @@ Tags: ai chatbot, chatgpt, woocommerce, customer support, google gemini
 Requires at least: 5.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 4.1.2
+Stable tag: 4.1.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -327,6 +327,9 @@ All models are managed through a centralised registry (filterable via `aichat_mo
 
 
 == Changelog ==
+= 4.1.3 =
+* Compatibility: Tested with WordPress 7.0 RC
+
 = 4.1.2 =
 💰 **Budget Limits & Usage Dashboard**
 * Added: Budget limits — set daily/monthly caps on token usage and dollar spend for your AI chatbot from Settings → Usage & Moderation. When exceeded, the chatbot widget hides completely or falls back to showing only the WhatsApp CTA button.
