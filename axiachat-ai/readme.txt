@@ -2,9 +2,9 @@
 Contributors: estebandezafra
 Tags: ai chatbot, chatgpt, woocommerce, customer support, google gemini
 Requires at least: 5.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 4.1.3
+Stable tag: 4.1.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -309,8 +309,6 @@ All models are managed through a centralised registry (filterable via `aichat_mo
 * Markdown rendering including images, bold, lists, and code blocks
 * Suggestion chips / quick-reply buttons
 * WhatsApp CTA button inside the chat window (configurable per bot)
-* Multi-bot support — create multiple bots with independent instructions, models, and context
-* GDPR consent message injected as first bot message until visitor accepts (`aichat_gdpr_ok` cookie)
 * Session UUID stored client-side for persistent conversation history across page reloads
 * Automatic front-end translation — UI labels localised to the visitor's browser language
 
@@ -327,6 +325,10 @@ All models are managed through a centralised registry (filterable via `aichat_mo
 
 
 == Changelog ==
+= 4.1.4 =
+* Added: Claude Sonnet 4.6 model (`claude-sonnet-4-6`, $3/$15, 1M context, 64K output) — now the default Anthropic model.
+* Updated: All model pricing verified against official provider pages (OpenAI, Anthropic, Google) as of April 2026.
+
 = 4.1.3 =
 * Compatibility: Tested with WordPress 7.0 RC
 
@@ -461,56 +463,6 @@ All models are managed through a centralised registry (filterable via `aichat_mo
 🎯 **Lead Capture System**
 
 📅 **Appointment Booking System**
-
-
-🛠️ **Other Improvements**
-* Updated: Default model changed to GPT-5.2-chat-latest (December 2025).
-* Improved: Provider registry architecture for easier extensibility.
-* Improved: Tool execution with better error handling and logging.
-* Fixed: Easy Config wizard now uses GPT-5.2-chat-latest as default model.
-* Fixed: Model selection properly passed through Agency proxy.
-
-= 1.2.9 =
-* Added: Markdown rendering support for AI responses (safe HTML output).
-* Added: Optional “Suggestions / Next actions” chips in the widget (configurable count and colors).
-* Improved: Usage logging accuracy for OpenAI Responses API (GPT-5.x / GPT-5.2) and cost calculation.
-* Improved: Usage screen with “Last Conversations” view for quick auditing.
-* Fixed: Preview home mode now avoids inline CSS/JS injection (enqueue-based).
-
-
-= 1.2.8 =
-* Added: GPT-5.2 models support (Instant, Thinking) - OpenAI's December 2025 generation.
-* Updated: Token limits and pricing for new GPT-5.2 models.
-
-= 1.2.7 =
-* Added: GPT-5.1 models support (Instant, Thinking) - OpenAI's latest generation.
-* Tested: Fully compatible with WordPress 6.9.
-* Updated: Token limits and pricing for new GPT-5.1 models.
-
-= 1.2.6 =
-* Added: WhatsApp as an input/output channel through integration with another plugin.
-* Enhanced: Tabbed interface in settings for better navigation.
-* Added: New "Advanced" tab in settings.
-
-= 1.2.5 =
-* Added: Support for Google Gemini as a new AI provider.
-
-= 1.2.4 =
-* Improved: Encryption of AI model API keys for better security.
-
-
-
-= 1.2.3 =
-* Added: YouTube tutorial video for quick setup walkthrough
-* Enhanced: Flexible widget sizing for better responsive design
-* Improved: Larger avatar display for better visual prominence
-
-* GDPR: Redesigned the consent message as a full-width in-stream block with a darker background and a centered button for better visibility and UX. Inputs remain disabled until accepted.
-
-= 1.2.2 =
-* Admin: Improved Bots accordion behavior — clicking an open section now closes it (allowing zero-open state) while keeping “at most one open” when opening another.
-* Admin: Reduced console noise; detailed accordion debug logs are now disabled by default and can be re-enabled with ?aichat_debug=1.
-* Preview: Stabilized homepage preview and suppressed duplicate global widget when previewing a specific bot.
 
 
 == Bundled Libraries ==

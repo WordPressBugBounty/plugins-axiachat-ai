@@ -314,25 +314,40 @@ function aichat_get_model_registry() {
         // Claude 4.6 (Feb 2026)
         'claude-opus-4-6' => [
             'provider'       => 'anthropic',
-            'label'          => 'Claude Opus 4.6 (Feb 2026)',
+            'label'          => 'Claude Opus 4.6',
             'tags'           => [ 'new' ],
-            'ctx'            => 200000,
-            'max_out'        => 32000,
-            'rec_out'        => 25000,
+            'ctx'            => 1000000,
+            'max_out'        => 128000,
+            'rec_out'        => 100000,
             'thinking'       => true,
             'multimodal'     => true,
-            'pricing'        => [ 'input' => 15.00, 'output' => 75.00 ],
+            'pricing'        => [ 'input' => 5.00, 'output' => 25.00 ],
             'aliases'        => [],
             'deprecated'     => [],
             'is_default'     => false,
             'fallback_order' => null,
+        ],
+        'claude-sonnet-4-6' => [
+            'provider'       => 'anthropic',
+            'label'          => 'Claude Sonnet 4.6',
+            'tags'           => [ 'new', 'recommended' ],
+            'ctx'            => 1000000,
+            'max_out'        => 64000,
+            'rec_out'        => 50000,
+            'thinking'       => true,
+            'multimodal'     => true,
+            'pricing'        => [ 'input' => 3.00, 'output' => 15.00 ],
+            'aliases'        => [],
+            'deprecated'     => [],
+            'is_default'     => true,
+            'fallback_order' => 1,
         ],
 
         // Claude 4.5 (2025)
         'claude-sonnet-4-5-20250929' => [
             'provider'       => 'anthropic',
             'label'          => 'Claude Sonnet 4.5',
-            'tags'           => [ 'recommended' ],
+            'tags'           => [],
             'ctx'            => 1000000,
             'max_out'        => 64000,
             'rec_out'        => 50000,
@@ -348,8 +363,8 @@ function aichat_get_model_registry() {
                 'claude-3-sonnet',
                 'claude-3-sonnet-20240229',
             ],
-            'is_default'     => true,
-            'fallback_order' => 1,
+            'is_default'     => false,
+            'fallback_order' => 2,
         ],
         'claude-haiku-4-5-20251001' => [
             'provider'       => 'anthropic',
@@ -767,7 +782,7 @@ function aichat_get_default_model( $provider = null ) {
     // Hard fallbacks in case filter removed defaults
     $fallbacks = [
         'openai'    => 'gpt-5.3-chat-latest',
-        'anthropic' => 'claude-sonnet-4-5-20250929',
+        'anthropic' => 'claude-sonnet-4-6',
         'gemini'    => 'gemini-2.5-flash',
     ];
     return $fallbacks[ $provider ] ?? 'gpt-5.3-chat-latest';

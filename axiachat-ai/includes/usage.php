@@ -123,7 +123,7 @@ function aichat_render_usage_tab(){
 function aichat_render_pricing_tab(){
   $pricing = aichat_model_pricing();
   
-  echo '<p class="description">'.esc_html__('Current pricing per 1K tokens (input / output). Standard rates only.','axiachat-ai').' <em>'.esc_html__('Updated: January 15, 2026','axiachat-ai').'</em></p>';
+  echo '<p class="description">'.esc_html__('Current pricing per 1K tokens (input / output). Standard rates only.','axiachat-ai').' <em>'.esc_html__('Updated: April 13, 2026','axiachat-ai').'</em></p>';
   
   // OpenAI Section
   echo '<h2 style="margin-top:20px;">OpenAI Models <a href="https://openai.com/api/pricing/" target="_blank" class="button button-small" style="margin-left:10px;">'.esc_html__('Official Pricing','axiachat-ai').' ↗</a></h2>';
