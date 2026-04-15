@@ -4,7 +4,7 @@ Tags: ai chatbot, chatgpt, woocommerce, customer support, google gemini
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 4.1.4
+Stable tag: 4.1.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -225,45 +225,42 @@ A proactive chatbot converts them.
 
 Install the best AI chatbot for WordPress today — your own ChatGPT working exclusively for your business — and transform your website into a 24/7 growth engine.
 
-
 == Technical Features ==
 
 = Supported AI Models =
 
 **OpenAI (GPT)**
-* GPT-5.4 — `gpt-5.4` — 1M context, thinking + multimodal (recommended, new)
-* GPT-5.4 Mini — `gpt-5.4-mini` — 400K context, thinking + multimodal (new)
-* GPT-5.4 Nano — `gpt-5.4-nano` — 400K context, ultra-low cost $0.20/$1.25 per 1M tokens (new)
-* GPT-5.3 Instant — `gpt-5.3-chat-latest` — 256K context, multimodal
-* GPT-5.2 Instant — `gpt-5.2-chat-latest` — 256K context, multimodal
-* GPT-5.2 Thinking — `gpt-5.2` — adaptive reasoning mode
-* GPT-5 — `gpt-5` — 256K context, thinking + multimodal
-* GPT-5 Mini — `gpt-5-mini` — 128K context, thinking
-* GPT-5 Nano — `gpt-5-nano` — 64K context, ultra-low cost ($0.05/$0.40 per 1M tokens)
-* GPT-4.1 / GPT-4.1 Mini / GPT-4.1 Nano — up to 1M context window
-* GPT-4o / GPT-4o Mini — multimodal, vision capable
-* GPT-4 Turbo — legacy, 128K context
-* GPT-3.5 Turbo — legacy, cost-effective
+GPT-5.4  
+GPT-5.4 Mini  
+GPT-5.4 Nano  
+GPT-5.3 Instant  
+GPT-5.2 Instant  
+GPT-5.2 Thinking  
+GPT-5  
+GPT-5 Mini  
+GPT-5 Nano  
+GPT-4.1 / 4.1 Mini / 4.1 Nano  
+GPT-4o / 4o Mini  
+GPT-4 Turbo  
+GPT-3.5 Turbo  
 
 **Anthropic (Claude)**
-* Claude Opus 4.6 — `claude-opus-4-6` — 200K context, thinking (Feb 2026)
-* Claude Sonnet 4.5 — `claude-sonnet-4-5` — 1M context, thinking (recommended)
-* Claude Haiku 4.5 — `claude-haiku-4-5` — 1M context, fastest
-* Claude Opus 4.5 / Opus 4.1 / Opus 4 — 200K context, advanced reasoning
-* Claude Sonnet 4 — 200K context, thinking
-* Claude Sonnet 3.7 / Haiku 3.5 / Haiku 3 — legacy
+Claude Opus 4.6  
+Claude Sonnet 4.5  
+Claude Haiku 4.5  
+Claude Opus 4.5 / 4.1 / 4  
+Claude Sonnet 4  
+Claude Sonnet 3.7 / Haiku 3.5 / 3  
 
 **Google Gemini**
-* Gemini 3.1 Pro Preview — `gemini-3.1-pro-preview` — 1M context, thinking (new)
-* Gemini 3.1 Flash-Lite Preview — `gemini-3.1-flash-lite-preview` — 1M context, efficient (new)
-* Gemini 3 Flash Preview — `gemini-3-flash-preview` — 1M context, thinking
-* Gemini 3 Pro Preview — `gemini-3-pro-preview` — shut down Mar 2026, use 3.1 Pro instead
-* Gemini 2.5 Pro — `gemini-2.5-pro` — 1M context, reasoning
-* Gemini 2.5 Flash — `gemini-2.5-flash` — 1M context, balanced (default, free tier available)
-* Gemini 2.5 Flash-Lite — `gemini-2.5-flash-lite` — ultra-efficient ($0.10/$0.40 per 1M tokens)
-* Gemini 2.0 Flash / 2.0 Flash-Lite — legacy, deprecated Jun 2026
-
-All models are managed through a centralised registry (filterable via `aichat_model_registry` hook). New models can be added by third-party add-ons without modifying core files.
+Gemini 3.1 Pro Preview  
+Gemini 3.1 Flash-Lite Preview  
+Gemini 3 Flash Preview  
+Gemini 3 Pro Preview  
+Gemini 2.5 Pro  
+Gemini 2.5 Flash  
+Gemini 2.5 Flash-Lite  
+Gemini 2.0 Flash / Flash-Lite  
 
 = Automation & Integrations =
 
@@ -281,23 +278,23 @@ All models are managed through a centralised registry (filterable via `aichat_mo
 
 = RAG — Retrieval-Augmented Generation =
 
-* Local vector search using cosine similarity (no external dependency required)
-* **Pinecone** vector database support for large-scale knowledge bases
-* Embeddings via OpenAI `text-embedding-3-small`
-* Advanced indexing options: excerpt, URL, featured image, taxonomies, custom meta keys
-* **WooCommerce enrichment** — price, stock status and SKU injected at query time (no re-indexing needed on price changes)
-* Featured image URLs included — the AI can render product images via Markdown in the chat
+* Local vector search (cosine similarity)
+* Pinecone support
+* OpenAI embeddings
+* Advanced indexing
+* WooCommerce enrichment
+* Featured images in chat
 
 = Security & Validation =
 
-* WordPress nonce (`aichat_ajax`) on every request
-* Honeypot field — silent bot protection without CAPTCHA friction
-* Pluggable CAPTCHA filter (`aichat_validate_captcha`)
-* OpenAI Moderation API integration (`aichat_run_moderation_checks`)
-* Per-IP burst rate limiting and spam heuristics
-* Per-user and global daily usage limits with hard message-length cap (4 000 chars)
-* System prompt never exposed — security policy injected first and enforced via refusal instructions
-* Remote endpoint allowlist for Pinecone and webhook calls
+* WordPress nonce
+* Honeypot protection
+* CAPTCHA support
+* Moderation API
+* Rate limiting
+* Usage limits
+* Hidden system prompt
+* Endpoint allowlist
 
 = Frontend & UI =
 
@@ -309,8 +306,6 @@ All models are managed through a centralised registry (filterable via `aichat_mo
 * Markdown rendering including images, bold, lists, and code blocks
 * Suggestion chips / quick-reply buttons
 * WhatsApp CTA button inside the chat window (configurable per bot)
-* Session UUID stored client-side for persistent conversation history across page reloads
-* Automatic front-end translation — UI labels localised to the visitor's browser language
 
 = Admin & Developer Tools =
 
@@ -319,12 +314,14 @@ All models are managed through a centralised registry (filterable via `aichat_mo
 * Built-in prompt templates (Customer Support, Lead Generation, E-commerce, FAQ, etc.)
 * Chat conversation logs with full transcript, token usage, and cost breakdown
 * Email alerts on new conversations — full transcript or summary, per-conversation or digest mode
-* Debug mode: `define('AICHAT_DEBUG', true)` for server-side verbose logging; `?aichat_debug=1` for JS console
-* Filterable hooks for system policy (`aichat_security_policy`), model registry, endpoint allowlist, and more
-* `[aichat id="slug"]` shortcode with 20+ data-attribute parameters (layout, position, colours, avatar, voice, etc.)
+* `[aichat id="slug"]` shortcode with 20+ data-attribute parameters (layout, position, colours, avatar, voice, maximized, etc.)
 
 
 == Changelog ==
+= 4.1.5 =
+* shortcode add maximized
+
+
 = 4.1.4 =
 * Added: Claude Sonnet 4.6 model (`claude-sonnet-4-6`, $3/$15, 1M context, 64K output) — now the default Anthropic model.
 * Updated: All model pricing verified against official provider pages (OpenAI, Anthropic, Google) as of April 2026.

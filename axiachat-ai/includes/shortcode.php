@@ -50,6 +50,7 @@ function aichat_render_shortcode(  $atts, $content = null, $tag = 'aichat'  ) {
         'class'       => '',
         'layout'      => '',
         'position'    => '',
+        'maximized'   => '',
     ], $atts, $tag );
     // Resolver slug
     $slug = sanitize_title( ( $atts['bot'] ?: $atts['id'] ) );
@@ -133,6 +134,7 @@ function aichat_render_shortcode(  $atts, $content = null, $tag = 'aichat'  ) {
     $ui_draggable = intval( aichat_pick( $bot, ['ui_draggable'], 1 ) );
     $ui_minimized_default = intval( aichat_pick( $bot, ['ui_minimized_default'], 0 ) );
     $ui_superminimized_default = intval( aichat_pick( $bot, ['ui_superminimized_default'], 0 ) );
+    $ui_maximized_default = intval( aichat_pick( $bot, ['ui_maximized_default'], 0 ) );
     $ui_avatar_bubble = intval( aichat_pick( $bot, ['ui_avatar_bubble'], 1 ) );
     $ui_css_force = intval( aichat_pick( $bot, ['ui_css_force'], 0 ) );
     // Suggestions / next actions
@@ -211,6 +213,9 @@ function aichat_render_shortcode(  $atts, $content = null, $tag = 'aichat'  ) {
     if ( !empty( $atts['position'] ) ) {
         $ui_pos = aichat_norm_pos( $atts['position'] );
     }
+    if ( $atts['maximized'] !== '' ) {
+        $ui_maximized_default = ( intval( $atts['maximized'] ) ? 1 : 0 );
+    }
     // Clases
     $classes = ['aichat-widget'];
     if ( $ui_layout === 'floating' ) {
@@ -272,7 +277,7 @@ function aichat_render_shortcode(  $atts, $content = null, $tag = 'aichat'  ) {
     }
     // Contenedor con data-attrs de UI
     $html = sprintf(
-        '<div class="%s" %s ' . 'data-bot="%s" data-type="%s" data-title="%s" data-placeholder="%s" ' . 'data-layout="%s" data-position="%s" data-color="%s" ' . 'data-width="%d" data-height="%d" ' . 'data-avatar-enabled="%d" data-avatar-url="%s" ' . 'data-start-sentence="%s" data-role="%s" data-button-send="%s" ' . 'data-closable="%d" data-minimizable="%d" data-draggable="%d" data-minimized-default="%d" data-superminimized-default="%d" ' . 'data-avatar-bubble="%d" ' . 'data-css-force="%d" ' . 'data-suggestions-enabled="%d" data-suggestions-count="%d" data-suggestions-bg="%s" data-suggestions-text="%s" ' . 'data-history-persistence="%d"' . '%s%s%s%s%s></div>',
+        '<div class="%s" %s ' . 'data-bot="%s" data-type="%s" data-title="%s" data-placeholder="%s" ' . 'data-layout="%s" data-position="%s" data-color="%s" ' . 'data-width="%d" data-height="%d" ' . 'data-avatar-enabled="%d" data-avatar-url="%s" ' . 'data-start-sentence="%s" data-role="%s" data-button-send="%s" ' . 'data-closable="%d" data-minimizable="%d" data-draggable="%d" data-minimized-default="%d" data-superminimized-default="%d" data-maximized-default="%d" ' . 'data-avatar-bubble="%d" ' . 'data-css-force="%d" ' . 'data-suggestions-enabled="%d" data-suggestions-count="%d" data-suggestions-bg="%s" data-suggestions-text="%s" ' . 'data-history-persistence="%d"' . '%s%s%s%s%s></div>',
         esc_attr( implode( ' ', $classes ) ),
         $style,
         esc_attr( $slug ),
@@ -294,6 +299,7 @@ function aichat_render_shortcode(  $atts, $content = null, $tag = 'aichat'  ) {
         ( $ui_draggable ? 1 : 0 ),
         ( $ui_minimized_default ? 1 : 0 ),
         ( $ui_superminimized_default ? 1 : 0 ),
+        ( $ui_maximized_default ? 1 : 0 ),
         ( $ui_avatar_bubble ? 1 : 0 ),
         ( $ui_css_force ? 1 : 0 ),
         ( $ui_sug_enabled ? 1 : 0 ),

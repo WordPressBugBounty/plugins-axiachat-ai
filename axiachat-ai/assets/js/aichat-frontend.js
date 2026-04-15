@@ -92,6 +92,7 @@
       var draggable     = !!parseInt($root.data('draggable') || 0, 10);
       var minimizedDefault = !!parseInt($root.data('minimizedDefault') || 0, 10);
   var superMinimizedDefault = !!parseInt($root.data('superminimizedDefault') || 0, 10);
+      var maximizedDefault = !!parseInt($root.data('maximizedDefault') || 0, 10);
       var avatarBubble = !!parseInt($root.data('avatarBubble') || 0, 10);
       var cssForce = !!parseInt($root.data('cssForce') || 0, 10);
       if (cssForce) $root.addClass('css-forced');
@@ -750,6 +751,14 @@
         try { animateToCorner($root, position); } catch(_){}
   } else if (_savedState === 'maximized') {
         // Restaurar maximizado
+        $root.addClass('is-maximized');
+        $inner.removeClass('is-minimized');
+        try { $messages.css('height',''); } catch(_){}
+        if ($maxBtn && $maxBtn.length) {
+          $maxBtn.attr('aria-pressed','true').attr('aria-label','Restore');
+        }
+  } else if (!_savedState && maximizedDefault) {
+        // Sin estado guardado: abrir maximizado por defecto
         $root.addClass('is-maximized');
         $inner.removeClass('is-minimized');
         try { $messages.css('height',''); } catch(_){}
