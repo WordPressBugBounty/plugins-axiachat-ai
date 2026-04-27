@@ -51,11 +51,28 @@ function aichat_get_model_registry() {
          *  OPENAI
          * ============================================================== */
 
+        // GPT-5.5 (Apr 2026) — flagship for complex reasoning & coding (premium pricing).
+        'gpt-5.5' => [
+            'provider'       => 'openai',
+            'label'          => 'GPT-5.5',
+            'tags'           => [ 'new', 'advanced' ],
+            'ctx'            => 1000000,
+            'max_out'        => 131072,
+            'rec_out'        => 65536,
+            'thinking'       => true,
+            'multimodal'     => true,
+            'pricing'        => [ 'input' => 5.00, 'output' => 30.00 ],
+            'aliases'        => [],
+            'deprecated'     => [],
+            'is_default'     => false,
+            'fallback_order' => null,
+        ],
+
         // GPT-5.4 family (Apr 2026)
         'gpt-5.4' => [
             'provider'       => 'openai',
             'label'          => 'GPT-5.4',
-            'tags'           => [ 'new', 'recommended' ],
+            'tags'           => [],
             'ctx'            => 1000000,
             'max_out'        => 131072,
             'rec_out'        => 65536,
@@ -64,13 +81,13 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 2.50, 'output' => 15.00 ],
             'aliases'        => [],
             'deprecated'     => [],
-            'is_default'     => true,
+            'is_default'     => false,
             'fallback_order' => null,
         ],
         'gpt-5.4-mini' => [
             'provider'       => 'openai',
             'label'          => 'GPT-5.4 Mini',
-            'tags'           => [ 'new' ],
+            'tags'           => [ 'new', 'recommended', 'efficient' ],
             'ctx'            => 400000,
             'max_out'        => 131072,
             'rec_out'        => 65536,
@@ -79,7 +96,7 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 0.75, 'output' => 4.50 ],
             'aliases'        => [],
             'deprecated'     => [],
-            'is_default'     => false,
+            'is_default'     => true,
             'fallback_order' => null,
         ],
         'gpt-5.4-nano' => [
@@ -311,11 +328,28 @@ function aichat_get_model_registry() {
          *  ANTHROPIC (Claude)
          * ============================================================== */
 
+        // Claude Opus 4.7 (Apr 2026) — most capable, step-change in agentic coding.
+        'claude-opus-4-7' => [
+            'provider'       => 'anthropic',
+            'label'          => 'Claude Opus 4.7',
+            'tags'           => [ 'new', 'advanced' ],
+            'ctx'            => 1000000,
+            'max_out'        => 128000,
+            'rec_out'        => 100000,
+            'thinking'       => true,
+            'multimodal'     => true,
+            'pricing'        => [ 'input' => 5.00, 'output' => 25.00 ],
+            'aliases'        => [],
+            'deprecated'     => [],
+            'is_default'     => false,
+            'fallback_order' => null,
+        ],
+
         // Claude 4.6 (Feb 2026)
         'claude-opus-4-6' => [
             'provider'       => 'anthropic',
             'label'          => 'Claude Opus 4.6',
-            'tags'           => [ 'new' ],
+            'tags'           => [],
             'ctx'            => 1000000,
             'max_out'        => 128000,
             'rec_out'        => 100000,

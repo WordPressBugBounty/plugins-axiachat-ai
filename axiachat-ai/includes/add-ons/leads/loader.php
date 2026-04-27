@@ -327,8 +327,9 @@ add_action( 'aichat_after_tables_created', 'aichat_leads_create_table' );
 add_action( 'aichat_after_tables_created', 'aichat_leads_create_lists_table' );
 add_action( 'aichat_after_tables_created', 'aichat_leads_maybe_migrate_to_lists' );
 
-// Create or upgrade tables when needed (existing installations + schema changes)
-add_action( 'admin_init', function() {
+// Create or upgrade tables when needed (existing installations + schema changes).
+// Use `init` so schema is ready before lead tools register/query lists on the same hook.
+add_action( 'init', function() {
     $current_schema = '3'; // Bump when schema changes
     $stored_schema  = get_option( 'aichat_leads_schema_version', '0' );
     

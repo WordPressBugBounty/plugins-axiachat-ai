@@ -175,14 +175,14 @@ function aichat_easycfg_get_providers() {
         'openai' => [
             'icon'        => '🤖',
             'name'        => __( 'OpenAI (GPT)', 'axiachat-ai' ),
-            'description' => __( 'GPT-5.4, GPT-5.4 Mini, GPT-5.3. Best for general purpose chat.', 'axiachat-ai' ),
+            'description' => __( 'GPT-5.4 Mini, GPT-5.4, GPT-5.5. Best for general purpose chat.', 'axiachat-ai' ),
             'option_key'  => 'aichat_openai_api_key',
             'help_url'    => 'https://platform.openai.com/api-keys',
         ],
         'claude' => [
             'icon'        => '🧠',
             'name'        => __( 'Anthropic (Claude)', 'axiachat-ai' ),
-            'description' => __( 'Claude Opus 4.6, Sonnet 4.5, Haiku 4.5. Great for nuanced conversations.', 'axiachat-ai' ),
+            'description' => __( 'Claude Opus 4.7, Sonnet 4.6, Haiku 4.5. Great for nuanced conversations.', 'axiachat-ai' ),
             'option_key'  => 'aichat_claude_api_key',
             'help_url'    => 'https://console.anthropic.com/settings/keys',
         ],

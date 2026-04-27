@@ -7,19 +7,19 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-27T08:09:24+00:00\n"
-"PO-Revision-Date: 2026-03-27 08:13+0000\n"
+"POT-Creation-Date: 2026-04-18T06:43:32+00:00\n"
+"PO-Revision-Date: 2026-04-18 06:58+0000\n"
 "Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.8.1; wp-6.9.1; php-8.2.30\n"
+"X-Loco-Version: 2.8.1; wp-6.9.4; php-8.2.30\n"
 "X-Domain: axiachat-ai\n"
 
 #. translators: 1: File name, 2: Maximum size in MB
 #: assets/js/contexto-pdf.js:92
 #, js-format
 msgid "\"%1$s\" exceeds %2$d MB."
-msgstr "\"%1$s\" excede los %2$d MB."
+msgstr "\"%1$s\" supera los %2$d MB."
 
 #. translators: 1: File name, 2: MIME type
 #: assets/js/contexto-pdf.js:99
@@ -164,7 +164,7 @@ msgstr "(ninguno)"
 #. translators: %s: Detected Andromeda Connect plugin version.
 #: includes/addon-connect-installer.php:49
 #: includes/addon-connect-installer.php:125
-#: includes/settings/tab-addons.php:144 includes/settings/tab-addons.php:150
+#: includes/settings/tab-addons.php:142 includes/settings/tab-addons.php:148
 #, php-format
 msgid "(Version %s detected)"
 msgstr "(Versión %s detectada)"
@@ -193,7 +193,7 @@ msgstr "-- Seleccionar un formulario --"
 msgid "-- Select a server --"
 msgstr "-- Seleccionar un servidor --"
 
-#: includes/settings/tab-usage.php:32
+#: includes/settings/tab-usage.php:100
 msgid "0 = Unlimited"
 msgstr "0 = Ilimitado"
 
@@ -222,12 +222,11 @@ msgid ""
 "<strong>OpenAI API key is required</strong> to create embeddings for the "
 "context. Please configure it in Settings before continuing."
 msgstr ""
-"<strong>Se requiere la clave API de OpenAI</strong> para crear "
-"incrustaciones para el contexto. Por favor, configúrela en Configuración "
-"antes de continuar."
+"<strong>Se requiere la clave API de OpenAI</strong> para crear embeddings "
+"para el contexto. Por favor, configúrela en Configuración antes de continuar."
 
 #. translators: %s: upgrade link
-#: includes/settings/tab-addons.php:108
+#: includes/settings/tab-addons.php:106
 #, php-format
 msgid ""
 "<strong>Professional plan required.</strong> Live Chat allows human agents "
@@ -285,7 +284,7 @@ msgstr "[%s] Recordatorio de cita - {fecha}"
 msgid "[%s] New Lead Captured"
 msgstr "[%s] Nuevo cliente potencial capturado"
 
-#: includes/shortcode.php:82
+#: includes/shortcode.php:83
 msgid "[AIChat] No bots configured."
 msgstr "[AIChat] No hay bots configurados."
 
@@ -618,7 +617,7 @@ msgstr "Agregar aquí tu primera directriz..."
 msgid "Add-ons"
 msgstr "Complementos"
 
-#: includes/settings.php:500
+#: includes/settings.php:531
 msgid "Add-ons & More"
 msgstr "Complementos y más"
 
@@ -634,7 +633,7 @@ msgstr "Notas adicionales o motivo de la cita (opcional)"
 msgid "Additional notes or requests from the customer (optional)"
 msgstr "Notas adicionales o solicitudes del cliente (opcional)"
 
-#: includes/add-ons/leads/admin-settings.php:666 includes/settings.php:505
+#: includes/add-ons/leads/admin-settings.php:666 includes/settings.php:536
 #: includes/settings/tab-general.php:150 assets/js/bots.js:769
 #: assets/js/bots.js:801
 msgid "Advanced"
@@ -719,7 +718,7 @@ msgstr "Los agentes reciben notificación (en el panel, Slack o Telegram)"
 
 #: assets/js/aichat-frontend.js:87
 msgid "AI Agent Specialist"
-msgstr "Especialista en agentes de IA"
+msgstr "Especialista en Agentes de IA"
 
 #: includes/easy-config-data.php:211 includes/easy-config.php:1198
 msgid "AI Assistant"
@@ -741,7 +740,7 @@ msgstr "Chat de IA – Asistente de configuración fácil"
 msgid "AI Chat – Usage / Cost"
 msgstr "Chat de IA – Uso / Costo"
 
-#: includes/settings.php:473
+#: includes/settings.php:504
 msgid "AI Chat — Settings"
 msgstr "Configuración de Chat de IA"
 
@@ -772,12 +771,12 @@ msgstr "Configuración del proveedor de IA"
 msgid "AI provider connected"
 msgstr "Proveedor de IA conectado"
 
-#: axiachat-ai.php:1825 axiachat-ai.php:1826
+#: axiachat-ai.php:1830 axiachat-ai.php:1831
 #: includes/add-ons/leads/admin-settings.php:678
 msgid "AI Tools"
 msgstr "Herramientas de IA"
 
-#: axiachat-ai.php:1748 includes/add-ons/ai-tools/admin-logs.php:11
+#: axiachat-ai.php:1753 includes/add-ons/ai-tools/admin-logs.php:11
 msgid "AI Tools Logs"
 msgstr "Registros de herramientas de IA"
 
@@ -841,7 +840,7 @@ msgstr "Permitir reservas sin tiempo mínimo de aviso"
 msgid "Allow file uploads from chat"
 msgstr "Permitir cargas de archivos desde el chat"
 
-#: axiachat-ai.php:2057
+#: axiachat-ai.php:2062
 msgid "Allowed domains"
 msgstr "Dominios permitidos"
 
@@ -881,7 +880,7 @@ msgstr ""
 "GitHub, etc.) y exponer sus herramientas. Configura los servidores en IA "
 "Chat → Servidores MCP."
 
-#: includes/settings/tab-addons.php:114
+#: includes/settings/tab-addons.php:112
 msgid ""
 "Allows bots to transfer conversations to human agents. Agents can respond "
 "via WP Dashboard or Slack. Configure in AI Chat → Live Chat."
@@ -956,14 +955,14 @@ msgid ""
 "Always be polite, empathetic, and professional. Mirror the user's emotional "
 "tone."
 msgstr ""
-"Sé siempre cortés, empático y profesional. Espeje el tono emocional del "
+"Sé siempre cortés, empático y profesional. Refleja el tono emocional del "
 "usuario."
 
 #: includes/add-ons/appointments/admin-settings.php:1466
 msgid "Always check availability before suggesting a time"
 msgstr "Siempre verificar disponibilidad antes de sugerir una hora"
 
-#: axiachat-ai.php:2027 assets/js/tools.js:21
+#: axiachat-ai.php:2032 assets/js/tools.js:21
 msgid "Always include"
 msgstr "Incluir siempre"
 
@@ -972,10 +971,10 @@ msgid ""
 "Always reply in the same language the user writes in, regardless of the "
 "CONTEXT language."
 msgstr ""
-"Responda siempre en el mismo idioma en que escribe el usuario, "
+"Responde siempre en el mismo idioma en que escribe el usuario, "
 "independientemente del idioma del CONTEXTO."
 
-#: axiachat-ai.php:2028 assets/js/tools.js:22
+#: axiachat-ai.php:2033 assets/js/tools.js:22
 msgid "Always talk about"
 msgstr "Hablar siempre de"
 
@@ -1015,7 +1014,7 @@ msgstr "y inicia sesión con tu cuenta de Gmail."
 msgid "Andromeda Connect Banner"
 msgstr "Banner de Conexión Andromeda"
 
-#: includes/settings/tab-addons.php:147
+#: includes/settings/tab-addons.php:145
 msgid ""
 "Andromeda Connect files are present. Activate the plugin from Plugins → "
 "Installed Plugins or enable it here after activation."
@@ -1032,7 +1031,7 @@ msgstr ""
 "AxiaChat con WhatsApp y Telegram. Sigue los pasos a continuación para "
 "instalarlo manualmente."
 
-#: includes/settings/tab-addons.php:141
+#: includes/settings/tab-addons.php:139
 msgid ""
 "Andromeda Connect is active. WhatsApp and Telegram routing are available."
 msgstr ""
@@ -1047,7 +1046,7 @@ msgstr "¡Conexión Andromeda ya está activa!"
 msgid "Andromeda Connect – WhatsApp & Telegram Add-on"
 msgstr "Complemento de Conexión Andromeda – WhatsApp y Telegram"
 
-#: axiachat-ai.php:2035 assets/js/tools.js:29
+#: axiachat-ai.php:2040 assets/js/tools.js:29
 msgid "Answer from knowledge base"
 msgstr "Respuesta de la base de conocimientos"
 
@@ -1272,6 +1271,14 @@ msgstr ""
 msgid "Appointments sync directly with SSA"
 msgstr "Las citas se sincronizan directamente con SSA"
 
+#: includes/usage.php:84
+msgid "Approx. Cost"
+msgstr "Costo aproximado"
+
+#: includes/settings/tab-usage.php:61 includes/settings/tab-usage.php:78
+msgid "Approximate cost based on logged usage. 0 = Unlimited"
+msgstr "Costo aproximado basado en el uso registrado. 0 = Ilimitado"
+
 #: assets/js/appointments-admin.js:593
 msgid "Apr"
 msgstr "Abr"
@@ -1289,7 +1296,7 @@ msgstr "¿Estás seguro de que quieres cancelar esta cita?"
 msgid "Are you sure you want to clear this log file?"
 msgstr "¿Estás seguro de que quieres borrar este archivo de registro?"
 
-#: axiachat-ai.php:1940
+#: axiachat-ai.php:1945
 msgid ""
 "Are you sure you want to clear this log file? This action cannot be undone."
 msgstr ""
@@ -1301,7 +1308,7 @@ msgid "Are you sure you want to delete the selected leads?"
 msgstr ""
 "¿Estás seguro de que quieres eliminar los clientes potenciales seleccionados?"
 
-#: axiachat-ai.php:2099 includes/contexto-functions.php:84
+#: axiachat-ai.php:2104 includes/contexto-functions.php:84
 msgid "Are you sure you want to delete this context?"
 msgstr "¿Estás seguro de que quieres eliminar este contexto?"
 
@@ -1321,7 +1328,7 @@ msgstr "¿Estás seguro de que quieres desconectar Google Calendar?"
 msgid "Are you sure you want to disconnect Google Sheets?"
 msgstr "¿Estás seguro de que quieres desconectar Google Sheets?"
 
-#: axiachat-ai.php:1939
+#: axiachat-ai.php:1944
 msgid ""
 "Are you sure you want to restore the default security policy? Any custom "
 "modifications will be lost."
@@ -1373,7 +1380,7 @@ msgstr ""
 
 #: assets/js/appointments-admin.js:843
 msgid "At least one time slot is required"
-msgstr "Se requiere al menos un intervalo de tiempo"
+msgstr "Se requiere al menos un horario disponible"
 
 #: assets/js/training-instructions.js:249
 msgid ""
@@ -1383,7 +1390,7 @@ msgstr ""
 "Al final de tu respuesta, sugiere una pregunta relacionada o el siguiente "
 "paso que el usuario podría encontrar útil."
 
-#: assets/js/aichat-frontend.js:236
+#: assets/js/aichat-frontend.js:227
 msgid "Attach file"
 msgstr "Adjuntar archivo"
 
@@ -1527,7 +1534,7 @@ msgstr "Avatar habilitado"
 msgid "Awaiting confirmation"
 msgstr "Esperando confirmación"
 
-#: axiachat-ai.php:1678
+#: axiachat-ai.php:1683
 msgid "AxiaChat AI Settings"
 msgstr "Configuración de AxiaChat AI"
 
@@ -1575,7 +1582,7 @@ msgstr "Color de fondo"
 msgid "Balanced"
 msgstr "Equilibrado"
 
-#: includes/settings/tab-usage.php:90
+#: includes/settings/tab-usage.php:161
 msgid "Banned words"
 msgstr "Palabras prohibidas"
 
@@ -1604,11 +1611,11 @@ msgstr "Lote"
 #: assets/js/contexto-create.js:296
 #, js-format
 msgid "Batch %1$d → this: %2$d, total: %3$d, tokens this: %4$d (%5$s)"
-msgstr "Lote %1$d → esto: %2$d, total: %3$d, tokens en este: %4$d (%5$s)"
+msgstr "Lote %1$d → este: %2$d, total: %3$d, tokens en este: %4$d (%5$s)"
 
 #: assets/js/training-webscraper.js:299
 msgid "Batch error:"
-msgstr "Error en el lote:"
+msgstr "Error en lote:"
 
 #: includes/easy-config-data.php:118
 msgid ""
@@ -1646,7 +1653,7 @@ msgstr ""
 msgid "Best Practices"
 msgstr "Mejores prácticas"
 
-#: includes/settings/tab-usage.php:85
+#: includes/settings/tab-usage.php:156
 msgid "Blocked IPs"
 msgstr "IPs bloqueadas"
 
@@ -1664,7 +1671,7 @@ msgstr ""
 " IMPORTANTE: Siempre confirma la disponibilidad primero con "
 "get_available_slots, y solicita confirmación del usuario antes de reservar."
 
-#: axiachat-ai.php:2034 assets/js/tools.js:28
+#: axiachat-ai.php:2039 assets/js/tools.js:28
 msgid "Book an appointment"
 msgstr "Reservar una cita"
 
@@ -1685,7 +1692,7 @@ msgstr "Reservar citas con demasiada antelación"
 msgid "Book without collecting required information"
 msgstr "Reservar sin recopilar la información requerida"
 
-#: axiachat-ai.php:2720 assets/js/bots.js:1606
+#: axiachat-ai.php:2700 assets/js/bots.js:1606
 msgid "Booking appointment..."
 msgstr "Reservando cita..."
 
@@ -1763,12 +1770,12 @@ msgstr ""
 "El bot confirma con book_appointment → El usuario recibe un código de "
 "confirmación"
 
-#: assets/js/aichat-frontend.js:175
+#: assets/js/aichat-frontend.js:166
 msgid "Bot not configured."
 msgstr "Bot no configurado."
 
 #. translators: %s: bot slug that was not found
-#: includes/shortcode.php:99
+#: includes/shortcode.php:100
 #, php-format
 msgid "Bot not found: %s"
 msgstr "Bot no encontrado: %s"
@@ -1798,7 +1805,7 @@ msgstr "Utilizado cuando el bot flotante global está activo."
 msgid "Bot:"
 msgstr "Bot:"
 
-#: axiachat-ai.php:1700 axiachat-ai.php:1701
+#: axiachat-ai.php:1705 axiachat-ai.php:1706
 msgid "Bots"
 msgstr "Bots"
 
@@ -1814,7 +1821,7 @@ msgstr "Esquina inferior derecha"
 msgid "Brief description of this list's purpose"
 msgstr "Descripción breve del propósito de esta lista"
 
-#: axiachat-ai.php:2096 includes/contexto-functions.php:90
+#: axiachat-ai.php:2101 includes/contexto-functions.php:90
 #: includes/contexto-settings.php:123
 msgid "Browse"
 msgstr "Explorar"
@@ -1822,6 +1829,10 @@ msgstr "Explorar"
 #: includes/contexto-settings.php:167 includes/contexto-settings.php:296
 msgid "Browse Chunks"
 msgstr "Explorar Fragmentos"
+
+#: includes/settings/tab-usage.php:33
+msgid "Budget Limits"
+msgstr "Límites de presupuesto"
 
 #: includes/add-ons/leads/admin-settings.php:797
 msgid "Button Color"
@@ -1843,7 +1854,7 @@ msgstr ""
 "Por defecto, solo el título y el contenido están indexados. Amplíe para "
 "incluir campos adicionales."
 
-#: axiachat-ai.php:2528 includes/settings.php:207 includes/shortcode.php:250
+#: axiachat-ai.php:2508 includes/settings.php:208 includes/shortcode.php:266
 #: assets/js/aichat-frontend-gdpr__premium_only.js:23
 #: assets/js/aichat-frontend-gdpr__premium_only.js:95
 #: assets/js/aichat-frontend-gdpr__premium_only.js:229
@@ -1915,7 +1926,7 @@ msgstr "Cancelado"
 msgid "Cancelled by user/admin"
 msgstr "Cancelado por usuario/admin"
 
-#: axiachat-ai.php:2721 assets/js/bots.js:1607
+#: axiachat-ai.php:2701 assets/js/bots.js:1607
 msgid "Cancelling appointment..."
 msgstr "Cancelando cita..."
 
@@ -1935,7 +1946,7 @@ msgstr "No se puede eliminar la única lista de clientes potenciales restante."
 msgid "Capabilities"
 msgstr "Capacidades"
 
-#: axiachat-ai.php:2050
+#: axiachat-ai.php:2055
 msgid "Capabilities saved"
 msgstr "Capacidades guardadas"
 
@@ -1998,7 +2009,7 @@ msgstr "Nombre o ID del canal para notificaciones"
 
 #: assets/js/bots.js:1621
 msgid "Chat Activity"
-msgstr "Actividad de chat"
+msgstr "Actividad del chat"
 
 #: includes/training-instructions.php:202 assets/js/easy-config.js:296
 msgid "Chat Guidelines"
@@ -2008,11 +2019,12 @@ msgstr "Directrices del chat"
 msgid "Chat ID"
 msgstr "ID del chat"
 
-#: assets/js/aichat-frontend.js:119 assets/js/bots.js:1437
+#: assets/js/aichat-frontend.js:120 assets/js/bots.js:1437
 msgid "Chat on WhatsApp"
 msgstr "Chat en WhatsApp"
 
-#: includes/class-aichat-ajax.php:598
+#: includes/class-aichat-ajax.php:598 includes/class-aichat-ajax.php:611
+#: assets/js/aichat-frontend.js:420
 msgid "Chat temporarily unavailable."
 msgstr "Chat temporalmente no disponible."
 
@@ -2022,7 +2034,7 @@ msgstr "Chatbot configurado con tu personalidad elegida"
 
 #: assets/js/bots.js:511
 msgid "Chatbot Name"
-msgstr "Nombre del chatbot"
+msgstr "Nombre del Chatbot"
 
 #: includes/bots.php:46
 msgid "Chatbot tabs"
@@ -2030,7 +2042,7 @@ msgstr "Pestañas del chatbot"
 
 #: assets/js/bots.js:515 assets/js/easy-config.js:231
 msgid "Chatbot Type"
-msgstr "Tipo de chatbot"
+msgstr "Tipo de Chatbot"
 
 #: includes/bots.php:35
 msgid "Chatbots"
@@ -2097,21 +2109,21 @@ msgstr ""
 "Verifica que la URL de la solicitud coincida con el endpoint de la API REST "
 "de tu sitio"
 
-#: axiachat-ai.php:2719 assets/js/bots.js:1605
+#: axiachat-ai.php:2699 assets/js/bots.js:1605
 msgid "Checking availability..."
 msgstr "Verificando disponibilidad..."
 
-#: includes/settings/tab-usage.php:71
+#: includes/settings/tab-usage.php:142
 msgid "Checks IP/words and optionally external API before sending to AI."
 msgstr "Verifica IP/palabras y opcionalmente API externa antes de enviar a AI."
 
 #: assets/js/bots.js:747
 msgid "Chip background"
-msgstr "Fondo del chip"
+msgstr "Fondo de ficha"
 
 #: assets/js/bots.js:752
 msgid "Chip text color"
-msgstr "Color del texto del chip"
+msgstr "Color del texto de la ficha"
 
 #: includes/add-ons/livechat__premium_only/admin-dashboard.php:1205
 msgid "Choose a name for your bot (e.g., \"My Site Live Chat\")"
@@ -2275,7 +2287,7 @@ msgstr "Fragmento #%d: actualizado con éxito."
 
 #: assets/js/contexto-pdf.js:226
 msgid "Chunked"
-msgstr "Dividido"
+msgstr "Por partes"
 
 #: includes/contexto-pdf-template.php:80
 msgid "Chunking…"
@@ -2293,7 +2305,7 @@ msgstr "fragmentos"
 
 #: assets/js/training-webscraper.js:239
 msgid "Chunks created:"
-msgstr "Fragmentos creados:"
+msgstr "Partes creadas:"
 
 #: includes/settings/tab-general.php:38
 msgid "Claude (Anthropic) API Key"
@@ -2301,7 +2313,7 @@ msgstr "Clave API de Claude (Anthropic)"
 
 #: assets/js/easy-config.js:607
 msgid "Claude Embeddings Notice"
-msgstr "Aviso de embeddings de Claude"
+msgstr "Aviso de Embeddings de Claude"
 
 #: includes/easy-config-data.php:185
 msgid ""
@@ -2328,7 +2340,7 @@ msgstr "Borrar registro"
 
 #: assets/js/settings.js:207
 msgid "Clearing…"
-msgstr "Borrando…"
+msgstr "Limpiando…"
 
 #: includes/add-ons/livechat__premium_only/admin-dashboard.php:1075
 msgid "Click \"Add New Webhook to Workspace\""
@@ -2392,7 +2404,7 @@ msgstr "Haz clic en el botón azul"
 msgid "click to browse"
 msgstr "haz clic para explorar"
 
-#: includes/settings/tab-addons.php:157
+#: includes/settings/tab-addons.php:155
 msgid "Click to view installation guide"
 msgstr "Haz clic para ver la guía de instalación"
 
@@ -2408,7 +2420,7 @@ msgstr "Cerrable"
 #: includes/contexto-modify.php:474 includes/contexto-modify.php:491
 #: includes/contexto-modify.php:503 includes/training-context.php:700
 #: includes/training-context.php:717 includes/training-context.php:729
-#: assets/js/aichat-frontend.js:211 assets/js/appointments-admin.js:136
+#: assets/js/aichat-frontend.js:202 assets/js/appointments-admin.js:136
 #: assets/js/appointments-admin.js:257
 msgid "Close"
 msgstr "Cerrar"
@@ -2425,8 +2437,8 @@ msgstr "Código"
 msgid ""
 "Collects visitor contact details (name, email, phone) and saves them as leads"
 msgstr ""
-"Recopila datos de contacto del visitante (nombre, correo electrónico, "
-"teléfono) y los guarda como clientes potenciales"
+"Recopila datos de contacto del visitante (nombre, email, teléfono) y los "
+"guarda como clientes potenciales"
 
 #: assets/js/bots.js:576
 msgid "Color"
@@ -2451,12 +2463,12 @@ msgstr ""
 "Palabras separadas por comas que activan la transferencia automática (por "
 "ejemplo, \"humano, agente, ayuda\")."
 
-#: assets/js/aichat-frontend.js:1701
+#: assets/js/aichat-frontend.js:1749
 msgid "Communication error. Please try again."
 msgstr "Error de comunicación. Por favor, intenta de nuevo."
 
 #. translators: %s: Error message from communication failure
-#: assets/js/aichat-frontend.js:1236
+#: assets/js/aichat-frontend.js:1264
 #, js-format
 msgid "Communication error: %s"
 msgstr "Error de comunicación: %s"
@@ -2465,7 +2477,7 @@ msgstr "Error de comunicación: %s"
 msgid "Compact"
 msgstr "Compacto"
 
-#: includes/settings/tab-addons.php:155
+#: includes/settings/tab-addons.php:153
 msgid "Companion plugin for WhatsApp & Telegram integration."
 msgstr "Complemento para la integración con WhatsApp y Telegram."
 
@@ -2481,7 +2493,7 @@ msgstr ""
 "Resumen de la empresa, características del producto, preguntas frecuentes, "
 "directrices del servicio…"
 
-#: axiachat-ai.php:1887 includes/add-ons/appointments/admin-settings.php:125
+#: axiachat-ai.php:1892 includes/add-ons/appointments/admin-settings.php:125
 #: assets/js/appointments-admin.js:115 assets/js/appointments-admin.js:123
 #: assets/js/appointments-admin.js:573 assets/js/appointments-admin.js:682
 #: assets/js/appointments-admin.js:780
@@ -2500,7 +2512,7 @@ msgstr "Finalización:"
 msgid "Concise"
 msgstr "Conciso"
 
-#: axiachat-ai.php:2053
+#: axiachat-ai.php:2058
 msgid "Config"
 msgstr "Config"
 
@@ -2514,7 +2526,7 @@ msgstr ""
 "Configura servidores MCP externos para exponer sus herramientas a tus bots "
 "de IA."
 
-#: includes/settings.php:474
+#: includes/settings.php:505
 msgid "Configure global behaviour, API keys, logging, consent and moderation."
 msgstr ""
 "Configurar comportamiento global, claves API, registro, consentimiento y "
@@ -2671,7 +2683,7 @@ msgstr "Conectado a Google Sheets"
 msgid "Connected to: %s"
 msgstr "Conectado a: %s"
 
-#: axiachat-ai.php:2724 assets/js/bots.js:1610
+#: axiachat-ai.php:2704 assets/js/bots.js:1610
 msgid "Connecting you with a human agent..."
 msgstr "Conectándote con un agente humano..."
 
@@ -2766,7 +2778,7 @@ msgstr "Nombre del contexto"
 msgid "Context name updated."
 msgstr "Nombre del contexto actualizado."
 
-#: axiachat-ai.php:1783 includes/contexto-settings.php:19
+#: axiachat-ai.php:1788 includes/contexto-settings.php:19
 msgid "Context Settings"
 msgstr "Configuraciones del contexto"
 
@@ -2779,7 +2791,7 @@ msgid "Contextual:"
 msgstr "Contextual:"
 
 #. translators: %s: Error message from continuation failure
-#: assets/js/aichat-frontend.js:1342
+#: assets/js/aichat-frontend.js:1370
 #, js-format
 msgid "Continuation error: %s"
 msgstr "Error de continuación: %s"
@@ -2810,7 +2822,7 @@ msgstr "Conversación #%d"
 msgid "Conversation deleted."
 msgstr "Conversación eliminada."
 
-#: axiachat-ai.php:1838 includes/logs-detail.php:18 includes/logs-detail.php:95
+#: axiachat-ai.php:1843 includes/logs-detail.php:18 includes/logs-detail.php:95
 msgid "Conversation Detail"
 msgstr "Detalle de la conversación"
 
@@ -2843,6 +2855,10 @@ msgstr ""
 msgid "Conversation Logs"
 msgstr "Registros de conversaciones"
 
+#: includes/usage.php:85 includes/usage.php:101
+msgid "Conversations"
+msgstr "Conversaciones"
+
 #: includes/add-ons/leads/admin-settings.php:1010
 #: includes/add-ons/leads/admin-settings.php:1104
 msgid "Converted"
@@ -2866,11 +2882,11 @@ msgstr ""
 "Copie la URL del Webhook y péguela en Configuración → URL del Webhook de "
 "Slack"
 
-#: includes/usage.php:200 assets/js/usage.js:53
+#: includes/usage.php:246 assets/js/usage.js:53
 msgid "Cost"
 msgstr "Costo"
 
-#: includes/usage.php:48 includes/usage.php:74
+#: includes/usage.php:48 includes/usage.php:100 includes/usage.php:120
 msgid "Cost (USD)"
 msgstr "Costo (USD)"
 
@@ -2908,7 +2924,7 @@ msgstr "No se pudo leer el archivo de imagen."
 msgid "Could not read optimised image."
 msgstr "No se pudo leer la imagen optimizada."
 
-#: assets/js/aichat-frontend.js:1696
+#: assets/js/aichat-frontend.js:1744
 msgid "Could not save your information."
 msgstr "No se pudo guardar tu información."
 
@@ -2965,7 +2981,7 @@ msgstr "Crear reserva"
 msgid "CREATE CONTEXT"
 msgstr "CREAR CONTEXTO"
 
-#: axiachat-ai.php:1792 includes/contexto-create.php:16
+#: axiachat-ai.php:1797 includes/contexto-create.php:16
 msgid "Create Context"
 msgstr "Crear contexto"
 
@@ -3024,7 +3040,7 @@ msgstr "Creado / Estado"
 msgid "Created:"
 msgstr "Creado:"
 
-#: axiachat-ai.php:1886
+#: axiachat-ai.php:1891
 msgid "Creating bot..."
 msgstr "Creando bot..."
 
@@ -3036,7 +3052,7 @@ msgstr "Configuración actual"
 msgid "Current Documents"
 msgstr "Documentos actuales"
 
-#: includes/usage.php:80
+#: includes/usage.php:126
 msgid "Current pricing per 1K tokens (input / output). Standard rates only."
 msgstr "Tarifa actual por 1K tokens (entrada / salida). Solo tarifas estándar."
 
@@ -3046,7 +3062,7 @@ msgstr "Tarifa actual por 1K tokens (entrada / salida). Solo tarifas estándar."
 msgid "Current site date/time: %1$s %2$s (%3$s) – %4$s"
 msgstr "Fecha/hora actual del sitio: %1$s %2$s (%3$s) – %4$s"
 
-#: assets/js/aichat-frontend.js:129 assets/js/bots.js:1462
+#: assets/js/aichat-frontend.js:130 assets/js/bots.js:1462
 msgid "Currently offline"
 msgstr "Actualmente desconectado"
 
@@ -3124,7 +3140,7 @@ msgstr "Agente de atención al cliente"
 msgid "Customer Service Representative"
 msgstr "Representante de atención al cliente"
 
-#: includes/settings/tab-addons.php:208
+#: includes/settings/tab-addons.php:206
 msgid "Customise the footer HTML displayed in the widget."
 msgstr "Personaliza el HTML del pie de página que se muestra en el widget."
 
@@ -3137,14 +3153,18 @@ msgid ""
 "Customize the messages shown during chat activity. Leave blank to use the "
 "default."
 msgstr ""
-"Personaliza los mensajes mostrados durante la actividad del chat. Deja en "
-"blanco para usar el predeterminado."
+"Personaliza los mensajes que se muestran durante la actividad del chat. Deja "
+"en blanco para usar el predeterminado."
 
-#: includes/settings/tab-usage.php:46
+#: includes/settings/tab-usage.php:48
+msgid "Daily Limits"
+msgstr "Límites diarios"
+
+#: includes/settings/tab-usage.php:114
 msgid "Daily total limit behavior"
 msgstr "Comportamiento del límite total diario"
 
-#: includes/settings/tab-usage.php:54
+#: includes/settings/tab-usage.php:122
 msgid "Daily total limit message"
 msgstr "Mensaje del límite total diario"
 
@@ -3152,7 +3172,7 @@ msgstr "Mensaje del límite total diario"
 msgid "Daily total message limit reached."
 msgstr "Se alcanzó el límite diario de mensajes."
 
-#: includes/settings.php:276
+#: includes/settings.php:277
 msgid "Daily usage limit reached. Please try again tomorrow."
 msgstr ""
 "Se alcanzó el límite de uso diario. Por favor, intenta de nuevo mañana."
@@ -3196,7 +3216,7 @@ msgstr "Fecha para la cita en formato AAAA-MM-DD"
 msgid "Date From"
 msgstr "Fecha desde"
 
-#: axiachat-ai.php:2021 assets/js/tools.js:12
+#: axiachat-ai.php:2026 assets/js/tools.js:12
 msgid "Date is"
 msgstr "La fecha es"
 
@@ -3302,11 +3322,11 @@ msgid ""
 "Define the days and hours when WhatsApp support is available. Outside these "
 "hours, the behaviour depends on the \"Outside hours\" setting below."
 msgstr ""
-"Define los días y horas en que el soporte de WhatsApp está disponible. Fuera "
-"de estas horas, el comportamiento depende de la configuración \"Fuera de "
+"Define los días y horas en que WhatsApp soporte está disponible. Fuera de "
+"estas horas, el comportamiento depende de la configuración \"Fuera de "
 "horas\" a continuación."
 
-#: axiachat-ai.php:2098 includes/add-ons/leads/admin-settings.php:196
+#: axiachat-ai.php:2103 includes/add-ons/leads/admin-settings.php:196
 #: includes/add-ons/leads/admin-settings.php:1122
 #: includes/add-ons/mcp__premium_only/admin-settings.php:126
 #: includes/contexto-functions.php:83 includes/contexto-settings.php:130
@@ -3329,7 +3349,7 @@ msgstr "Error al eliminar"
 msgid "Delete list"
 msgstr "Eliminar lista"
 
-#: axiachat-ai.php:2011 assets/js/tools.js:93
+#: axiachat-ai.php:2016 assets/js/tools.js:93
 msgid "Delete rule"
 msgstr "Eliminar regla"
 
@@ -3361,7 +3381,7 @@ msgstr "¿Eliminar toda esta conversación?"
 msgid "Delete this file and its chunks?"
 msgstr "¿Eliminar este archivo y sus fragmentos?"
 
-#: axiachat-ai.php:2101
+#: axiachat-ai.php:2106
 msgid "Deleted successfully."
 msgstr "Eliminado con éxito."
 
@@ -3473,7 +3493,7 @@ msgstr "Páginas descubiertas"
 
 #: assets/js/training-webscraper.js:103
 msgid "Discovering..."
-msgstr "Descubriendo..."
+msgstr "Descubriendo…"
 
 #: includes/settings/tab-advanced.php:248
 msgid "Display a small footer line at the bottom of the chat widget."
@@ -3497,7 +3517,7 @@ msgstr "Mostrado mientras la acción se ejecuta."
 msgid "Displays the start sentence in a speech bubble next to the avatar."
 msgstr "Muestra la oración inicial en un globo de diálogo junto al avatar."
 
-#: axiachat-ai.php:2010 assets/js/tools.js:82
+#: axiachat-ai.php:2015 assets/js/tools.js:82
 msgid "DO"
 msgstr "HACER"
 
@@ -3532,7 +3552,7 @@ msgstr "No hacer"
 
 #: assets/js/easy-config.js:593
 msgid "Don't have an API key?"
-msgstr "¿No tienes una clave API?"
+msgstr "¿No tienes una API key?"
 
 #: includes/settings/tab-general.php:58
 msgid ""
@@ -3542,12 +3562,12 @@ msgstr ""
 "¿No tienes una clave API? Google ofrece una clave API gratuita — suficiente "
 "para aproximadamente 100 mensajes/día con Gemini Pro 3."
 
-#: axiachat-ai.php:2716 assets/js/aichat-frontend.js:1318
+#: axiachat-ai.php:2696 assets/js/aichat-frontend.js:1346
 #: assets/js/bots.js:1603
 msgid "Done"
 msgstr "Hecho"
 
-#: includes/class-aichat-ajax.php:1104 includes/class-aichat-ajax.php:1209
+#: includes/class-aichat-ajax.php:1116 includes/class-aichat-ajax.php:1221
 msgid "Done! The action has been completed successfully."
 msgstr "¡Hecho! La acción se ha completado con éxito."
 
@@ -3598,7 +3618,7 @@ msgstr "Suelta archivos aquí o haz clic para subir (PDF, TXT)"
 msgid "Drop PDF/TXT files here or click to select"
 msgstr "Arrastra archivos PDF/TXT aquí o haz clic para seleccionar"
 
-#: axiachat-ai.php:2666
+#: axiachat-ai.php:2646
 msgid "Duplicate message detected."
 msgstr "Se detectó un mensaje duplicado."
 
@@ -3736,7 +3756,7 @@ msgstr "Contenido del formulario de correo electrónico"
 
 #: assets/js/aichat-frontend-gdpr__premium_only.js:147
 msgid "Email required"
-msgstr "Correo electrónico requerido"
+msgstr "Se requiere correo electrónico"
 
 #: includes/add-ons/appointments/admin-settings.php:1258
 #: includes/add-ons/appointments/admin-settings.php:1302
@@ -3787,7 +3807,7 @@ msgstr ""
 msgid "Empty response from OpenAI Responses API."
 msgstr "Respuesta vacía de la API de respuestas de OpenAI."
 
-#: includes/class-aichat-ajax.php:1792 includes/class-aichat-ajax.php:3177
+#: includes/class-aichat-ajax.php:1804 includes/class-aichat-ajax.php:3189
 #: includes/providers/class-openai-provider.php:167
 msgid "Empty response from OpenAI."
 msgstr "Respuesta vacía de OpenAI."
@@ -3856,7 +3876,7 @@ msgstr "Habilitar interactividad (para botones y respuestas)"
 msgid "Enable Lead Capture"
 msgstr "Habilitar captura de clientes potenciales"
 
-#: includes/settings/tab-addons.php:100
+#: includes/settings/tab-addons.php:98
 msgid "Enable Live Chat (Human Handoff)"
 msgstr "Habilitar chat en vivo (transferencia a humano)"
 
@@ -3864,7 +3884,7 @@ msgstr "Habilitar chat en vivo (transferencia a humano)"
 msgid "Enable MCP (Model Context Protocol)"
 msgstr "Habilitar MCP (Protocolo de contexto del modelo)"
 
-#: includes/settings/tab-usage.php:69
+#: includes/settings/tab-usage.php:140
 msgid "Enable moderation layer"
 msgstr "Habilitar capa de moderación"
 
@@ -3872,7 +3892,7 @@ msgstr "Habilitar capa de moderación"
 msgid "Enable quick question buttons"
 msgstr "Habilitar botones de preguntas rápidas"
 
-#: axiachat-ai.php:2036 assets/js/tools.js:30
+#: axiachat-ai.php:2041 assets/js/tools.js:30
 msgid "Enable screen share"
 msgstr "Habilitar compartir pantalla"
 
@@ -3896,7 +3916,7 @@ msgstr "Habilitar las herramientas:"
 msgid "Enable usage limits"
 msgstr "Habilitar límites de uso"
 
-#: includes/settings/tab-addons.php:134
+#: includes/settings/tab-addons.php:132
 msgid "Enable WhatsApp & Telegram (Andromeda Connect)"
 msgstr "Habilitar WhatsApp y Telegram (Conexión Andrómeda)"
 
@@ -3913,7 +3933,7 @@ msgstr "Habilitar/Deshabilitar herramientas"
 msgid "Enabled"
 msgstr "Habilitado"
 
-#: axiachat-ai.php:2046
+#: axiachat-ai.php:2051
 msgid "Enabled Capabilities for this Bot"
 msgstr "Capacidades habilitadas para este bot"
 
@@ -3988,7 +4008,7 @@ msgid ""
 msgstr ""
 "Ingresa información que tu IA puede usar como base de conocimientos: "
 "detalles de la empresa, características del producto, preguntas frecuentes, "
-"directrices de servicio..."
+"directrices de servicio…"
 
 #: includes/contexto-create.php:102 includes/training-context.php:502
 msgid "Enter Pinecone API Key"
@@ -4008,14 +4028,14 @@ msgstr ""
 
 #: assets/js/easy-config.js:652
 msgid "Enter your API key..."
-msgstr "Ingresa tu clave API..."
+msgstr "Ingresa tu API key…"
 
-#: axiachat-ai.php:2540 includes/settings.php:232 includes/shortcode.php:262
+#: axiachat-ai.php:2520 includes/settings.php:233 includes/shortcode.php:278
 #: assets/js/aichat-frontend-gdpr__premium_only.js:104
 msgid "Enter your name"
 msgstr "Ingresa tu nombre"
 
-#: axiachat-ai.php:1888 axiachat-ai.php:2015
+#: axiachat-ai.php:1893 axiachat-ai.php:2020
 #: includes/add-ons/appointments/admin-ajax.php:370
 #: includes/add-ons/mcp__premium_only/loader.php:166
 #: includes/contexto-pdf-template.php:82 assets/js/contexto-pdf.js:173
@@ -4051,7 +4071,7 @@ msgstr "Error al cargar contextos:"
 
 #: assets/js/training-context.js:1026 assets/js/training-context.js:1101
 msgid "Error loading document."
-msgstr "Error al cargar el documento."
+msgstr "Error al cargar documento."
 
 #: assets/js/contexto-create.js:153 assets/js/training-context.js:264
 msgid "Error loading items."
@@ -4059,7 +4079,7 @@ msgstr "Error al cargar elementos."
 
 #: assets/js/settings.js:169 assets/js/settings.js:175
 msgid "Error loading log."
-msgstr "Error al cargar el registro."
+msgstr "Error al cargar registro."
 
 #: includes/add-ons/custom-webhooks__premium_only/admin-tab.php:244
 msgid "Error Message"
@@ -4071,9 +4091,9 @@ msgstr "Error al eliminar documentos."
 
 #: assets/js/easy-config.js:1127
 msgid "Error saving API key. Please try again."
-msgstr "Error al guardar la clave API. Por favor, inténtalo de nuevo."
+msgstr "Error al guardar la API key. Por favor, intenta de nuevo."
 
-#: axiachat-ai.php:2051
+#: axiachat-ai.php:2056
 msgid "Error saving capabilities"
 msgstr "Error al guardar capacidades"
 
@@ -4219,7 +4239,7 @@ msgstr "Exportar diagnósticos (soporte remoto)"
 msgid "Export Diagnostics ZIP"
 msgstr "Exportar ZIP de diagnósticos"
 
-#: includes/settings/tab-usage.php:76
+#: includes/settings/tab-usage.php:147
 msgid "External moderation (OpenAI)"
 msgstr "Moderación externa (OpenAI)"
 
@@ -4281,7 +4301,7 @@ msgstr ""
 
 #: assets/js/easy-config.js:1123
 msgid "Failed to save API key. Please try again."
-msgstr "Error al guardar la clave API. Por favor, inténtalo de nuevo."
+msgstr "Error al guardar la clave API. Por favor, intenta de nuevo."
 
 #: includes/add-ons/appointments/adapters/class-adapter-google-calendar.php:422
 #: includes/add-ons/appointments/adapters/class-adapter-internal.php:302
@@ -4292,7 +4312,7 @@ msgstr "Error al guardar la cita"
 msgid "Failed to save tool state"
 msgstr "Error al guardar el estado de la herramienta"
 
-#: includes/providers/class-gemini-provider.php:865
+#: includes/providers/class-gemini-provider.php:866
 msgid "Failed to store Gemini tool state."
 msgstr "Error al almacenar el estado de la herramienta Gemini."
 
@@ -4343,7 +4363,7 @@ msgstr "Obtener páginas"
 msgid "Fields"
 msgstr "Campos"
 
-#: axiachat-ai.php:2043 assets/js/tools.js:175
+#: axiachat-ai.php:2048 assets/js/tools.js:175
 msgid "Fields to request (e.g. phone,name)"
 msgstr "Campos a solicitar (por ejemplo, teléfono, nombre)"
 
@@ -4361,13 +4381,13 @@ msgstr "El tipo MIME del archivo no coincide con la extensión."
 msgid "File too large. Maximum allowed: %d MB."
 msgstr "Archivo demasiado grande. Máximo permitido: %d MB."
 
-#: assets/js/aichat-frontend.js:806
+#: assets/js/aichat-frontend.js:811
 #, js-format
 msgid "File too large. Maximum allowed: %s MB."
 msgstr "Archivo demasiado grande. Máximo permitido: %s MB."
 
 #. translators: %s: comma-separated list of allowed file extensions
-#: includes/file-upload-ajax.php:188 assets/js/aichat-frontend.js:819
+#: includes/file-upload-ajax.php:188 assets/js/aichat-frontend.js:824
 #, js-format
 msgid "File type not allowed. Accepted: %s"
 msgstr "Tipo de archivo no permitido. Aceptados: %s"
@@ -4409,7 +4429,7 @@ msgstr ""
 "Sigue estos pasos para habilitar notificaciones de Telegram y comunicación "
 "bidireccional para Chat en vivo."
 
-#: includes/settings/tab-addons.php:201
+#: includes/settings/tab-addons.php:199
 msgid "Footer HTML"
 msgstr "HTML del pie"
 
@@ -4487,7 +4507,7 @@ msgstr "Reconstrucción completa en cola:"
 msgid "Full URL to the MCP endpoint."
 msgstr "URL completo al endpoint de MCP."
 
-#: includes/settings.php:494 includes/settings/tab-gdpr__premium_only.php:16
+#: includes/settings.php:525 includes/settings/tab-gdpr__premium_only.php:16
 msgid "GDPR Consent"
 msgstr "Consentimiento GDPR"
 
@@ -4501,16 +4521,15 @@ msgid "GDPR Contacts"
 msgstr "Contactos GDPR"
 
 #: includes/easy-config-data.php:171
-msgid "Gemini 2.5 Flash, 2.5 Pro, 3 Preview. Google's latest AI technology."
+msgid "Gemini 3.1 Pro, 3 Flash, 2.5 Flash. Google's latest AI technology."
 msgstr ""
-"Gemini 2.5 Flash, 2.5 Pro, Vista previa 3. La última tecnología de IA de "
-"Google."
+"Gemini 3.1 Pro, 3 Flash, 2.5 Flash. La última tecnología de IA de Google."
 
-#: includes/providers/class-gemini-provider.php:967
+#: includes/providers/class-gemini-provider.php:968
 msgid "Gemini tool state not found or expired."
 msgstr "Estado de la herramienta Gemini no encontrado o expirado."
 
-#: includes/settings.php:483 assets/js/bots.js:504
+#: includes/settings.php:514 assets/js/bots.js:504
 msgid "General"
 msgstr "General"
 
@@ -4556,11 +4575,11 @@ msgstr "Obtén tu clave API"
 msgid "Get your API key →"
 msgstr "Obtén tu clave API →"
 
-#: axiachat-ai.php:2722 assets/js/bots.js:1608
+#: axiachat-ai.php:2702 assets/js/bots.js:1608
 msgid "Getting services..."
 msgstr "Obteniendo servicios..."
 
-#: axiachat-ai.php:2723 assets/js/bots.js:1609
+#: axiachat-ai.php:2703 assets/js/bots.js:1609
 msgid "Getting staff..."
 msgstr "Obteniendo personal..."
 
@@ -4578,7 +4597,7 @@ msgstr "Bot global"
 msgid "Global Bot & Logging"
 msgstr "Bot global y registro"
 
-#: includes/settings.php:530
+#: includes/settings.php:561
 msgid ""
 "Global Bot is enabled but no bot is selected. On save the first available "
 "bot will be used."
@@ -4685,8 +4704,8 @@ msgid ""
 "Google provides a free API key — enough for ~100 messages/day with Gemini "
 "Pro 3."
 msgstr ""
-"Google proporciona una clave API gratuita — suficiente para ~100 "
-"mensajes/día con Gemini Pro 3."
+"Google ofrece una clave API gratuita — suficiente para ~100 mensajes/día con "
+"Gemini Pro 3."
 
 #: includes/add-ons/leads/admin-settings.php:514
 msgid "Google Sheet URL"
@@ -4709,10 +4728,10 @@ msgid "Google Sheets settings saved."
 msgstr "Configuración de Google Sheets guardada."
 
 #: includes/easy-config-data.php:178
-msgid "GPT-5.2, GPT-5, GPT-4o. Best for general purpose chat."
-msgstr "GPT-5.2, GPT-5, GPT-4o. Mejor para chat de propósito general."
+msgid "GPT-5.4, GPT-5.4 Mini, GPT-5.3. Best for general purpose chat."
+msgstr "GPT-5.4, GPT-5.4 Mini, GPT-5.3. Mejor para chat de propósito general."
 
-#: includes/settings/tab-usage.php:37
+#: includes/settings/tab-usage.php:105
 msgid "Guests tracked by IP. 0 = Unlimited"
 msgstr "Usuarios rastreados por IP. 0 = Ilimitado"
 
@@ -4924,7 +4943,7 @@ msgstr "Formato HH:MM (24h)"
 msgid "Hide button"
 msgstr "Botón de ocultar"
 
-#: includes/settings/tab-usage.php:50
+#: includes/settings/tab-usage.php:87 includes/settings/tab-usage.php:118
 msgid "Hide widget completely"
 msgstr "Ocultar completamente el widget"
 
@@ -5030,7 +5049,7 @@ msgstr "Configuración HTTP"
 msgid "HTTP error %d fetching the URL."
 msgstr "Error HTTP %d al obtener la URL."
 
-#: axiachat-ai.php:2040 assets/js/tools.js:155
+#: axiachat-ai.php:2045 assets/js/tools.js:155
 msgid "https://..."
 msgstr "https://..."
 
@@ -5048,14 +5067,14 @@ msgstr "https://example.com"
 msgid "Human Handoff"
 msgstr "Transferencia humana"
 
-#: axiachat-ai.php:2531 includes/settings.php:212 includes/shortcode.php:253
+#: axiachat-ai.php:2511 includes/settings.php:213 includes/shortcode.php:269
 #: assets/js/aichat-frontend-gdpr__premium_only.js:27
 #: assets/js/aichat-frontend-gdpr__premium_only.js:98
 #: assets/js/aichat-frontend-gdpr__premium_only.js:232
 msgid "I understand"
 msgstr "Entiendo"
 
-#: includes/settings.php:266
+#: includes/settings.php:267
 msgid "I'm tired, please come back tomorrow."
 msgstr "Estoy cansado, por favor vuelve mañana."
 
@@ -5124,7 +5143,7 @@ msgid ""
 "strict format. The widget renders them as clickable chips."
 msgstr ""
 "Si está habilitado, el prompt del sistema pide al modelo que devuelva "
-"sugerencias en un formato estricto. El widget las muestra como fichas "
+"sugerencias en un formato estricto. El widget las muestra como chips "
 "clicables."
 
 #: assets/js/bots.js:619
@@ -5157,7 +5176,7 @@ msgid ""
 msgstr ""
 "Si el usuario necesita soporte personalizado, pide el asunto, envía un "
 "correo electrónico al administrador usando la herramienta "
-"aichat_send_email_admin y avisa al usuario que será contactado pronto."
+"aichat_send_email_admin, y avísale que será contactado pronto."
 
 #: assets/js/training-instructions.js:243
 msgid ""
@@ -5192,7 +5211,7 @@ msgid ""
 "for their feedback."
 msgstr ""
 "Si el usuario envía una sugerencia o solicitud de función, resúmela y "
-"envíala al administrador usando la herramienta aichat_send_email_admin, "
+"envíala al administrador usando la herramienta aichat_send_email_admin, y "
 "luego agradece al usuario por sus comentarios."
 
 #: assets/js/training-instructions.js:237
@@ -5200,8 +5219,8 @@ msgid ""
 "If the user wants a quote, ask for their email and let them know they will "
 "be contacted as soon as possible. Save the email using the save_lead tool."
 msgstr ""
-"Si el usuario quiere una cotización, pide su correo electrónico y avísale "
-"que será contactado lo antes posible. Guarda el correo usando la herramienta "
+"Si quieres una cotización, pide su correo electrónico y avísale que será "
+"contactado lo antes posible. Guarda el correo usando la herramienta "
 "save_lead."
 
 #: includes/easy-config-data.php:50
@@ -5288,7 +5307,7 @@ msgstr ""
 
 #: assets/js/training-webscraper.js:237
 msgid "Import complete!"
-msgstr "¡Importación completa!"
+msgstr "¡Importación completada!"
 
 #: includes/add-ons/web-scraper/loader.php:25
 msgid "Import content from external websites to use as chatbot knowledge."
@@ -5300,7 +5319,7 @@ msgstr ""
 msgid "Import content from external websites."
 msgstr "Importa contenido de sitios web externos."
 
-#: axiachat-ai.php:1801 includes/contexto-modify.php:50
+#: axiachat-ai.php:1806 includes/contexto-modify.php:50
 #: includes/contexto-pdf-template.php:133
 #: includes/contexto-pdf-template.php:146 includes/contexto-settings.php:36
 msgid "Import PDF/Data"
@@ -5349,7 +5368,7 @@ msgstr ""
 msgid "Include attributes (size, color, etc.)"
 msgstr "Incluir atributos (tamaño, color, etc.)"
 
-#: includes/settings/tab-usage.php:94
+#: includes/settings/tab-usage.php:165
 msgid "Include base list in English"
 msgstr "Incluir lista base en inglés"
 
@@ -5388,7 +5407,7 @@ msgstr "Incluir URL de la página / publicación"
 
 #: assets/js/easy-config.js:469
 msgid "Include page/post/product URL in responses"
-msgstr "Incluir URL de página/publicación/producto en las respuestas"
+msgstr "Incluir URL de página/post/product en las respuestas"
 
 #: includes/training-context.php:589
 msgid "Include post summary (excerpt)"
@@ -5425,7 +5444,7 @@ msgstr "Incluir WhatsApp"
 
 #: assets/js/easy-config.js:129
 msgid "Indexing"
-msgstr "Indexando"
+msgstr "Indexación"
 
 #: assets/js/easy-config.js:704
 msgid "Indexing Complete!"
@@ -5435,7 +5454,7 @@ msgstr "¡Indexación completa!"
 msgid "Indexing complete!"
 msgstr "¡Indexación completa!"
 
-#: axiachat-ai.php:1885
+#: axiachat-ai.php:1890
 msgid "Indexing content..."
 msgstr "Indexando contenido..."
 
@@ -5451,17 +5470,21 @@ msgstr "Indexando..."
 msgid "Initialization failed."
 msgstr "Fallo en la inicialización."
 
-#: includes/usage.php:87 includes/usage.php:112 includes/usage.php:137
+#: includes/usage.php:133 includes/usage.php:158 includes/usage.php:183
 msgid "Input (per 1K tokens)"
 msgstr "Entrada (por 1K tokens)"
 
-#: includes/usage.php:89 includes/usage.php:114 includes/usage.php:139
+#: includes/usage.php:135 includes/usage.php:160 includes/usage.php:185
 msgid "Input (per 1M tokens)"
 msgstr "Entrada (por 1M tokens)"
 
 #: assets/js/bots.js:776
 msgid "Input Max Length"
 msgstr "Longitud máxima de entrada"
+
+#: includes/usage.php:81 includes/usage.php:97
+msgid "Input Tokens"
+msgstr "Tokens de entrada"
 
 #: includes/contexto-settings.php:297
 msgid "Inspect stored chunks with filters."
@@ -5475,7 +5498,7 @@ msgstr "Instalar app y obtener token del bot"
 msgid "Install Now"
 msgstr "Instalar ahora"
 
-#: axiachat-ai.php:1847
+#: axiachat-ai.php:1852
 msgid "Install WhatsApp & Telegram Add-on"
 msgstr "Instalar complemento de WhatsApp y Telegram"
 
@@ -5596,7 +5619,7 @@ msgstr "Nombre interno (slug)"
 
 #: assets/js/bots.js:1426
 msgid "International format with country code, e.g. +34600000000"
-msgstr "Formato internacional con código de país, por ejemplo +34600000000"
+msgstr "Formato internacional con código de país, p. ej., +34600000000"
 
 #: includes/add-ons/appointments/tools.php:129
 msgid "Invalid date format. Please use YYYY-MM-DD format."
@@ -5618,7 +5641,7 @@ msgstr "Dirección de correo electrónico inválida"
 msgid "Invalid form configuration."
 msgstr "Configuración de formulario inválida."
 
-#: includes/providers/class-gemini-provider.php:978
+#: includes/providers/class-gemini-provider.php:979
 msgid "Invalid Gemini tool state payload."
 msgstr "Carga útil de estado de herramienta Gemini inválida."
 
@@ -5653,7 +5676,7 @@ msgstr "Parámetros inválidos"
 msgid "Invalid patch JSON."
 msgstr "JSON de parche inválido."
 
-#: axiachat-ai.php:2657
+#: axiachat-ai.php:2637
 msgid "Invalid pattern."
 msgstr "Patrón inválido."
 
@@ -5695,7 +5718,7 @@ msgstr "Formato de URL inválido."
 msgid "Invite Bot to Channel"
 msgstr "Invitar al bot al canal"
 
-#: axiachat-ai.php:2022 assets/js/tools.js:13
+#: axiachat-ai.php:2027 assets/js/tools.js:13
 msgid "Is holiday"
 msgstr "Es día festivo"
 
@@ -5974,7 +5997,7 @@ msgstr "Permitir que el chatbot sepa si el visitante ha iniciado sesión"
 msgid "Let the chatbot know the current site date/time"
 msgstr "Permitir que el chatbot conozca la fecha/hora actual del sitio"
 
-#: axiachat-ai.php:2534 includes/settings.php:217 includes/shortcode.php:256
+#: axiachat-ai.php:2514 includes/settings.php:218 includes/shortcode.php:272
 msgid "Let's get started. Enter your email to begin chatting with us."
 msgstr ""
 "Comencemos. Ingresa tu correo electrónico para comenzar a chatear con "
@@ -6018,7 +6041,7 @@ msgstr ""
 msgid "List"
 msgstr "Lista"
 
-#: axiachat-ai.php:2033 assets/js/tools.js:27
+#: axiachat-ai.php:2038 assets/js/tools.js:27
 msgid "List articles"
 msgstr "Listar artículos"
 
@@ -6090,13 +6113,13 @@ msgstr "Cargando habilidades..."
 msgid "Loading tools..."
 msgstr "Cargando herramientas..."
 
-#: axiachat-ai.php:2108 includes/add-ons/appointments/admin-ajax.php:369
+#: axiachat-ai.php:2113 includes/add-ons/appointments/admin-ajax.php:369
 #: includes/add-ons/appointments/admin-settings.php:273
 #: includes/add-ons/custom-webhooks__premium_only/admin-tab.php:90
 #: includes/contexto-functions.php:91 includes/contexto-modify.php:478
 #: includes/contexto-modify.php:511 includes/training-context.php:435
 #: includes/training-context.php:704 includes/training-context.php:737
-#: includes/usage.php:52 includes/usage.php:74
+#: includes/usage.php:52 includes/usage.php:103 includes/usage.php:120
 #: assets/js/appointments-admin.js:916 assets/js/tools.js:219
 #: assets/js/training-context.js:247
 msgid "Loading..."
@@ -6120,7 +6143,8 @@ msgid ""
 "themes that override widget typography."
 msgstr ""
 "Bloquea fuentes, tamaños y alturas de línea con !important. Corrige "
-"problemas de visualización en temas que anulan la tipografía del widget."
+"problemas de visualización en temas que sobrescriben la tipografía del "
+"widget."
 
 #: axiachat-ai.php:435
 msgid "Log cleared."
@@ -6140,7 +6164,7 @@ msgstr ""
 "content/uploads/axiachat-ai/. Asegúrate de que la depuración esté habilitada "
 "arriba para comenzar a escribir registros."
 
-#: axiachat-ai.php:1736 axiachat-ai.php:1737
+#: axiachat-ai.php:1741 axiachat-ai.php:1742
 msgid "Logs"
 msgstr "Registros"
 
@@ -6248,7 +6272,7 @@ msgstr "¿Marcar como completado?"
 
 #: assets/js/appointments-admin.js:321
 msgid "Mark as no-show?"
-msgstr "¿Marcar como no asistido?"
+msgstr "¿Marcar como no presentado?"
 
 #: includes/add-ons/appointments/admin-settings.php:235
 #: assets/js/appointments-admin.js:276
@@ -6269,6 +6293,14 @@ msgstr "¿Marcar esta cita como completada?"
 msgid "Max context length (characters)"
 msgstr "Longitud máxima del contexto (caracteres)"
 
+#: includes/settings/tab-usage.php:56
+msgid "Max cost per day (USD)"
+msgstr "Costo máximo por día (USD)"
+
+#: includes/settings/tab-usage.php:73
+msgid "Max cost per month (USD)"
+msgstr "Costo máximo por mes (USD)"
+
 #: assets/js/bots.js:905
 msgid "Max file size (MB)"
 msgstr "Tamaño máximo de archivo (MB)"
@@ -6277,11 +6309,11 @@ msgstr "Tamaño máximo de archivo (MB)"
 msgid "Max Messages"
 msgstr "Mensajes máximos"
 
-#: includes/settings/tab-usage.php:30
+#: includes/settings/tab-usage.php:98
 msgid "Max messages per day"
 msgstr "Mensajes máximos por día"
 
-#: includes/settings/tab-usage.php:35
+#: includes/settings/tab-usage.php:103
 msgid "Max messages per user/day"
 msgstr "Mensajes máximos por usuario/día"
 
@@ -6301,7 +6333,15 @@ msgstr "Páginas máximas:"
 msgid "Max Tokens"
 msgstr "Tokens máximos"
 
-#: assets/js/aichat-frontend.js:208
+#: includes/settings/tab-usage.php:51
+msgid "Max tokens per day"
+msgstr "Tokens máximos por día"
+
+#: includes/settings/tab-usage.php:68
+msgid "Max tokens per month"
+msgstr "Tokens máximos por mes"
+
+#: assets/js/aichat-frontend.js:199
 msgid "Maximize"
 msgstr "Maximizar"
 
@@ -6318,7 +6358,7 @@ msgstr "Número máximo de caracteres por entrada del usuario."
 msgid "Maximum Days in Advance"
 msgstr "Días máximos con anticipación"
 
-#: includes/providers/class-gemini-provider.php:1153
+#: includes/providers/class-gemini-provider.php:1154
 msgid "Maximum Gemini tool rounds reached without final answer."
 msgstr ""
 "Se alcanzaron las rondas máximas de herramientas Gemini sin respuesta final."
@@ -6364,13 +6404,17 @@ msgstr "Medio"
 msgid "Mention the timezone for clarity"
 msgstr "Menciona la zona horaria para mayor claridad"
 
-#: axiachat-ai.php:2042 assets/js/tools.js:167
+#: axiachat-ai.php:2047 assets/js/tools.js:167
 msgid "Message"
 msgstr "Mensaje"
 
 #: includes/class-aichat-ajax.php:123
 msgid "Message is empty."
 msgstr "El mensaje está vacío."
+
+#: includes/settings/tab-usage.php:38
+msgid "Message Limits"
+msgstr "Límites de mensajes"
 
 #: assets/js/bots.js:1432
 msgid ""
@@ -6383,7 +6427,7 @@ msgstr ""
 msgid "Message too long."
 msgstr "Mensaje demasiado largo."
 
-#: includes/settings/tab-usage.php:42
+#: includes/settings/tab-usage.php:110
 msgid "Message when user limit reached"
 msgstr "Mensaje cuando se alcanza el límite de usuarios"
 
@@ -6402,7 +6446,7 @@ msgstr "Altura del área de mensajes (px)"
 msgid "Method"
 msgstr "Método"
 
-#: assets/js/aichat-frontend.js:251
+#: assets/js/aichat-frontend.js:242
 msgid "Mic"
 msgstr "Mic"
 
@@ -6416,7 +6460,7 @@ msgstr "min"
 msgid "Minimal"
 msgstr "Mínimo"
 
-#: assets/js/aichat-frontend.js:206
+#: assets/js/aichat-frontend.js:197
 msgid "Minimize"
 msgstr "Minimizar"
 
@@ -6468,7 +6512,7 @@ msgstr ""
 "Minutos por posición en la cola. Si hay 2 visitantes esperando y el valor es "
 "3, el tercer visitante verá aproximadamente 6 minutos de espera."
 
-#: includes/class-aichat-ajax.php:473 includes/class-aichat-ajax.php:1833
+#: includes/class-aichat-ajax.php:473 includes/class-aichat-ajax.php:1845
 #: includes/providers/class-claude-provider.php:67
 #: includes/providers/class-claude-provider.php:309
 msgid "Missing Claude API Key in settings."
@@ -6500,7 +6544,7 @@ msgstr "Falta el campo requerido: %s"
 msgid "Missing response_id"
 msgstr "Falta response_id"
 
-#: includes/providers/class-gemini-provider.php:950
+#: includes/providers/class-gemini-provider.php:951
 msgid "Missing response_id for Gemini continuation."
 msgstr "Falta response_id para la continuación de Gemini."
 
@@ -6520,17 +6564,17 @@ msgstr "Falta token o URL del webhook"
 msgid "Missing: %s"
 msgstr "Falta: %s"
 
-#: includes/usage.php:46 includes/usage.php:74 includes/usage.php:86
-#: includes/usage.php:111 includes/usage.php:136 assets/js/bots.js:801
-#: assets/js/bots.js:816
+#: includes/usage.php:46 includes/usage.php:95 includes/usage.php:120
+#: includes/usage.php:132 includes/usage.php:157 includes/usage.php:182
+#: assets/js/bots.js:801 assets/js/bots.js:816
 msgid "Model"
 msgstr "Modelo"
 
-#: includes/class-aichat-ajax.php:835 includes/class-aichat-ajax.php:881
+#: includes/class-aichat-ajax.php:847 includes/class-aichat-ajax.php:893
 msgid "Model returned an empty response."
 msgstr "El modelo devolvió una respuesta vacía."
 
-#: includes/settings/tab-usage.php:63
+#: includes/settings/tab-usage.php:134
 msgid "Moderation"
 msgstr "Moderación"
 
@@ -6550,7 +6594,7 @@ msgstr "Solo modificado (rápido)"
 msgid "Modify an existing chatbot"
 msgstr "Modificar un chatbot existente"
 
-#: axiachat-ai.php:1809 includes/contexto-create.php:38
+#: axiachat-ai.php:1814 includes/contexto-create.php:38
 #: includes/contexto-modify.php:33 includes/contexto-modify.php:55
 #: includes/contexto-pdf-template.php:138 includes/contexto-settings.php:41
 msgid "Modify Context"
@@ -6567,10 +6611,18 @@ msgstr "Lun"
 msgid "Monday"
 msgstr "Lunes"
 
-#: assets/js/appointments-admin.js:508 assets/js/appointments-admin.js:619
-#: assets/js/appointments-admin.js:723
+#: includes/usage.php:75 assets/js/appointments-admin.js:508
+#: assets/js/appointments-admin.js:619 assets/js/appointments-admin.js:723
 msgid "Month"
 msgstr "Mes"
+
+#: includes/settings/tab-usage.php:65
+msgid "Monthly Limits"
+msgstr "Límites mensuales"
+
+#: includes/usage.php:72
+msgid "Monthly Summary"
+msgstr "Resumen mensual"
 
 #: includes/contexto-create.php:151 includes/contexto-create.php:226
 #: includes/contexto-create.php:301 includes/contexto-create.php:379
@@ -6655,7 +6707,7 @@ msgstr "Se requiere nombre"
 msgid "Name, email, or code..."
 msgstr "Nombre, correo electrónico o código..."
 
-#: axiachat-ai.php:2025 assets/js/tools.js:19
+#: axiachat-ai.php:2030 assets/js/tools.js:19
 msgid "Navigate to"
 msgstr "Navegar a"
 
@@ -6676,7 +6728,7 @@ msgstr "Error de red (%1$s). Reintentando lote %2$d en 2s…"
 #: assets/js/contexto-pdf.js:305
 #, js-format
 msgid "Network error deleting upload (%s)"
-msgstr "Error de red al eliminar carga (%s)"
+msgstr "Error de red al eliminar la carga (%s)"
 
 #: assets/js/contexto-pdf.js:207
 msgid "Network error listing uploads"
@@ -6690,7 +6742,7 @@ msgstr "Error de red al cargar elementos."
 #: assets/js/contexto-pdf.js:289
 #, js-format
 msgid "Network error re-parsing upload (%s)"
-msgstr "Error de red al volver a analizar carga (%s)"
+msgstr "Error de red al volver a analizar la carga (%s)"
 
 #: assets/js/training-context.js:708 assets/js/training-context.js:878
 #: assets/js/training-context.js:935 assets/js/training-context.js:1068
@@ -6705,7 +6757,7 @@ msgid ""
 "Never ask for or store sensitive data like passwords, credit card numbers, "
 "or personal IDs."
 msgstr ""
-"Nunca solicites ni almacenes datos sensibles como contraseñas, números de "
+"Nunca solicite ni almacene datos sensibles como contraseñas, números de "
 "tarjeta de crédito o identificaciones personales."
 
 #: assets/js/training-instructions.js:240
@@ -6713,12 +6765,12 @@ msgid ""
 "Never invent information, prices, or availability. Only use what is "
 "confirmed in the CONTEXT."
 msgstr ""
-"Nunca inventes información, precios o disponibilidad. Solo usa lo que está "
+"Nunca invente información, precios o disponibilidad. Solo use lo que esté "
 "confirmado en el CONTEXTO."
 
 #: includes/add-ons/leads/admin-settings.php:1008
 #: includes/add-ons/leads/admin-settings.php:1102
-#: assets/js/aichat-frontend.js:219
+#: assets/js/aichat-frontend.js:210
 msgid "New"
 msgstr "Nuevo"
 
@@ -6732,7 +6784,7 @@ msgstr "Nueva conversación completada"
 
 #: assets/js/training-context.js:854
 msgid "new items queued"
-msgstr "artículos nuevos en cola"
+msgstr "nuevos elementos en cola"
 
 #: includes/add-ons/leads/adapters/class-adapter-cpt.php:46
 msgid "New Lead"
@@ -6817,7 +6869,7 @@ msgstr "Aún no se han definido bots"
 msgid "No bots found. Create one first."
 msgstr "No se encontraron bots. Crea uno primero."
 
-#: axiachat-ai.php:2047
+#: axiachat-ai.php:2052
 msgid "No capabilities available. Register macros or tools."
 msgstr "No hay capacidades disponibles. Registra macros o herramientas."
 
@@ -6829,7 +6881,7 @@ msgstr "No hay cambios para guardar."
 msgid "No chunk posts found for this upload."
 msgstr "No se encontraron publicaciones de fragmentos para esta carga."
 
-#: axiachat-ai.php:2104 includes/contexto-functions.php:92
+#: axiachat-ai.php:2109 includes/contexto-functions.php:92
 #: assets/js/contexto-settings.js:545
 msgid "No chunks found"
 msgstr "No se encontraron fragmentos"
@@ -6860,7 +6912,7 @@ msgstr "No se ha seleccionado ningún contexto."
 msgid "No contexts"
 msgstr "No hay contextos"
 
-#: axiachat-ai.php:2103
+#: axiachat-ai.php:2108
 msgid "No contexts found."
 msgstr "No se encontraron contextos."
 
@@ -6878,9 +6930,13 @@ msgstr "Aún no hay webhooks personalizados"
 
 #: includes/add-ons/appointments/adapters/class-adapter-amelia.php:835
 #: includes/add-ons/appointments/adapters/class-adapter-bookly.php:722
-#: includes/usage.php:72
+#: includes/usage.php:118
 msgid "No data"
 msgstr "No hay datos"
+
+#: assets/js/usage.js:178
+msgid "No data for this month"
+msgstr "No hay datos para este mes"
 
 #: includes/add-ons/leads/class-leads-manager.php:166
 msgid "No data provided to save."
@@ -6923,7 +6979,7 @@ msgstr "No se encontraron elementos."
 
 #: assets/js/contexto-create.js:421
 msgid "No items selected."
-msgstr "No hay artículos seleccionados."
+msgstr "No se han seleccionado elementos."
 
 #: includes/contexto-ajax-modify.php:664
 msgid "No items to add."
@@ -6931,7 +6987,7 @@ msgstr "No se encontraron elementos. "
 
 #: assets/js/training-context.js:686
 msgid "No items to index. Select sources above."
-msgstr "No hay artículos para indexar. Selecciona las fuentes arriba."
+msgstr "No hay elementos para indexar. Seleccione las fuentes arriba."
 
 #: includes/add-ons/leads/admin-settings.php:130
 msgid "No lead lists found. Create your first list to start capturing leads."
@@ -7003,9 +7059,9 @@ msgstr "Respuesta no disponible."
 
 #: assets/js/contexto-settings.js:397
 msgid "No results"
-msgstr "Sin resultados"
+msgstr "No hay resultados"
 
-#: axiachat-ai.php:2076 axiachat-ai.php:2106
+#: axiachat-ai.php:2081 axiachat-ai.php:2111
 msgid "No results found for that query."
 msgstr "No se encontraron resultados para esa consulta."
 
@@ -7013,7 +7069,7 @@ msgstr "No se encontraron resultados para esa consulta."
 msgid "No rows"
 msgstr "No hay filas"
 
-#: axiachat-ai.php:2008 assets/js/tools.js:59
+#: axiachat-ai.php:2013 assets/js/tools.js:59
 msgid "No rules defined yet. Use the + button to create the first one."
 msgstr "Aún no se han definido reglas. Usa el botón + para crear la primera."
 
@@ -7052,11 +7108,11 @@ msgstr "No se presentó"
 
 #: assets/js/appointments-admin.js:125
 msgid "No Show (didn't attend)"
-msgstr "No hay show (no asistió)"
+msgstr "No se mostró (no asistió)"
 
 #: assets/js/tools.js:223
 msgid "No skills available. Register macros or tools."
-msgstr "No hay habilidades disponibles. Registra macros o herramientas."
+msgstr "No hay habilidades disponibles. Registre macros o herramientas."
 
 #: includes/add-ons/appointments/admin-settings.php:1533
 msgid "No slots showing?"
@@ -7081,7 +7137,7 @@ msgstr ""
 "Aún no se han registrado llamadas a herramientas. Los registros aparecerán "
 "aquí cuando los bots ejecuten herramientas."
 
-#: includes/providers/class-gemini-provider.php:1046
+#: includes/providers/class-gemini-provider.php:1047
 msgid "No tool calls supplied for Gemini continuation."
 msgstr ""
 "No se proporcionaron llamadas a herramientas para la continuación de Gemini."
@@ -7112,10 +7168,10 @@ msgstr "No se proporcionan URLs."
 msgid ""
 "No valid URLs found. Make sure each line starts with http:// or https://"
 msgstr ""
-"No se encontraron URLs válidas. Asegúrate de que cada línea comience con "
+"No se encontraron URLs válidas. Asegúrese de que cada línea comience con "
 "http:// o https://"
 
-#: includes/class-aichat-ajax.php:2297
+#: includes/class-aichat-ajax.php:2309
 msgid "Nonce inválido."
 msgstr "Nonce inválido."
 
@@ -7144,7 +7200,7 @@ msgstr "No instalado"
 msgid "Note:"
 msgstr "Nota:"
 
-#: includes/usage.php:157
+#: includes/usage.php:203
 msgid ""
 "Note: Pricing shown is for standard API usage. Batch processing, cached "
 "prompts, and fine-tuned models may have different rates. Always verify with "
@@ -7213,7 +7269,7 @@ msgstr "Apagado"
 msgid "Offer alternatives if requested time is unavailable"
 msgstr "Ofrecer alternativas si el horario solicitado no está disponible"
 
-#: includes/usage.php:83 includes/usage.php:108 includes/usage.php:133
+#: includes/usage.php:129 includes/usage.php:154 includes/usage.php:179
 msgid "Official Pricing"
 msgstr "Precios oficiales"
 
@@ -7224,7 +7280,7 @@ msgstr "Mensaje fuera de línea"
 
 #: assets/js/aichat-frontend-gdpr__premium_only.js:239
 msgid "OK"
-msgstr "OK"
+msgstr "Aceptar"
 
 #: includes/contexto-functions.php:530
 msgid "On backorder"
@@ -7236,7 +7292,7 @@ msgstr "Una vez configurado:"
 
 #: assets/js/easy-config.js:873 assets/js/settings.js:349
 msgid "Once the alphanumeric code appears, click Copy."
-msgstr "Una vez que aparezca el código alfanumérico, haz clic en Copiar."
+msgstr "Una vez que aparezca el código alfanumérico, haga clic en Copiar."
 
 #: includes/addon-connect-installer.php:112
 msgid "Once the upload completes, click <strong>Activate Plugin</strong>."
@@ -7248,11 +7304,11 @@ msgstr ""
 msgid "One email per finished conversation."
 msgstr "Un correo por cada conversación finalizada."
 
-#: includes/settings/tab-usage.php:98
+#: includes/settings/tab-usage.php:169
 msgid "One per line. Regex allowed if wrapped in /."
 msgstr "Uno por línea. Se permite regex si está envuelto en \\/."
 
-#: includes/settings/tab-usage.php:87
+#: includes/settings/tab-usage.php:158
 msgid "One per line. Supports CIDR."
 msgstr "Uno por línea. Soporta CIDR."
 
@@ -7314,7 +7370,7 @@ msgstr "Abre esta URL en tu navegador (reemplaza YOUR_BOT_TOKEN):"
 msgid "OpenAI (GPT)"
 msgstr "OpenAI (GPT)"
 
-#: includes/class-aichat-ajax.php:3155
+#: includes/class-aichat-ajax.php:3167
 msgid "OpenAI API error."
 msgstr "Error en la API de OpenAI."
 
@@ -7322,7 +7378,7 @@ msgstr "Error en la API de OpenAI."
 msgid "OpenAI API Key"
 msgstr "Clave API de OpenAI"
 
-#: includes/class-aichat-ajax.php:1786
+#: includes/class-aichat-ajax.php:1798
 #: includes/providers/class-openai-provider.php:161
 msgid "OpenAI error."
 msgstr "Error de OpenAI."
@@ -7374,11 +7430,11 @@ msgstr "Opcionalmente pregunta si tienen un empleado preferido."
 msgid "Optionally ask if they have a preferred staff member."
 msgstr "Opcionalmente pregunta si tienen un miembro del personal preferido."
 
-#: includes/settings/tab-addons.php:183
+#: includes/settings/tab-addons.php:181
 msgid "Optionally display a footer line at the bottom of the chat widget."
 msgstr "Opcionalmente mostrar una línea de pie de página en el widget de chat."
 
-#: axiachat-ai.php:2024 assets/js/tools.js:15
+#: axiachat-ai.php:2029 assets/js/tools.js:15
 msgid "Other (custom)"
 msgstr "Otro (personalizado)"
 
@@ -7394,17 +7450,21 @@ msgstr "Otros"
 msgid "Out of stock"
 msgstr "Agotado"
 
-#: includes/usage.php:88 includes/usage.php:113 includes/usage.php:138
+#: includes/usage.php:134 includes/usage.php:159 includes/usage.php:184
 msgid "Output (per 1K tokens)"
 msgstr "Salida (por 1K tokens)"
 
-#: includes/usage.php:90 includes/usage.php:115 includes/usage.php:140
+#: includes/usage.php:136 includes/usage.php:161 includes/usage.php:186
 msgid "Output (per 1M tokens)"
 msgstr "Salida (por 1M tokens)"
 
 #: includes/add-ons/ai-tools/admin-logs.php:49
 msgid "Output Excerpt"
 msgstr "Extracto de salida"
+
+#: includes/usage.php:82 includes/usage.php:98
+msgid "Output Tokens"
+msgstr "Tokens de salida"
 
 #: assets/js/bots.js:1453
 msgid "Outside hours"
@@ -7420,9 +7480,9 @@ msgstr "Página %1$d / %2$d"
 #: assets/js/contexto-settings.js:564
 #, js-format
 msgid "Page %1$d / %2$d — %3$d item(s)"
-msgstr "Página %1$d / %2$d — %3$d artículo(s)"
+msgstr "Página %1$d / %2$d — %3$d elemento(s)"
 
-#: axiachat-ai.php:2023 assets/js/tools.js:14
+#: axiachat-ai.php:2028 assets/js/tools.js:14
 msgid "Page URL contains"
 msgstr "URL de la página contiene"
 
@@ -7451,9 +7511,9 @@ msgstr "Páginas: %d"
 
 #: assets/js/contexto-create.js:182
 msgid "Pages: ALL"
-msgstr "Páginas: TODAS"
+msgstr "Páginas: TODOS"
 
-#: axiachat-ai.php:2044 assets/js/tools.js:182
+#: axiachat-ai.php:2049 assets/js/tools.js:182
 msgid "Parameter"
 msgstr "Parámetro"
 
@@ -7504,7 +7564,7 @@ msgid ""
 "Paste the key in the Google Gemini API Key field above and click Save "
 "changes."
 msgstr ""
-"Pega la clave en el campo de Clave API de Google Gemini y haz clic en "
+"Pega la clave en el campo de API Key de Google Gemini arriba y haz clic en "
 "Guardar cambios."
 
 #: includes/add-ons/livechat__premium_only/admin-dashboard.php:1250
@@ -7557,7 +7617,7 @@ msgstr "Teléfono"
 msgid "Phone Field Placeholder"
 msgstr "Marcador de posición del campo de teléfono"
 
-#: axiachat-ai.php:2543 includes/settings.php:242 includes/shortcode.php:265
+#: axiachat-ai.php:2523 includes/settings.php:243 includes/shortcode.php:281
 #: assets/js/aichat-frontend-gdpr__premium_only.js:107
 msgid "Phone number"
 msgstr "Número de teléfono"
@@ -7567,7 +7627,7 @@ msgstr "Número de teléfono"
 msgid "Phone number of the customer (optional)"
 msgstr "Número de teléfono del cliente (opcional)"
 
-#: axiachat-ai.php:2020 assets/js/tools.js:11
+#: axiachat-ai.php:2025 assets/js/tools.js:11
 msgid "Phrase contains"
 msgstr "La frase contiene"
 
@@ -7645,7 +7705,7 @@ msgstr "Por favor, ingresa tu nombre."
 msgid "Please enter your phone number."
 msgstr "Por favor, ingresa tu número de teléfono."
 
-#: assets/js/aichat-frontend.js:1673
+#: assets/js/aichat-frontend.js:1721
 msgid "Please fill in all required fields correctly."
 msgstr "Por favor, completa todos los campos requeridos correctamente."
 
@@ -7669,7 +7729,7 @@ msgstr "Por favor, selecciona primero un tipo de chatbot."
 msgid "Please select a server first."
 msgstr "Por favor, selecciona primero un servidor."
 
-#: axiachat-ai.php:2626
+#: axiachat-ai.php:2606
 msgid "Please slow down."
 msgstr "Por favor, reduce la velocidad."
 
@@ -7687,7 +7747,7 @@ msgstr ""
 #: assets/js/training-context.js:592 assets/js/training-context.js:831
 #: assets/js/training-context.js:885
 msgid "Please wait — files are still uploading…"
-msgstr "Por favor, espera — los archivos todavía se están cargando…"
+msgstr "Por favor, espera — los archivos aún se están cargando…"
 
 #: includes/addon-connect-installer.php:122
 msgid ""
@@ -7737,13 +7797,13 @@ msgstr "Publicaciones: %d"
 
 #: assets/js/contexto-create.js:171
 msgid "Posts: ALL"
-msgstr "Publicaciones: TODAS"
+msgstr "Publicaciones: TODOS"
 
 #: assets/js/bots.js:1430
 msgid "Pre-filled message"
 msgstr "Mensaje prellenado"
 
-#: axiachat-ai.php:2726 assets/js/bots.js:1612
+#: axiachat-ai.php:2706 assets/js/bots.js:1612
 msgid "Preparing form..."
 msgstr "Preparando formulario..."
 
@@ -7768,7 +7828,7 @@ msgstr ""
 "Previsualice su bot en una página real con los estilos de su tema, sin "
 "exponerlo a los visitantes."
 
-#: includes/settings/tab-addons.php:213
+#: includes/settings/tab-addons.php:211
 msgid "Preview:"
 msgstr "Vista previa:"
 
@@ -7798,8 +7858,8 @@ msgid ""
 "Pro tip: keep suggestions short (2–6 words). Chips send the suggestion as "
 "the next user message when clicked."
 msgstr ""
-"Consejo profesional: mantén las sugerencias cortas (2–6 palabras). Las "
-"fichas envían la sugerencia como el siguiente mensaje del usuario al hacer "
+"Consejo profesional: mantén las sugerencias cortas (2–6 palabras). Los chips "
+"envían la sugerencia como el siguiente mensaje del usuario cuando se hace "
 "clic."
 
 #: includes/templates-prompt.php:17
@@ -7810,7 +7870,7 @@ msgstr "Asesor de resolución de problemas"
 msgid "PROCESS"
 msgstr "PROCESO"
 
-#: axiachat-ai.php:2727 assets/js/bots.js:1613
+#: axiachat-ai.php:2707 assets/js/bots.js:1613
 msgid "Processing action..."
 msgstr "Procesando acción..."
 
@@ -7824,7 +7884,7 @@ msgstr "Capacidades de procesamiento (detalles técnicos)"
 msgid "Processing completed. Total items: %1$d, Tokens: %2$d"
 msgstr "Procesamiento completado. Total de elementos: %1$d, Tokens: %2$d"
 
-#: axiachat-ai.php:2717 assets/js/aichat-frontend.js:1266
+#: axiachat-ai.php:2697 assets/js/aichat-frontend.js:1294
 #: assets/js/bots.js:1604
 msgid "Processing results..."
 msgstr "Resultados del procesamiento..."
@@ -7943,12 +8003,12 @@ msgstr ""
 msgid "Provide the confirmation code clearly"
 msgstr "Proporcione claramente el código de confirmación"
 
-#: includes/usage.php:45 includes/usage.php:74 assets/js/bots.js:808
-#: assets/js/easy-config.js:128
+#: includes/usage.php:45 includes/usage.php:96 includes/usage.php:120
+#: assets/js/bots.js:808 assets/js/easy-config.js:128
 msgid "Provider"
 msgstr "Proveedor"
 
-#: includes/class-aichat-ajax.php:724
+#: includes/class-aichat-ajax.php:736
 msgid "Provider initialization failed."
 msgstr "Error en la inicialización del proveedor."
 
@@ -7993,7 +8053,7 @@ msgstr "Estado RAG actualizado."
 msgid "range_start cannot be after range_end"
 msgstr "range_start no puede ser posterior a range_end"
 
-#: axiachat-ai.php:2635
+#: axiachat-ai.php:2615
 msgid "Rate limit reached. Try again later."
 msgstr "Límite de tasa alcanzado. Inténtalo de nuevo más tarde."
 
@@ -8079,7 +8139,7 @@ msgstr "Más reciente "
 msgid "Recipient email"
 msgstr "Correo electrónico del destinatario"
 
-#: axiachat-ai.php:2041 assets/js/tools.js:162
+#: axiachat-ai.php:2046 assets/js/tools.js:162
 msgid "recipient@domain.com"
 msgstr "recipient@domain.com"
 
@@ -8138,7 +8198,7 @@ msgid "Reinstall the app to your workspace after making changes"
 msgstr ""
 "Reinstale la aplicación en su espacio de trabajo después de realizar cambios"
 
-#: includes/settings/tab-usage.php:81
+#: includes/settings/tab-usage.php:152
 msgid "Rejection message"
 msgstr "Mensaje de rechazo"
 
@@ -8160,12 +8220,12 @@ msgstr "Tipo de remoto"
 
 #: assets/js/contexto-create.js:360
 msgid "Remote type and API key are required for remote context."
-msgstr "Se requiere tipo remoto y clave API para el contexto remoto."
+msgstr "Se requiere tipo remoto y API key para contexto remoto."
 
 #: includes/add-ons/custom-webhooks__premium_only/admin-tab.php:305
 #: includes/add-ons/livechat__premium_only/admin-dashboard.php:652
 #: includes/add-ons/livechat__premium_only/admin-dashboard.php:1006
-#: assets/js/aichat-frontend.js:873 assets/js/bots.js:884
+#: assets/js/aichat-frontend.js:878 assets/js/bots.js:884
 #: assets/js/bots.js:1276 assets/js/training-context.js:436
 msgid "Remove"
 msgstr "Eliminar"
@@ -8215,7 +8275,7 @@ msgstr "Solicitud bloqueada."
 msgid "Request failed"
 msgstr "Solicitud fallida"
 
-#: axiachat-ai.php:2029 assets/js/tools.js:23
+#: axiachat-ai.php:2034 assets/js/tools.js:23
 msgid "Request information"
 msgstr "Solicitar información"
 
@@ -8267,7 +8327,7 @@ msgstr ""
 "Requiere habilitación de herramientas de IA. Active las herramientas de IA "
 "arriba para activar Captura de clientes potenciales."
 
-#: includes/settings/tab-addons.php:112
+#: includes/settings/tab-addons.php:110
 msgid ""
 "Requires AI Tools enabled. Turn on AI Tools above to activate Live Chat."
 msgstr ""
@@ -8282,7 +8342,7 @@ msgstr ""
 "Requiere habilitación de herramientas de IA. Active las herramientas de IA "
 "arriba para activar la integración MCP."
 
-#: includes/settings/tab-addons.php:139
+#: includes/settings/tab-addons.php:137
 msgid ""
 "Requires AI Tools enabled. Turn on AI Tools above to manage external channel "
 "connectors."
@@ -8290,7 +8350,7 @@ msgstr ""
 "Requiere habilitación de herramientas de IA. Active las herramientas de IA "
 "arriba para gestionar conectores de canales externos."
 
-#: includes/settings/tab-usage.php:78
+#: includes/settings/tab-usage.php:149
 msgid "Requires OpenAI API key (omni-moderation-latest)."
 msgstr "Requiere clave API de OpenAI (omni-moderation-latest)."
 
@@ -8382,7 +8442,7 @@ msgstr ""
 "Ejecuta una consulta para inspeccionar los fragmentos que coinciden en la "
 "parte superior."
 
-#: axiachat-ai.php:2097 includes/contexto-functions.php:87
+#: axiachat-ai.php:2102 includes/contexto-functions.php:87
 #: includes/contexto-settings.php:127
 msgid "Run AutoSync"
 msgstr "Ejecutar AutoSync"
@@ -8400,7 +8460,7 @@ msgid "Run Sync Now"
 msgstr "Ejecutar sincronización ahora"
 
 #. translators: %s: Tool name being executed
-#: assets/js/aichat-frontend.js:1272
+#: assets/js/aichat-frontend.js:1300
 #, js-format
 msgid "Running %s"
 msgstr "Ejecutando %s"
@@ -8408,16 +8468,16 @@ msgstr "Ejecutando %s"
 #. translators: %s: Tool name being executed (e.g., 'Get Weather')
 #: includes/add-ons/mcp__premium_only/integration.php:212
 #: includes/providers/class-claude-provider.php:643
-#: includes/providers/class-gemini-provider.php:1513
+#: includes/providers/class-gemini-provider.php:1514
 #, php-format
 msgid "Running %s..."
 msgstr "Ejecutando %s..."
 
-#: includes/providers/class-gemini-provider.php:1493
+#: includes/providers/class-gemini-provider.php:1494
 msgid "Running Code Execution..."
 msgstr "Ejecutando código..."
 
-#: includes/providers/class-gemini-provider.php:1490
+#: includes/providers/class-gemini-provider.php:1491
 msgid "Running Google Search..."
 msgstr "Buscando en Google..."
 
@@ -8436,7 +8496,7 @@ msgstr "Sáb"
 msgid "Saturday"
 msgstr "Sábado"
 
-#: axiachat-ai.php:2014 includes/settings.php:525 assets/js/bots.js:1508
+#: axiachat-ai.php:2019 includes/settings.php:556 assets/js/bots.js:1508
 #: assets/js/bots.js:1659 assets/js/bots.js:1697 assets/js/bots.js:1700
 msgid "Save"
 msgstr "Guardar"
@@ -8448,7 +8508,7 @@ msgstr "Guardar"
 msgid "Save & Index"
 msgstr "Guardar e indexar"
 
-#: axiachat-ai.php:2048
+#: axiachat-ai.php:2053
 msgid "Save Capabilities"
 msgstr "Guardar capacidades"
 
@@ -8458,7 +8518,7 @@ msgstr "Guardar capacidades"
 msgid "Save Changes"
 msgstr "Guardar cambios"
 
-#: includes/settings.php:528
+#: includes/settings.php:559
 msgid "Save changes"
 msgstr "Guardar cambios"
 
@@ -8495,7 +8555,7 @@ msgstr "Guardar clientes potenciales en la tabla interna del plugin."
 msgid "Save Options"
 msgstr "Guardar opciones"
 
-#: axiachat-ai.php:2055
+#: axiachat-ai.php:2060
 msgid "Save Policy"
 msgstr "Guardar política"
 
@@ -8520,7 +8580,7 @@ msgstr "Guardar plantilla"
 msgid "Save Webhook"
 msgstr "Guardar webhook"
 
-#: axiachat-ai.php:2013 includes/contexto-modify.php:164
+#: axiachat-ai.php:2018 includes/contexto-modify.php:164
 #: includes/training-context.php:671 includes/training-instructions.php:157
 #: includes/training-instructions.php:227 assets/js/training-context.js:1186
 msgid "Saved"
@@ -8547,15 +8607,15 @@ msgstr ""
 msgid "Saving & re-embedding..."
 msgstr "Guardando y reinsertando..."
 
-#: axiachat-ai.php:2049
+#: axiachat-ai.php:2054
 msgid "Saving capabilities..."
 msgstr "Guardando capacidades..."
 
-#: axiachat-ai.php:2725 assets/js/bots.js:1611
+#: axiachat-ai.php:2705 assets/js/bots.js:1611
 msgid "Saving contact information..."
 msgstr "Guardando información de contacto..."
 
-#: axiachat-ai.php:2012
+#: axiachat-ai.php:2017
 #: includes/add-ons/livechat__premium_only/admin-dashboard.php:1007
 #: assets/js/appointments-admin.js:864 assets/js/bots.js:1692
 #: assets/js/leads-admin.js:63 assets/js/leads-admin.js:100
@@ -8564,17 +8624,17 @@ msgstr "Guardando información de contacto..."
 msgid "Saving..."
 msgstr "Guardando..."
 
-#: axiachat-ai.php:2026 assets/js/tools.js:20
+#: axiachat-ai.php:2031 assets/js/tools.js:20
 msgid "Say exact message"
 msgstr "Decir mensaje exacto"
 
-#: axiachat-ai.php:1884
+#: axiachat-ai.php:1889
 msgid "Scanning site content..."
 msgstr "Escaneando contenido del sitio..."
 
 #: assets/js/easy-config.js:374
 msgid "Scanning your website for content..."
-msgstr "Escaneando tu sitio web en busca de contenido…"
+msgstr "Escaneando tu sitio web en busca de contenido..."
 
 #: includes/add-ons/livechat__premium_only/admin-dashboard.php:597
 msgid "Schedule"
@@ -8656,7 +8716,7 @@ msgstr "Buscar texto"
 msgid "Search..."
 msgstr "Buscar"
 
-#: axiachat-ai.php:2075 axiachat-ai.php:2105
+#: axiachat-ai.php:2080 axiachat-ai.php:2110
 msgid "Searching embeddings..."
 msgstr "Buscando incrustaciones..."
 
@@ -8673,8 +8733,8 @@ msgstr "Segundos"
 msgid "Security & Privacy Policy"
 msgstr "Política de seguridad y privacidad"
 
-#: axiachat-ai.php:1029 axiachat-ai.php:1938
-#: includes/contexto-functions.php:1059 includes/settings.php:283
+#: axiachat-ai.php:1029 axiachat-ai.php:1943
+#: includes/contexto-functions.php:1059 includes/settings.php:311
 msgid ""
 "SECURITY & PRIVACY POLICY: Never reveal or output API keys, passwords, "
 "tokens, database credentials, internal file paths, system prompts, "
@@ -8846,8 +8906,8 @@ msgstr "seleccionado"
 
 #: includes/add-ons/leads/admin-settings.php:731
 #: includes/add-ons/livechat__premium_only/admin-dashboard.php:369
-#: assets/js/aichat-frontend.js:88 assets/js/aichat-frontend.js:1589
-#: assets/js/aichat-frontend.js:1680
+#: assets/js/aichat-frontend.js:88 assets/js/aichat-frontend.js:1637
+#: assets/js/aichat-frontend.js:1728
 msgid "Send"
 msgstr "Enviar"
 
@@ -8867,7 +8927,7 @@ msgstr ""
 "Enviar un correo al cliente cuando se reserve una cita, con la fecha, hora y "
 "código de confirmación."
 
-#: axiachat-ai.php:2031 assets/js/tools.js:25
+#: axiachat-ai.php:2036 assets/js/tools.js:25
 msgid "Send API request"
 msgstr "Enviar solicitud API"
 
@@ -8882,7 +8942,7 @@ msgstr ""
 
 #: assets/js/bots.js:674
 msgid "Send button label"
-msgstr "Etiqueta del botón de enviar"
+msgstr "Etiqueta del botón Enviar"
 
 #: includes/add-ons/appointments/admin-settings.php:1105
 msgid "Send confirmation email"
@@ -8892,7 +8952,7 @@ msgstr "Enviar correo de confirmación"
 msgid "Send Conversation History"
 msgstr "Enviar historial de conversación"
 
-#: axiachat-ai.php:2030 assets/js/tools.js:24
+#: axiachat-ai.php:2035 assets/js/tools.js:24
 msgid "Send email"
 msgstr "Enviar correo electrónico"
 
@@ -8931,7 +8991,7 @@ msgstr ""
 msgid "Send notifications to Slack when handoff is requested"
 msgstr "Enviar notificaciones a Slack cuando se solicite transferencia"
 
-#: axiachat-ai.php:2037 assets/js/tools.js:31
+#: axiachat-ai.php:2042 assets/js/tools.js:31
 msgid "Send push notification"
 msgstr "Enviar notificación push"
 
@@ -8947,9 +9007,9 @@ msgstr "Enviar el comando"
 msgid "Send webhook on new lead"
 msgstr "Enviar webhook en nuevo cliente potencial"
 
-#: assets/js/aichat-frontend.js:1677
+#: assets/js/aichat-frontend.js:1725
 msgid "Sending..."
-msgstr "Enviando…"
+msgstr "Enviando..."
 
 #: assets/js/tools.js:235
 msgid "Sends an email notification to the site admin when triggered by the bot"
@@ -9067,6 +9127,16 @@ msgstr "ID de sesión"
 msgid "Session not found."
 msgstr "Sesión no encontrada."
 
+#: includes/settings/tab-usage.php:46
+msgid ""
+"Set daily and monthly caps based on token usage or estimated cost. When a "
+"limit is reached, the widget reacts according to the behavior you choose "
+"below. Set 0 for unlimited."
+msgstr ""
+"Establece límites diarios y mensuales según el uso de tokens o el costo "
+"estimado. Cuando se alcanza un límite, el widget reacciona según el "
+"comportamiento que elijas a continuación. Establece 0 para ilimitado."
+
 #: includes/add-ons/appointments/admin-settings.php:1385
 msgid "Set Slot Duration:"
 msgstr "Establecer duración del intervalo:"
@@ -9100,7 +9170,7 @@ msgstr "Configuración"
 msgid "Setting webhook..."
 msgstr "Configurando webhook..."
 
-#: axiachat-ai.php:1690 axiachat-ai.php:1691 axiachat-ai.php:2094
+#: axiachat-ai.php:1695 axiachat-ai.php:1696 axiachat-ai.php:2099
 #: includes/add-ons/appointments/admin-settings.php:34
 #: includes/contexto-functions.php:88 includes/contexto-settings.php:116
 #: includes/contexto-settings.php:161 assets/js/easy-config.js:769
@@ -9130,7 +9200,7 @@ msgstr "Configuraciones guardadas con éxito."
 msgid "Setup Guide"
 msgstr "Guía de configuración"
 
-#: axiachat-ai.php:1720
+#: axiachat-ai.php:1725
 msgid "Setup Wizard"
 msgstr "Asistente de configuración"
 
@@ -9158,7 +9228,7 @@ msgstr ""
 "Mostrar un pequeño enlace en el pie de página \"AxiaChat AI\" en tu widget "
 "de chat."
 
-#: includes/settings/tab-addons.php:194 includes/settings/tab-advanced.php:245
+#: includes/settings/tab-addons.php:192 includes/settings/tab-advanced.php:245
 msgid "Show footer in the widget"
 msgstr "Mostrar pie en el widget"
 
@@ -9172,7 +9242,7 @@ msgid ""
 "send the question instantly."
 msgstr ""
 "Mostrar preguntas predefinidas sobre el input de chat. Los visitantes pueden "
-"pulsar un botón para enviar la pregunta instantáneamente."
+"pulsar un botón para enviar la pregunta al instante."
 
 #: assets/js/bots.js:627
 msgid "Show start sentence on avatar"
@@ -9190,7 +9260,11 @@ msgstr ""
 msgid "Show WhatsApp button"
 msgstr "Mostrar botón de WhatsApp"
 
-#: includes/settings/tab-usage.php:49
+#: includes/settings/tab-usage.php:88
+msgid "Show WhatsApp button only (if configured)"
+msgstr "Mostrar solo botón de WhatsApp (si está configurado)"
+
+#: includes/settings/tab-usage.php:117
 msgid "Show widget disabled with message"
 msgstr "Mostrar widget deshabilitado con mensaje"
 
@@ -9238,7 +9312,7 @@ msgstr ""
 "Muestra un botón de contacto de WhatsApp debajo de la barra de entrada del "
 "chat."
 
-#: axiachat-ai.php:2095 includes/contexto-functions.php:89
+#: axiachat-ai.php:2100 includes/contexto-functions.php:89
 #: includes/contexto-settings.php:119
 msgid "Similarity"
 msgstr "Similitud"
@@ -9271,7 +9345,7 @@ msgstr ""
 msgid "Simply Schedule Appointments Settings"
 msgstr "Configuración de Simply Schedule Appointments"
 
-#: axiachat-ai.php:2032 assets/js/tools.js:26
+#: axiachat-ai.php:2037 assets/js/tools.js:26
 msgid "Site search"
 msgstr "Búsqueda en el sitio"
 
@@ -9388,7 +9462,7 @@ msgstr "Modo de personal"
 msgid "Staff Selection"
 msgstr "Selección de personal"
 
-#: axiachat-ai.php:2537 includes/settings.php:222 includes/shortcode.php:259
+#: axiachat-ai.php:2517 includes/settings.php:223 includes/shortcode.php:275
 #: assets/js/aichat-frontend-gdpr__premium_only.js:101
 #: assets/js/aichat-frontend-gdpr__premium_only.js:160
 msgid "Start Chat"
@@ -9423,8 +9497,8 @@ msgstr ""
 msgid "Start time in 24h format (HH:MM)"
 msgstr "Hora de inicio en formato 24h (HH:MM)"
 
-#: assets/js/aichat-frontend.js:243 assets/js/aichat-frontend.js:520
-#: assets/js/aichat-frontend.js:525 assets/js/aichat-frontend.js:542
+#: assets/js/aichat-frontend.js:234 assets/js/aichat-frontend.js:517
+#: assets/js/aichat-frontend.js:522 assets/js/aichat-frontend.js:539
 msgid "Start voice input"
 msgstr "Iniciar entrada de voz"
 
@@ -9492,7 +9566,7 @@ msgstr ""
 "Se ha eliminado el transporte STDIO. Por favor, actualiza este servidor para "
 "usar un endpoint HTTP/HTTPS."
 
-#: axiachat-ai.php:2715 assets/js/aichat-frontend.js:1742
+#: axiachat-ai.php:2695 assets/js/aichat-frontend.js:1790
 #: assets/js/bots.js:1602
 msgid "Still working, almost there"
 msgstr "Siguiendo trabajando, casi allí"
@@ -9501,11 +9575,11 @@ msgstr "Siguiendo trabajando, casi allí"
 msgid "Stock"
 msgstr "Stock"
 
-#: assets/js/aichat-frontend.js:477
+#: assets/js/aichat-frontend.js:474
 msgid "Stop reading"
 msgstr "Dejar de leer"
 
-#: assets/js/aichat-frontend.js:536
+#: assets/js/aichat-frontend.js:533
 msgid "Stop voice input"
 msgstr "Dejar de entrada de voz"
 
@@ -9642,7 +9716,7 @@ msgstr "Sincronizar con CRM"
 msgid "System Instructions Examples"
 msgstr "Ejemplos de instrucciones del sistema"
 
-#: axiachat-ai.php:2054
+#: axiachat-ai.php:2059
 msgid "System Policy"
 msgstr "Política del sistema"
 
@@ -9758,16 +9832,16 @@ msgstr "Texto para el botón de envío del formulario de correo electrónico."
 #: assets/js/bots.js:1438
 msgid "Text shown on hover. Leave blank for default."
 msgstr ""
-"Texto mostrado al pasar el ratón. Dejar en blanco para usar el "
+"Texto mostrado al pasar el ratón. Deja en blanco para usar el valor "
 "predeterminado."
 
-#: axiachat-ai.php:2039 assets/js/tools.js:148
+#: axiachat-ai.php:2044 assets/js/tools.js:148
 msgid "Text to say"
 msgstr "Texto a decir"
 
 #: includes/add-ons/leads/admin-ajax.php:697
 #: includes/add-ons/leads/admin-settings.php:732
-#: assets/js/aichat-frontend.js:1690
+#: assets/js/aichat-frontend.js:1738
 msgid "Thank you! Your information has been saved."
 msgstr "¡Gracias! Tu información ha sido guardada."
 
@@ -9854,7 +9928,7 @@ msgstr ""
 "asistencia humana, los agentes pueden continuar la conversación sin "
 "problemas."
 
-#: includes/class-aichat-ajax.php:1583
+#: includes/class-aichat-ajax.php:1595
 msgid "The operation was completed successfully."
 msgstr "La operación se completó con éxito."
 
@@ -9917,6 +9991,13 @@ msgid ""
 msgstr ""
 "El usuario ha subido una imagen. Analiza la imagen y responde a la pregunta."
 
+#: includes/settings/tab-usage.php:90
+msgid ""
+"The WhatsApp option requires WhatsApp CTA to be enabled in the bot settings."
+msgstr ""
+"La opción de WhatsApp requiere que WhatsApp CTA esté habilitado en la "
+"configuración del bot."
+
 #: axiachat-ai.php:450
 msgid ""
 "The ZipArchive PHP extension is required but not available on this server."
@@ -9953,7 +10034,7 @@ msgstr ""
 "Estos nombres de herramientas se generan a partir del slug de la lista. "
 "Referéncialos en las instrucciones de tu bot."
 
-#: axiachat-ai.php:2714 assets/js/aichat-frontend.js:1738
+#: axiachat-ai.php:2694 assets/js/aichat-frontend.js:1786
 #: assets/js/bots.js:1601
 msgid "Thinking"
 msgstr "Pensando"
@@ -10063,7 +10144,7 @@ msgstr "Jueves"
 msgid "Time"
 msgstr "Hora"
 
-#: includes/usage.php:69
+#: includes/usage.php:115
 msgid "Timeseries (Last 30 days)"
 msgstr "Serie temporal (últimos 30 días)"
 
@@ -10180,11 +10261,11 @@ msgstr "Tokens:"
 msgid "tokens:"
 msgstr "tokens:"
 
-#: axiachat-ai.php:2653
+#: axiachat-ai.php:2633
 msgid "Too many links."
 msgstr "Demasiados enlaces."
 
-#: axiachat-ai.php:2616
+#: axiachat-ai.php:2596
 msgid "Too many requests. Try later."
 msgstr "Demasiadas solicitudes. Intenta más tarde."
 
@@ -10194,8 +10275,8 @@ msgstr "Demasiadas solicitudes. Intenta más tarde."
 msgid "Tool"
 msgstr "Herramienta"
 
-#: includes/providers/class-gemini-provider.php:1507
-#: assets/js/aichat-frontend.js:1272
+#: includes/providers/class-gemini-provider.php:1508
+#: assets/js/aichat-frontend.js:1300
 msgid "tool"
 msgstr "herramienta"
 
@@ -10217,7 +10298,7 @@ msgstr ""
 "La tabla de llamadas a la herramienta aún no existe. Los registros "
 "aparecerán después de la primera ejecución de la herramienta."
 
-#: assets/js/aichat-frontend.js:1302
+#: assets/js/aichat-frontend.js:1330
 msgid "Tool continuation failed."
 msgstr "Fallo en la continuación de la herramienta."
 
@@ -10243,21 +10324,21 @@ msgstr "Registros de herramientas"
 
 #: assets/js/bots.js:1436
 msgid "Tooltip text"
-msgstr "Texto de la sugerencia"
+msgstr "Texto de la tooltip"
 
-#: includes/usage.php:73
+#: includes/usage.php:119
 msgid "Top Models (30d)"
 msgstr "Modelos principales (30d)"
 
 #: assets/js/bots.js:456
 msgid "Top-left"
-msgstr "Arriba izquierda"
+msgstr "Arriba a la izquierda"
 
 #: assets/js/bots.js:456
 msgid "Top-right"
-msgstr "Arriba derecha"
+msgstr "Arriba a la derecha"
 
-#: includes/add-ons/leads/admin-settings.php:206
+#: includes/add-ons/leads/admin-settings.php:206 includes/usage.php:105
 msgid "Total"
 msgstr "Total"
 
@@ -10269,9 +10350,14 @@ msgstr "total en cola"
 msgid "Total items:"
 msgstr "Total de elementos:"
 
-#: includes/usage.php:199 assets/js/usage.js:46
+#: includes/usage.php:83 includes/usage.php:99 includes/usage.php:245
+#: assets/js/usage.js:46
 msgid "Total Tokens"
 msgstr "Tokens totales"
+
+#: includes/settings/tab-usage.php:53 includes/settings/tab-usage.php:70
+msgid "Total tokens (input + output). 0 = Unlimited"
+msgstr "Total de tokens (entrada + salida). 0 = Ilimitado"
 
 #: assets/js/training-context.js:775
 msgid "total:"
@@ -10293,18 +10379,18 @@ msgstr ""
 
 #: assets/js/easy-config.js:356
 msgid "Train Your Chatbot"
-msgstr "Entrena tu chatbot"
+msgstr "Entrena tu Chatbot"
 
-#: axiachat-ai.php:1710 axiachat-ai.php:1711 assets/js/easy-config.js:127
+#: axiachat-ai.php:1715 axiachat-ai.php:1716 assets/js/easy-config.js:127
 #: assets/js/easy-config.js:772
 msgid "Training"
 msgstr "Entrenamiento"
 
-#: axiachat-ai.php:1773
+#: axiachat-ai.php:1778
 msgid "Training – Context"
 msgstr "Entrenamiento – Contexto"
 
-#: axiachat-ai.php:1765
+#: axiachat-ai.php:1770
 msgid "Training – Instructions"
 msgstr "Entrenamiento – Instrucciones"
 
@@ -10364,13 +10450,13 @@ msgstr "Escribe una pregunta…"
 
 #: assets/js/training-context.js:202 assets/js/training-context.js:233
 msgid "Type to search..."
-msgstr "Escribe para buscar…"
+msgstr "Escribe para buscar..."
 
 #: includes/add-ons/livechat__premium_only/admin-dashboard.php:365
 msgid "Type your message..."
 msgstr "Escribe tu mensaje..."
 
-#: axiachat-ai.php:2250 includes/add-ons/appointments/admin-ajax.php:19
+#: axiachat-ai.php:2255 includes/add-ons/appointments/admin-ajax.php:19
 #: includes/add-ons/appointments/admin-ajax.php:132
 #: includes/add-ons/appointments/admin-ajax.php:152
 #: includes/add-ons/appointments/admin-ajax.php:175
@@ -10396,7 +10482,7 @@ msgstr "No disponible"
 msgid "Underlying Tools"
 msgstr "Herramientas subyacentes"
 
-#: axiachat-ai.php:2077 axiachat-ai.php:2107
+#: axiachat-ai.php:2082 axiachat-ai.php:2112
 msgid "Unexpected error performing search."
 msgstr "Error inesperado al realizar la búsqueda."
 
@@ -10416,7 +10502,7 @@ msgstr "Directrices universales"
 msgid "Unknown"
 msgstr "Desconocido"
 
-#: assets/js/aichat-frontend.js:1236 assets/js/aichat-frontend.js:1342
+#: assets/js/aichat-frontend.js:1264 assets/js/aichat-frontend.js:1370
 #: assets/js/training-context.js:532
 msgid "unknown"
 msgstr "desconocido"
@@ -10431,11 +10517,11 @@ msgstr "Error de API desconocido"
 msgid "Unknown error"
 msgstr "Error desconocido"
 
-#: includes/class-aichat-ajax.php:859
+#: includes/class-aichat-ajax.php:871
 msgid "Unknown error occurred."
 msgstr "Ocurrió un error desconocido."
 
-#: assets/js/aichat-frontend.js:1221
+#: assets/js/aichat-frontend.js:1226
 msgid "Unknown error."
 msgstr "Error desconocido."
 
@@ -10481,7 +10567,7 @@ msgid "Update this server with an HTTP/HTTPS endpoint to continue using it."
 msgstr ""
 "Actualiza este servidor con un endpoint HTTP/HTTPS para seguir usándolo."
 
-#: axiachat-ai.php:2100 includes/contexto-pdf-template.php:202
+#: axiachat-ai.php:2105 includes/contexto-pdf-template.php:202
 #: includes/contexto-settings.php:330
 msgid "Updated"
 msgstr "Actualizado"
@@ -10490,9 +10576,9 @@ msgstr "Actualizado"
 msgid "Updated:"
 msgstr "Actualizado:"
 
-#: includes/usage.php:80
-msgid "Updated: January 15, 2026"
-msgstr "Actualizado: 15 de enero de 2026"
+#: includes/usage.php:126
+msgid "Updated: April 13, 2026"
+msgstr "Actualizado: 13 de abril de 2026"
 
 #: includes/add-ons/custom-webhooks__premium_only/admin-tab.php:66
 msgid "Upgrade"
@@ -10514,7 +10600,7 @@ msgstr "Error de carga"
 msgid "Upload error."
 msgstr "Error de carga."
 
-#: assets/js/aichat-frontend.js:877 assets/js/aichat-frontend.js:884
+#: assets/js/aichat-frontend.js:882 assets/js/aichat-frontend.js:889
 msgid "Upload failed."
 msgstr "Error al cargar."
 
@@ -10537,7 +10623,7 @@ msgstr "Plugin de carga"
 
 #: assets/js/easy-config.js:497
 msgid "Upload TXT or PDF documents"
-msgstr "Sube documentos TXT o PDF"
+msgstr "Subir documentos TXT o PDF"
 
 #: assets/js/contexto-pdf.js:230
 msgid "Uploaded"
@@ -10547,7 +10633,7 @@ msgstr "Subido"
 #: assets/js/contexto-pdf.js:165
 #, js-format
 msgid "Uploaded & chunked: %1$s → %2$d chunks"
-msgstr "Subido y dividido en partes: %1$s → %2$d partes"
+msgstr "Subido y dividido: %1$s → %2$d fragmentos"
 
 #: includes/contexto-functions.php:1190
 msgid "Uploaded document"
@@ -10602,7 +10688,7 @@ msgstr "URLs"
 msgid "URLs detected"
 msgstr "URLs detectados"
 
-#: includes/settings.php:488
+#: includes/settings.php:519
 msgid "Usage & Moderation"
 msgstr "Uso y Moderación"
 
@@ -10644,7 +10730,7 @@ msgstr ""
 
 #: assets/js/easy-config.js:508
 msgid "Use AI Vision for complex PDFs"
-msgstr "Usar IA Visión para PDFs complejos"
+msgstr "Usar AI Vision para PDFs complejos"
 
 #: includes/add-ons/appointments/adapters/class-adapter-ssa.php:541
 #: includes/add-ons/appointments/admin-settings.php:781
@@ -10733,7 +10819,7 @@ msgstr ""
 msgid "User"
 msgstr "Usuario"
 
-#: axiachat-ai.php:2018 assets/js/tools.js:9
+#: axiachat-ai.php:2023 assets/js/tools.js:9
 msgid "User asks about"
 msgstr "El usuario pregunta sobre"
 
@@ -10760,15 +10846,15 @@ msgid "User selects time → Bot collects name and email"
 msgstr ""
 "El usuario selecciona horario → El bot recopila nombre y correo electrónico"
 
-#: axiachat-ai.php:2019 assets/js/tools.js:10
+#: axiachat-ai.php:2024 assets/js/tools.js:10
 msgid "User sentiment is"
 msgstr "El sentimiento del usuario es"
 
-#: axiachat-ai.php:2017 assets/js/tools.js:8
+#: axiachat-ai.php:2022 assets/js/tools.js:8
 msgid "User talks about"
 msgstr "El usuario habla de"
 
-#: axiachat-ai.php:2016 assets/js/tools.js:7
+#: axiachat-ai.php:2021 assets/js/tools.js:7
 msgid "User wants"
 msgstr "El usuario quiere"
 
@@ -10788,7 +10874,7 @@ msgstr "Usando la integración"
 msgid "Valid email address is required"
 msgstr "Se requiere una dirección de correo electrónico válida"
 
-#: axiachat-ai.php:2038 assets/js/tools.js:111
+#: axiachat-ai.php:2043 assets/js/tools.js:111
 msgid "value"
 msgstr "valor"
 
@@ -10798,7 +10884,7 @@ msgstr "Valores"
 
 #: assets/js/bots.js:844
 msgid "Verbosity"
-msgstr "Verbosidad"
+msgstr "Verbosity"
 
 #: includes/add-ons/livechat__premium_only/admin-dashboard.php:1288
 msgid "Verify \"Enable Slack\" is checked in Settings"
@@ -10878,7 +10964,7 @@ msgstr "Ver en GitHub"
 msgid "Visit Andromeda Connect installation guide?"
 msgstr "¿Visitar la guía de instalación de Andromeda Connect?"
 
-#: includes/settings/tab-addons.php:132
+#: includes/settings/tab-addons.php:130
 msgid ""
 "Visit the installation guide for Andromeda Connect (WhatsApp & Telegram)?"
 msgstr ""
@@ -10918,7 +11004,7 @@ msgstr "Voz y Texto"
 
 #: assets/js/easy-config.js:253
 msgid "Voice Tone"
-msgstr "Tono de voz"
+msgstr "Tono de Voz"
 
 #: includes/add-ons/livechat__premium_only/admin-dashboard.php:204
 msgid "Waiting"
@@ -11042,15 +11128,15 @@ msgstr "Semana"
 #: assets/js/appointments-admin.js:617
 #, js-format
 msgid "Week of %1$s %2$s, %3$s"
-msgstr "Semana del %1$s %2$s, %3$s"
+msgstr "Semana de %1$s %2$s, %3$s"
 
-#: axiachat-ai.php:2534 includes/settings.php:217 includes/shortcode.php:256
+#: axiachat-ai.php:2514 includes/settings.php:218 includes/shortcode.php:272
 msgid "Welcome to Our Chat!"
 msgstr "¡Bienvenido a nuestro chat!"
 
 #: assets/js/easy-config.js:176
 msgid "Welcome! Let's configure your AI Chatbot"
-msgstr "¡Bienvenido! Configura tu chatbot de IA"
+msgstr "¡Bienvenido! Vamos a configurar tu Chatbot de IA"
 
 #: includes/training-context.php:576
 msgid "What to include when indexing"
@@ -11076,9 +11162,13 @@ msgstr "Configuración de WhatsApp"
 msgid "WhatsApp phone number"
 msgstr "Número de teléfono de WhatsApp"
 
-#: axiachat-ai.php:2009 assets/js/tools.js:69
+#: axiachat-ai.php:2014 assets/js/tools.js:69
 msgid "WHEN"
 msgstr "CUANDO"
+
+#: includes/settings/tab-usage.php:84
+msgid "When budget limit is reached"
+msgstr "Cuando se alcance el límite de presupuesto"
 
 #: includes/add-ons/appointments/admin-settings.php:944
 msgid ""
@@ -11176,21 +11266,20 @@ msgid ""
 "When listing multiple products or options, format them clearly using bullet "
 "points or numbered lists."
 msgstr ""
-"Al listar varios productos u opciones, formatearlos claramente usando "
-"viñetas o listas numeradas."
+"Al listar varios productos u opciones, fórmate claramente usando viñetas o "
+"listas numeradas."
 
 #: assets/js/bots.js:789
 msgid "When OFF the chat history is cleared on page refresh."
-msgstr ""
-"Cuando está APAGADO, el historial de chat se borra al actualizar la página."
+msgstr "Cuando OFF, el historial del chat se borra al actualizar la página."
 
 #: assets/js/training-instructions.js:239
 msgid ""
 "When referencing a product or article, always include the direct link if "
 "available in the CONTEXT."
 msgstr ""
-"Al referenciar un producto o artículo, siempre incluye el enlace directo si "
-"está disponible en el CONTEXTO."
+"Al hacer referencia a un producto o artículo, siempre incluye el enlace "
+"directo si está disponible en el CONTEXTO."
 
 #: includes/contexto-functions.php:1205
 msgid ""
@@ -11209,8 +11298,8 @@ msgid ""
 "vision to analyze pages. Cost: ~$0.01-0.03 per page. Only used as fallback."
 msgstr ""
 "Cuando la extracción de texto estándar falla (PDF escaneados, diseños "
-"complejos), usa IA visión para analizar las páginas. Costo: ~$0.01-0.03 por "
-"página. Solo se usa como respaldo."
+"complejos), usa visión AI para analizar las páginas. Costo: ~$0.01-0.03 por "
+"página. Solo como respaldo."
 
 #. translators: 1: list name, 2: show_form tool name
 #: includes/add-ons/leads/admin-settings.php:648
@@ -11237,7 +11326,7 @@ msgstr ""
 "cuando editas contenido existente, el bot aprende los cambios "
 "automáticamente."
 
-#: includes/settings/tab-addons.php:179
+#: includes/settings/tab-addons.php:177
 msgid "Widget Footer"
 msgstr "Pie del widget"
 
@@ -11285,11 +11374,11 @@ msgstr "Configuración de WPForms"
 
 #: assets/js/training-instructions.js:271
 msgid "Write your own custom guideline..."
-msgstr "Escribe tu propia directriz personalizada…"
+msgstr "Escribe tu propia directriz personalizada..."
 
 #: assets/js/aichat-frontend.js:85
 msgid "Write your question..."
-msgstr "Escribe tu pregunta…"
+msgstr "Escribe tu pregunta..."
 
 #. translators: %s: chatbot type name
 #: includes/easy-config-data.php:225
@@ -11472,7 +11561,7 @@ msgid "You do not have sufficient permissions to access this page."
 msgstr "No tienes permisos suficientes para acceder a esta página."
 
 #: includes/add-ons/mcp__premium_only/admin-settings.php:19
-#: includes/settings.php:437
+#: includes/settings.php:468
 msgid "You do not have sufficient permissions."
 msgstr "No tienes permisos suficientes."
 
@@ -11518,12 +11607,12 @@ msgstr ""
 #: assets/js/easy-config.js:634
 #, js-format
 msgid "Your %s API key is already set up and encrypted."
-msgstr "Tu clave API de %s ya está configurada y encriptada."
+msgstr "Tu clave API %s ya está configurada y encriptada."
 
 #: assets/js/easy-config.js:733
 msgid "Your AI Chatbot is now set up and ready to help your visitors!"
 msgstr ""
-"¡Tu chatbot de IA ya está configurado y listo para ayudar a tus visitantes!"
+"¡Tu Chatbot de IA ya está configurado y listo para ayudar a tus visitantes!"
 
 #: assets/js/easy-config.js:649
 msgid "Your API key is encrypted and stored securely."
@@ -11663,7 +11752,7 @@ msgid "✓ Indexed"
 msgstr "✓ Indexado"
 
 #. translators: %s: Absolute path to the missing test file.
-#: axiachat-ai.php:2698
+#: axiachat-ai.php:2678
 #, php-format
 msgid "❌ Test file not found: %s"
 msgstr "❌ Archivo de prueba no encontrado: %s"
@@ -11675,6 +11764,6 @@ msgstr "❌ Archivo de prueba no encontrado: %s"
 msgid "📅 %1$s - %2$s"
 msgstr "📅 %1$s - %2$s"
 
-#: axiachat-ai.php:1721
+#: axiachat-ai.php:1726
 msgid "🚀 Setup Wizard"
 msgstr "Asistente de configuración"

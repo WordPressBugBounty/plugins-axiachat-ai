@@ -4,7 +4,7 @@ Tags: ai chatbot, chatgpt, woocommerce, customer support, google gemini
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 4.1.5
+Stable tag: 4.1.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -318,6 +318,11 @@ Gemini 2.0 Flash / Flash-Lite
 
 
 == Changelog ==
+= 4.1.6 =
+* Added: OpenAI GPT-5.5 model (`gpt-5.5`) with API pricing metadata ($5 input / $30 output per 1M tokens), 1M context window, and 128K max output.
+* Added: Anthropic Claude Opus 4.7 model (`claude-opus-4-7`) with API pricing metadata ($5 input / $25 output per 1M tokens), 1M context window, and 128K max output.
+
+
 = 4.1.5 =
 * shortcode add maximized
 
