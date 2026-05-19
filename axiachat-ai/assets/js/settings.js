@@ -236,6 +236,246 @@
     });
   }
 
+  function initDiagnostics() {
+    var runBtn = document.getElementById('aichat-diagnostics-run');
+    var copyBtn = document.getElementById('aichat-diagnostics-copy');
+    var botSelect = document.getElementById('aichat-diagnostics-bot');
+    var statusEl = document.getElementById('aichat-diagnostics-status');
+    var summaryEl = document.getElementById('aichat-diagnostics-summary');
+    var wrapEl = document.getElementById('aichat-diagnostics-results-wrap');
+    var tbody = document.getElementById('aichat-diagnostics-results');
+    var rawEl = document.getElementById('aichat-diagnostics-raw');
+
+    if (!runBtn || !tbody || !window.aichatSettingsData || !window.aichatSettingsData.ajaxUrl) {
+      return;
+    }
+
+    var steps = [
+      { id: 'environment', title: __('Environment', 'axiachat-ai'), about: __('Checking PHP, WordPress, cURL and HTTP runtime.', 'axiachat-ai') },
+      { id: 'config', title: __('Bot configuration', 'axiachat-ai'), about: __('Resolving the selected bot, provider, model and API key presence.', 'axiachat-ai') },
+      { id: 'http_probe', title: __('Provider API probe', 'axiachat-ai'), about: __('Calling the provider API endpoint with the configured credentials.', 'axiachat-ai') },
+      { id: 'embedding', title: __('Embedding request', 'axiachat-ai'), about: __('Generating one small diagnostic embedding using the plugin embedding path.', 'axiachat-ai') },
+      { id: 'context', title: __('Context retrieval', 'axiachat-ai'), about: __('Testing RAG context lookup for the selected bot.', 'axiachat-ai') },
+      { id: 'chat_1', title: __('Chat turn 1', 'axiachat-ai'), about: __('Sending the first short chat request to the configured model.', 'axiachat-ai') },
+      { id: 'chat_2', title: __('Chat turn 2', 'axiachat-ai'), about: __('Continuing the diagnostic conversation with a second turn.', 'axiachat-ai') },
+      { id: 'chat_3', title: __('Chat turn 3', 'axiachat-ai'), about: __('Completing the diagnostic conversation with a third turn.', 'axiachat-ai') },
+      { id: 'tool', title: __('Tool execution', 'axiachat-ai'), about: __('Registering and asking the model to run a safe diagnostic tool.', 'axiachat-ai') },
+      { id: 'timeout', title: __('Timeout timing', 'axiachat-ai'), about: __('Measuring DNS/TCP/TLS timing (best effort) and total request timing to the provider host.', 'axiachat-ai') }
+    ];
+
+    var rowMap = {};
+    var lastReport = [];
+
+    function statusBadge(status) {
+      var badge = document.createElement('span');
+      badge.className = 'badge';
+      if (status === 'pass') {
+        badge.classList.add('bg-success');
+        badge.textContent = __('Pass', 'axiachat-ai');
+      } else if (status === 'warn') {
+        badge.classList.add('bg-warning', 'text-dark');
+        badge.textContent = __('Warning', 'axiachat-ai');
+      } else if (status === 'fail') {
+        badge.classList.add('bg-danger');
+        badge.textContent = __('Fail', 'axiachat-ai');
+      } else if (status === 'running') {
+        badge.classList.add('bg-primary');
+        badge.textContent = __('Running', 'axiachat-ai');
+      } else {
+        badge.classList.add('bg-secondary');
+        badge.textContent = __('Pending', 'axiachat-ai');
+      }
+      return badge;
+    }
+
+    function stringifyValue(value) {
+      if (value === null || typeof value === 'undefined') {
+        return '';
+      }
+      if (Array.isArray(value) || typeof value === 'object') {
+        try {
+          return JSON.stringify(value);
+        } catch (err) {
+          return String(value);
+        }
+      }
+      return String(value);
+    }
+
+    function formatDetails(message, details) {
+      var parts = [];
+      if (message) {
+        parts.push(message);
+      }
+      if (details && typeof details === 'object') {
+        Object.keys(details).forEach(function(key) {
+          var value = stringifyValue(details[key]);
+          if (value.length > 500) {
+            value = value.slice(0, 500) + '...';
+          }
+          parts.push(key + ': ' + value);
+        });
+      }
+      return parts.join('\n');
+    }
+
+    function ensureRow(step) {
+      if (rowMap[step.id]) {
+        return rowMap[step.id];
+      }
+      var tr = document.createElement('tr');
+      var titleTd = document.createElement('td');
+      var statusTd = document.createElement('td');
+      var timeTd = document.createElement('td');
+      var detailTd = document.createElement('td');
+      titleTd.textContent = step.title;
+      detailTd.className = 'font-monospace small';
+      detailTd.style.whiteSpace = 'pre-wrap';
+      tr.appendChild(titleTd);
+      tr.appendChild(statusTd);
+      tr.appendChild(timeTd);
+      tr.appendChild(detailTd);
+      tbody.appendChild(tr);
+      rowMap[step.id] = { tr: tr, statusTd: statusTd, timeTd: timeTd, detailTd: detailTd };
+      return rowMap[step.id];
+    }
+
+    function updateRow(step, status, message, details, elapsedMs) {
+      var row = ensureRow(step);
+      row.statusTd.innerHTML = '';
+      row.statusTd.appendChild(statusBadge(status));
+      row.timeTd.textContent = typeof elapsedMs === 'number' ? elapsedMs + ' ms' : '';
+      row.detailTd.textContent = formatDetails(message, details);
+    }
+
+    function setSummary(status, text) {
+      if (!summaryEl) return;
+      summaryEl.className = 'alert mt-3 mb-0';
+      if (status === 'running') {
+        summaryEl.classList.add('alert-info');
+      } else if (status === 'fail') {
+        summaryEl.classList.add('alert-danger');
+      } else if (status === 'warn') {
+        summaryEl.classList.add('alert-warning');
+      } else {
+        summaryEl.classList.add('alert-success');
+      }
+      summaryEl.textContent = text;
+      summaryEl.classList.remove('d-none');
+    }
+
+    function runStep(step, state) {
+      updateRow(step, 'running', step.about, {}, null);
+      if (statusEl) {
+        statusEl.textContent = step.about;
+      }
+
+      var formData = new FormData();
+      formData.append('action', 'aichat_run_diagnostic_step');
+      formData.append('nonce', window.aichatSettingsData.nonce || '');
+      formData.append('step', step.id);
+      formData.append('bot_slug', botSelect ? (botSelect.value || '') : '');
+      formData.append('state', JSON.stringify(state || {}));
+
+      var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      var timeoutId = controller ? window.setTimeout(function() { controller.abort(); }, 90000) : null;
+
+      return fetch(window.aichatSettingsData.ajaxUrl, {
+        method: 'POST',
+        credentials: 'same-origin',
+        body: formData,
+        signal: controller ? controller.signal : undefined
+      })
+        .then(function(response) { return response.json(); })
+        .then(function(payload) {
+          if (!payload || !payload.success) {
+            var msg = payload && payload.data && payload.data.message ? payload.data.message : __('Diagnostic step failed.', 'axiachat-ai');
+            return { step: step.id, status: 'fail', message: msg, details: {}, state: state || {}, elapsed_ms: null };
+          }
+          return payload.data;
+        })
+        .catch(function(error) {
+          return {
+            step: step.id,
+            status: 'fail',
+            message: error && error.name === 'AbortError' ? __('Diagnostic step timed out in the browser.', 'axiachat-ai') : __('Could not reach the diagnostic endpoint.', 'axiachat-ai'),
+            details: {},
+            state: state || {},
+            elapsed_ms: null
+          };
+        })
+        .finally(function() {
+          if (timeoutId) {
+            window.clearTimeout(timeoutId);
+          }
+        });
+    }
+
+    runBtn.addEventListener('click', function() {
+      var state = {};
+      var results = [];
+      rowMap = {};
+      lastReport = [];
+      tbody.innerHTML = '';
+      if (wrapEl) wrapEl.classList.remove('d-none');
+      if (rawEl) {
+        rawEl.classList.add('d-none');
+        rawEl.value = '';
+      }
+      if (copyBtn) copyBtn.disabled = true;
+      runBtn.disabled = true;
+      runBtn.classList.add('disabled');
+      setSummary('running', __('Running diagnostics...', 'axiachat-ai'));
+
+      steps.reduce(function(chain, step) {
+        return chain.then(function() {
+          return runStep(step, state).then(function(result) {
+            var status = result.status || 'fail';
+            updateRow(step, status, result.message || '', result.details || {}, typeof result.elapsed_ms === 'number' ? result.elapsed_ms : null);
+            state = result.state || state || {};
+            results.push(result);
+          });
+        });
+      }, Promise.resolve()).then(function() {
+        var passCount = results.filter(function(item) { return item.status === 'pass'; }).length;
+        var warnCount = results.filter(function(item) { return item.status === 'warn'; }).length;
+        var failCount = results.filter(function(item) { return item.status === 'fail'; }).length;
+        var summaryStatus = failCount ? 'fail' : (warnCount ? 'warn' : 'pass');
+        var summaryText = __('Diagnostics completed.', 'axiachat-ai') + ' ' + passCount + ' ' + __('passed', 'axiachat-ai') + ', ' + warnCount + ' ' + __('warnings', 'axiachat-ai') + ', ' + failCount + ' ' + __('failed', 'axiachat-ai') + '.';
+        setSummary(summaryStatus, summaryText);
+        if (statusEl) statusEl.textContent = summaryText;
+        lastReport = results;
+        if (rawEl) {
+          rawEl.value = JSON.stringify({ generated_at: new Date().toISOString(), bot_slug: botSelect ? botSelect.value : '', results: results }, null, 2);
+          rawEl.classList.remove('d-none');
+        }
+        if (copyBtn) copyBtn.disabled = false;
+      }).finally(function() {
+        runBtn.disabled = false;
+        runBtn.classList.remove('disabled');
+      });
+    });
+
+    if (copyBtn) {
+      copyBtn.addEventListener('click', function() {
+        if (!rawEl || !rawEl.value) return;
+        var text = rawEl.value;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function() {
+            if (statusEl) statusEl.textContent = __('Report copied.', 'axiachat-ai');
+          }).catch(function() {
+            rawEl.focus();
+            rawEl.select();
+          });
+        } else {
+          rawEl.focus();
+          rawEl.select();
+        }
+        lastReport = lastReport || [];
+      });
+    }
+  }
+
   function initEmailAlerts() {
     // Toggle visibility of email fields when checkbox changes
     var enableCb = document.getElementById('aichat_email_alerts_enabled');
@@ -325,6 +565,7 @@
     initConnectToggle();
     initLogViewers();
     initClearLogButtons();
+    initDiagnostics();
     initEmailAlerts();
     initFreeKeyHowto(settingsWrap);
   });

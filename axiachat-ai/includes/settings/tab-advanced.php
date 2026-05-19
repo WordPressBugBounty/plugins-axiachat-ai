@@ -205,6 +205,73 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         </div>
 
         <div class="col-12">
+            <div class="card card100 shadow-sm h-100 mt-4" id="aichat-diagnostics-card">
+                <div class="card-header bg-light d-flex align-items-center">
+                    <i class="bi bi-activity me-2"></i><strong><?php echo esc_html__( 'Test / Diagnostics', 'axiachat-ai' ); ?></strong>
+                </div>
+                <div class="card-body">
+                    <p class="form-text mb-3">
+                        <i class="bi bi-router me-1"></i>
+                        <?php echo esc_html__( 'Run live checks against the selected bot configuration: environment, provider reachability, embeddings, context retrieval, three chat turns, tool execution and timeout timings. API keys are never displayed.', 'axiachat-ai' ); ?>
+                    </p>
+                    <div class="row g-3 align-items-end">
+                        <div class="col-12 col-md-5">
+                            <label for="aichat-diagnostics-bot" class="form-label fw-semibold">
+                                <?php echo esc_html__( 'Bot to diagnose', 'axiachat-ai' ); ?>
+                            </label>
+                            <select id="aichat-diagnostics-bot" class="form-select" <?php disabled( empty( $bots ) ); ?>>
+                                <?php if ( empty( $bots ) ) : ?>
+                                    <option value=""><?php echo esc_html__( 'No bots found', 'axiachat-ai' ); ?></option>
+                                <?php else : ?>
+                                    <?php
+                                    $aichat_diagnostics_default_slug = ! empty( $global_slug ) ? (string) $global_slug : (string) ( $bots[0]['slug'] ?? '' );
+                                    foreach ( $bots as $aichat_diagnostics_bot ) :
+                                        $aichat_diagnostics_slug = (string) ( $aichat_diagnostics_bot['slug'] ?? '' );
+                                        $aichat_diagnostics_name = (string) ( $aichat_diagnostics_bot['name'] ?? $aichat_diagnostics_slug );
+                                        ?>
+                                        <option value="<?php echo esc_attr( $aichat_diagnostics_slug ); ?>" <?php selected( $aichat_diagnostics_slug, $aichat_diagnostics_default_slug ); ?>>
+                                            <?php echo esc_html( $aichat_diagnostics_name . ' (' . $aichat_diagnostics_slug . ')' ); ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-7">
+                            <div class="d-flex flex-wrap gap-2 align-items-center">
+                                <button type="button" class="btn btn-sm btn-outline-primary" id="aichat-diagnostics-run" <?php disabled( empty( $bots ) ); ?>>
+                                    <i class="bi bi-play-circle me-1"></i>
+                                    <?php echo esc_html__( 'Run diagnostics', 'axiachat-ai' ); ?>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary" id="aichat-diagnostics-copy" disabled>
+                                    <i class="bi bi-clipboard me-1"></i>
+                                    <?php echo esc_html__( 'Copy report', 'axiachat-ai' ); ?>
+                                </button>
+                                <span class="small text-muted" id="aichat-diagnostics-status"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert d-none mt-3 mb-0" id="aichat-diagnostics-summary" role="status"></div>
+
+                    <div class="table-responsive mt-3 d-none" id="aichat-diagnostics-results-wrap">
+                        <table class="table table-sm align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col"><?php echo esc_html__( 'Test', 'axiachat-ai' ); ?></th>
+                                    <th scope="col"><?php echo esc_html__( 'Status', 'axiachat-ai' ); ?></th>
+                                    <th scope="col"><?php echo esc_html__( 'Time', 'axiachat-ai' ); ?></th>
+                                    <th scope="col"><?php echo esc_html__( 'Result', 'axiachat-ai' ); ?></th>
+                                </tr>
+                            </thead>
+                            <tbody id="aichat-diagnostics-results"></tbody>
+                        </table>
+                    </div>
+                    <textarea id="aichat-diagnostics-raw" class="form-control font-monospace d-none mt-3" rows="8" readonly></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
             <div class="card card100 shadow-sm h-100 mt-4">
                 <div class="card-header bg-light d-flex align-items-center">
                     <i class="bi bi-three-dots me-2"></i><strong><?php echo esc_html__( 'Others', 'axiachat-ai' ); ?></strong>

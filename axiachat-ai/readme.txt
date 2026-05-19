@@ -4,7 +4,7 @@ Tags: ai chatbot, chatgpt, woocommerce, customer support, google gemini
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 4.1.7
+Stable tag: 4.1.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -318,6 +318,10 @@ Gemini 2.0 Flash / Flash-Lite
 
 
 == Changelog ==
+= 4.1.8 =
+* Added: Advanced Settings diagnostic card with live sequential checks (environment, provider probe, embeddings, context retrieval, 3-turn chat, tool execution and timeout timings).
+* Added: Admin AJAX diagnostic runner that uses the selected bot/provider/model configuration and returns a copyable JSON report.
+
 = 4.1.7 =
 * Updated libraries: `smalot/pdfparser` from 2.12.4 to 2.12.5 and `symfony/polyfill-mbstring` from 1.33.0 to 1.37.0.
 
