@@ -56,7 +56,7 @@ function aichat_get_model_registry() {
             'provider'       => 'openai',
             'label'          => 'GPT-5.5',
             'tags'           => [ 'new', 'advanced' ],
-            'ctx'            => 1000000,
+            'ctx'            => 1050000,
             'max_out'        => 131072,
             'rec_out'        => 65536,
             'thinking'       => true,
@@ -68,17 +68,49 @@ function aichat_get_model_registry() {
             'fallback_order' => null,
         ],
 
+        // GPT-5.5 Pro (Apr 2026) — highest quality tier for very hard tasks.
+        'gpt-5.5-pro' => [
+            'provider'       => 'openai',
+            'label'          => 'GPT-5.5 Pro',
+            'tags'           => [ 'advanced' ],
+            'ctx'            => 1050000,
+            'max_out'        => 131072,
+            'rec_out'        => 65536,
+            'thinking'       => true,
+            'multimodal'     => true,
+            'pricing'        => [ 'input' => 30.00, 'output' => 180.00 ],
+            'aliases'        => [],
+            'deprecated'     => [],
+            'is_default'     => false,
+            'fallback_order' => null,
+        ],
+
         // GPT-5.4 family (Apr 2026)
         'gpt-5.4' => [
             'provider'       => 'openai',
             'label'          => 'GPT-5.4',
             'tags'           => [],
-            'ctx'            => 1000000,
+            'ctx'            => 1050000,
             'max_out'        => 131072,
             'rec_out'        => 65536,
             'thinking'       => true,
             'multimodal'     => true,
             'pricing'        => [ 'input' => 2.50, 'output' => 15.00 ],
+            'aliases'        => [],
+            'deprecated'     => [],
+            'is_default'     => false,
+            'fallback_order' => null,
+        ],
+        'gpt-5.4-pro' => [
+            'provider'       => 'openai',
+            'label'          => 'GPT-5.4 Pro',
+            'tags'           => [ 'advanced' ],
+            'ctx'            => 1050000,
+            'max_out'        => 131072,
+            'rec_out'        => 65536,
+            'thinking'       => true,
+            'multimodal'     => true,
+            'pricing'        => [ 'input' => 30.00, 'output' => 180.00 ],
             'aliases'        => [],
             'deprecated'     => [],
             'is_default'     => false,
@@ -109,6 +141,23 @@ function aichat_get_model_registry() {
             'thinking'       => true,
             'multimodal'     => true,
             'pricing'        => [ 'input' => 0.20, 'output' => 1.25 ],
+            'aliases'        => [],
+            'deprecated'     => [],
+            'is_default'     => false,
+            'fallback_order' => null,
+        ],
+
+        // ChatGPT alias model (rolling)
+        'chat-latest' => [
+            'provider'       => 'openai',
+            'label'          => 'ChatGPT Latest (chat-latest)',
+            'tags'           => [ 'new' ],
+            'ctx'            => 400000,
+            'max_out'        => 131072,
+            'rec_out'        => 65536,
+            'thinking'       => false,
+            'multimodal'     => true,
+            'pricing'        => [ 'input' => 5.00, 'output' => 30.00 ],
             'aliases'        => [],
             'deprecated'     => [],
             'is_default'     => false,
@@ -328,11 +377,28 @@ function aichat_get_model_registry() {
          *  ANTHROPIC (Claude)
          * ============================================================== */
 
-        // Claude Opus 4.7 (Apr 2026) — most capable, step-change in agentic coding.
+        // Claude Opus 4.8 (May 2026) — most capable model for complex reasoning and agentic coding.
+        'claude-opus-4-8' => [
+            'provider'       => 'anthropic',
+            'label'          => 'Claude Opus 4.8',
+            'tags'           => [ 'new', 'advanced' ],
+            'ctx'            => 1000000,
+            'max_out'        => 128000,
+            'rec_out'        => 100000,
+            'thinking'       => true,
+            'multimodal'     => true,
+            'pricing'        => [ 'input' => 5.00, 'output' => 25.00 ],
+            'aliases'        => [],
+            'deprecated'     => [],
+            'is_default'     => false,
+            'fallback_order' => null,
+        ],
+
+        // Claude Opus 4.7 (Apr 2026)
         'claude-opus-4-7' => [
             'provider'       => 'anthropic',
             'label'          => 'Claude Opus 4.7',
-            'tags'           => [ 'new', 'advanced' ],
+            'tags'           => [],
             'ctx'            => 1000000,
             'max_out'        => 128000,
             'rec_out'        => 100000,
@@ -364,7 +430,7 @@ function aichat_get_model_registry() {
         'claude-sonnet-4-6' => [
             'provider'       => 'anthropic',
             'label'          => 'Claude Sonnet 4.6',
-            'tags'           => [ 'new', 'recommended' ],
+            'tags'           => [ 'recommended' ],
             'ctx'            => 1000000,
             'max_out'        => 64000,
             'rec_out'        => 50000,
@@ -413,7 +479,7 @@ function aichat_get_model_registry() {
             'aliases'        => [ 'claude-haiku-4-5' ],
             'deprecated'     => [],
             'is_default'     => false,
-            'fallback_order' => 2,
+            'fallback_order' => 3,
         ],
         'claude-opus-4-5-20251101' => [
             'provider'       => 'anthropic',
@@ -435,11 +501,11 @@ function aichat_get_model_registry() {
             'fallback_order' => null,
         ],
 
-        // Claude 4 / 4.1 (2025)
+        // Claude 4 / 4.1 (deprecated and active snapshots)
         'claude-sonnet-4-20250514' => [
             'provider'       => 'anthropic',
             'label'          => 'Claude Sonnet 4',
-            'tags'           => [],
+            'tags'           => [ 'legacy' ],
             'ctx'            => 200000,
             'max_out'        => 64000,
             'rec_out'        => 25000,
@@ -469,7 +535,7 @@ function aichat_get_model_registry() {
         'claude-opus-4-20250514' => [
             'provider'       => 'anthropic',
             'label'          => 'Claude Opus 4',
-            'tags'           => [],
+            'tags'           => [ 'legacy' ],
             'ctx'            => 200000,
             'max_out'        => 32000,
             'rec_out'        => 25000,
@@ -511,7 +577,7 @@ function aichat_get_model_registry() {
             'aliases'        => [ 'claude-3-5-haiku', 'claude-3-5-haiku-latest' ],
             'deprecated'     => [],
             'is_default'     => false,
-            'fallback_order' => 3,
+            'fallback_order' => null,
         ],
         'claude-3-haiku-20240307' => [
             'provider'       => 'anthropic',
@@ -526,18 +592,35 @@ function aichat_get_model_registry() {
             'aliases'        => [ 'claude-3-haiku' ],
             'deprecated'     => [],
             'is_default'     => false,
-            'fallback_order' => 4,
+            'fallback_order' => null,
         ],
 
         /* ==============================================================
          *  GEMINI
          * ============================================================== */
 
-        // Gemini 3.1 (preview, Apr 2026)
+        // Gemini 3.x (current lineup, May 2026)
+        'gemini-3.5-flash' => [
+            'provider'       => 'gemini',
+            'label'          => 'Gemini 3.5 Flash',
+            'tags'           => [ 'new', 'recommended' ],
+            'ctx'            => 1048576,
+            'max_out'        => 65536,
+            'rec_out'        => 50000,
+            'thinking'       => true,
+            'multimodal'     => true,
+            'pricing'        => [ 'input' => 1.50, 'output' => 9.00 ],
+            'aliases'        => [],
+            'deprecated'     => [],
+            'is_default'     => false,
+            'fallback_order' => 2,
+        ],
+
+        // Gemini 3.1 Pro (preview)
         'gemini-3.1-pro-preview' => [
             'provider'       => 'gemini',
             'label'          => 'Gemini 3.1 Pro Preview',
-            'tags'           => [ 'new', 'recommended', 'advanced' ],
+            'tags'           => [ 'advanced' ],
             'ctx'            => 1048576,
             'max_out'        => 65536,
             'rec_out'        => 50000,
@@ -549,10 +632,44 @@ function aichat_get_model_registry() {
             'is_default'     => false,
             'fallback_order' => null,
         ],
+
+        // Gemini 3.1 Flash-Lite (stable)
+        'gemini-3.1-flash-lite' => [
+            'provider'       => 'gemini',
+            'label'          => 'Gemini 3.1 Flash-Lite',
+            'tags'           => [ 'recommended', 'fastest', 'efficient' ],
+            'ctx'            => 1048576,
+            'max_out'        => 65536,
+            'rec_out'        => 50000,
+            'thinking'       => true,
+            'multimodal'     => true,
+            'pricing'        => [ 'input' => 0.25, 'output' => 1.50 ],
+            'aliases'        => [],
+            'deprecated'     => [],
+            'is_default'     => true,
+            'fallback_order' => 1,
+        ],
+
+        // Gemini 3.x legacy/deprecated previews
+        'gemini-3-flash-preview' => [
+            'provider'       => 'gemini',
+            'label'          => 'Gemini 3 Flash Preview',
+            'tags'           => [ 'legacy' ],
+            'ctx'            => 1048576,
+            'max_out'        => 65536,
+            'rec_out'        => 50000,
+            'thinking'       => true,
+            'multimodal'     => true,
+            'pricing'        => [ 'input' => 0.50, 'output' => 3.00 ],
+            'aliases'        => [],
+            'deprecated'     => [],
+            'is_default'     => false,
+            'fallback_order' => null,
+        ],
         'gemini-3.1-flash-lite-preview' => [
             'provider'       => 'gemini',
             'label'          => 'Gemini 3.1 Flash-Lite Preview',
-            'tags'           => [ 'new', 'efficient' ],
+            'tags'           => [ 'legacy' ],
             'ctx'            => 1048576,
             'max_out'        => 65536,
             'rec_out'        => 50000,
@@ -564,8 +681,6 @@ function aichat_get_model_registry() {
             'is_default'     => false,
             'fallback_order' => null,
         ],
-
-        // Gemini 3 (preview)
         'gemini-3-pro-preview' => [
             'provider'       => 'gemini',
             'label'          => 'Gemini 3 Pro Preview (Shut down)',
@@ -576,21 +691,6 @@ function aichat_get_model_registry() {
             'thinking'       => true,
             'multimodal'     => true,
             'pricing'        => [ 'input' => 0.50, 'output' => 2.00 ],
-            'aliases'        => [],
-            'deprecated'     => [ 'gemini-3.1-pro-preview' ],
-            'is_default'     => false,
-            'fallback_order' => null,
-        ],
-        'gemini-3-flash-preview' => [
-            'provider'       => 'gemini',
-            'label'          => 'Gemini 3 Flash Preview',
-            'tags'           => [],
-            'ctx'            => 1048576,
-            'max_out'        => 65536,
-            'rec_out'        => 50000,
-            'thinking'       => true,
-            'multimodal'     => true,
-            'pricing'        => [ 'input' => 0.50, 'output' => 3.00 ],
             'aliases'        => [],
             'deprecated'     => [],
             'is_default'     => false,
@@ -616,7 +716,7 @@ function aichat_get_model_registry() {
         'gemini-2.5-flash' => [
             'provider'       => 'gemini',
             'label'          => 'Gemini 2.5 Flash (Balanced)',
-            'tags'           => [ 'recommended' ],
+            'tags'           => [],
             'ctx'            => 1048576,
             'max_out'        => 65536,
             'rec_out'        => 50000,
@@ -625,8 +725,8 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 0.30, 'output' => 2.50 ],
             'aliases'        => [],
             'deprecated'     => [],
-            'is_default'     => true,
-            'fallback_order' => 1,
+            'is_default'     => false,
+            'fallback_order' => 3,
         ],
         'gemini-2.5-flash-lite' => [
             'provider'       => 'gemini',
@@ -641,7 +741,7 @@ function aichat_get_model_registry() {
             'aliases'        => [],
             'deprecated'     => [],
             'is_default'     => false,
-            'fallback_order' => null,
+            'fallback_order' => 4,
         ],
 
         // Gemini 2.0 (legacy – deprecated Jun 2026)
@@ -658,7 +758,7 @@ function aichat_get_model_registry() {
             'aliases'        => [],
             'deprecated'     => [],
             'is_default'     => false,
-            'fallback_order' => 2,
+            'fallback_order' => 5,
         ],
         'gemini-2.0-flash-lite' => [
             'provider'       => 'gemini',
@@ -673,7 +773,7 @@ function aichat_get_model_registry() {
             'aliases'        => [],
             'deprecated'     => [],
             'is_default'     => false,
-            'fallback_order' => 3,
+            'fallback_order' => 6,
         ],
     ];
 
@@ -815,11 +915,11 @@ function aichat_get_default_model( $provider = null ) {
     }
     // Hard fallbacks in case filter removed defaults
     $fallbacks = [
-        'openai'    => 'gpt-5.3-chat-latest',
+        'openai'    => 'gpt-5.4-mini',
         'anthropic' => 'claude-sonnet-4-6',
-        'gemini'    => 'gemini-2.5-flash',
+        'gemini'    => 'gemini-3.1-flash-lite',
     ];
-    return $fallbacks[ $provider ] ?? 'gpt-5.3-chat-latest';
+    return $fallbacks[ $provider ] ?? 'gpt-5.4-mini';
 }
 
 /**

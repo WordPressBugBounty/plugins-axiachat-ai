@@ -4,7 +4,7 @@ Tags: ai chatbot, chatgpt, woocommerce, customer support, google gemini
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 4.1.8
+Stable tag: 4.1.9
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -164,9 +164,9 @@ You stay in control while your chatbot works for you.
 
 Your chatbot can connect to:
 
-🟢 **OpenAI** — GPT-5.4, GPT-5.4 Mini, GPT-5.3, GPT-5, GPT-4.1 and all current models
-🟢 **Anthropic Claude** — Opus 4.6, Sonnet 4.5, Haiku 4.5 and more
-🟢 **Google Gemini** — 3.1 Pro, 3 Flash, 2.5 Flash, 2.5 Pro (free tier available)
+🟢 **OpenAI** — GPT-5.5, GPT-5.5 Pro, GPT-5.4, GPT-5.4 Mini (default fast/cheap), ChatGPT `chat-latest` and all current models
+🟢 **Anthropic Claude** — Sonnet 4.6 (recommended), Haiku 4.5 (fast), Opus 4.8 (premium) and more
+🟢 **Google Gemini** — 3.1 Flash-Lite (default fast/cheap), 3.5 Flash, 3.1 Pro, 3 Flash and more (free tier available)
 
 You choose the AI engine for your chatbot.  
 You control how your chatbot behaves.  
@@ -230,9 +230,13 @@ Install the best AI chatbot for WordPress today — your own ChatGPT working exc
 = Supported AI Models =
 
 **OpenAI (GPT)**
+GPT-5.5  
+GPT-5.5 Pro  
 GPT-5.4  
+GPT-5.4 Pro  
 GPT-5.4 Mini  
 GPT-5.4 Nano  
+ChatGPT chat-latest  
 GPT-5.3 Instant  
 GPT-5.2 Instant  
 GPT-5.2 Thinking  
@@ -245,22 +249,24 @@ GPT-4 Turbo
 GPT-3.5 Turbo  
 
 **Anthropic (Claude)**
-Claude Opus 4.6  
-Claude Sonnet 4.5  
-Claude Haiku 4.5  
-Claude Opus 4.5 / 4.1 / 4  
-Claude Sonnet 4  
-Claude Sonnet 3.7 / Haiku 3.5 / 3  
+Claude Sonnet 4.6 / 4.5 (recommended for chat)  
+Claude Haiku 4.5 (fast, lower cost)  
+Claude Opus 4.8 (premium)  
+Claude Opus 4.7 / 4.6  
+Claude Opus 4.5 / 4.1  
+Claude Sonnet 4 and Claude Opus 4 — legacy (deprecated, retirement scheduled Jun 2026)  
+Claude Sonnet 3.7 / Haiku 3.5 / 3 — legacy (retired)  
 
 **Google Gemini**
+Gemini 3.1 Flash-Lite (stable, default fast/cheap)  
+Gemini 3.5 Flash (stable, quality-focused)  
 Gemini 3.1 Pro Preview  
-Gemini 3.1 Flash-Lite Preview  
-Gemini 3 Flash Preview  
-Gemini 3 Pro Preview  
+Gemini 3 Flash Preview — legacy (deprecated, use 3.5 Flash)  
+Gemini 3.1 Flash-Lite Preview / Gemini 3 Pro Preview — legacy (shut down)  
 Gemini 2.5 Pro  
 Gemini 2.5 Flash  
 Gemini 2.5 Flash-Lite  
-Gemini 2.0 Flash / Flash-Lite  
+Gemini 2.0 Flash / Flash-Lite — legacy (deprecated, retirement Jun 2026)  
 
 = Automation & Integrations =
 
@@ -318,9 +324,22 @@ Gemini 2.0 Flash / Flash-Lite
 
 
 == Changelog ==
+= 4.1.9 =
+* Added: New OpenAI models for advanced usage — `gpt-5.5-pro`, `gpt-5.4-pro`, and ChatGPT rolling alias `chat-latest`.
+* Updated: Model lists refreshed with current Claude/Gemini lineup, including Claude Opus 4.8 and Gemini 3.1 Flash-Lite (stable).
+* Updated: Defaults optimized for chat speed/cost — OpenAI keeps `gpt-5.4-mini` and Gemini now defaults to `gemini-3.1-flash-lite`.
+* Improved: Internal provider flows now resolve default models from the central registry (avoids hardcoded fallback IDs).
+
 = 4.1.8 =
 * Added: Advanced Settings diagnostic card with live sequential checks (environment, provider probe, embeddings, context retrieval, 3-turn chat, tool execution and timeout timings).
 * Added: Admin AJAX diagnostic runner that uses the selected bot/provider/model configuration and returns a copyable JSON report.
+* Updated: Model registry refreshed with Claude Opus 4.8 and the current Gemini 3.x lineup (Gemini 3.5 Flash, 3.1 Pro, 3 Flash, 3.1 Flash-Lite).
+* Updated: Defaults tuned for fast/cheap chat usage — OpenAI keeps GPT-5.4 Mini as default, and Gemini default is now Gemini 3.1 Flash-Lite.
+* Updated: Claude default strategy remains Sonnet 4.6 (best speed/quality/cost for chat); Opus 4.8 stays as optional premium model.
+* Updated: OpenAI catalog synced with latest ChatGPT/API models — added GPT-5.5 Pro (`gpt-5.5-pro`), GPT-5.4 Pro (`gpt-5.4-pro`) and ChatGPT alias `chat-latest`.
+* Updated: New OpenAI entries now include full pricing metadata in the central registry ($30/$180 for GPT-5.5 Pro and GPT-5.4 Pro; $5/$30 for `chat-latest`).
+* Updated: Deprecated/shut-down models are now clearly marked as legacy in model lists (Claude 4 snapshots and older Gemini 3/2.0 variants).
+* Fixed: Auxiliary defaults and vision routes no longer rely on retired model IDs.
 
 = 4.1.7 =
 * Updated libraries: `smalot/pdfparser` from 2.12.4 to 2.12.5 and `symfony/polyfill-mbstring` from 1.33.0 to 1.37.0.

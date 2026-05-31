@@ -342,7 +342,7 @@ function aichat_ai_vision_openai( $base64_image, $prompt, $api_key ) {
  * Gemini Vision API call.
  */
 function aichat_ai_vision_gemini( $base64_image, $prompt, $api_key ) {
-    $endpoint = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' . rawurlencode( $api_key );
+    $endpoint = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=' . rawurlencode( $api_key );
 
     $response = wp_remote_post( $endpoint, [
         'headers' => [ 'Content-Type' => 'application/json' ],
@@ -388,7 +388,7 @@ function aichat_ai_vision_claude( $base64_image, $prompt, $api_key ) {
             'Content-Type'      => 'application/json',
         ],
         'body'    => wp_json_encode( [
-            'model'      => 'claude-sonnet-4-20250514',
+            'model'      => 'claude-sonnet-4-6',
             'max_tokens' => 4096,
             'messages'   => [
                 [

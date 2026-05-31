@@ -9,7 +9,7 @@
  * - Messages format: contents[] with parts[] instead of content string
  * - System prompt: systemInstruction separate field (not a message)
  * - Config: generationConfig object (not root-level params)
- * - Thinking mode: REQUIRED for pro models (2.5-pro, 3-pro), optional for flash/flash-lite (disabled by default)
+ * - Thinking mode: REQUIRED for pro models (2.5-pro, 3.1-pro), optional for flash/flash-lite (disabled by default)
  * - Streaming: Separate endpoint :streamGenerateContent
  * - Multi-tool support: Can combine native tools (googleSearch, codeExecution) with functionDeclarations
  * - Web search: Native googleSearch tool (injected via aichat_gemini_tools filter when web_search macro enabled)
@@ -47,7 +47,7 @@ class AIChat_Gemini_Provider implements AIChat_Provider_Interface {
      * Default model
      * @var string
      */
-    private $default_model = 'gemini-2.5-flash';
+    private $default_model = 'gemini-3.1-flash-lite';
     
     /**
      * Configuration array

@@ -1042,7 +1042,8 @@ if ( ! class_exists( 'AIChat_Ajax' ) ) {
             }
             
             $provider = ! empty( $bot['provider'] ) ? sanitize_key($bot['provider']) : 'openai';
-            $model = ! empty( $bot['model'] ) ? sanitize_text_field($bot['model']) : 'gpt-4o-mini';
+            $default_provider = ( $provider === 'anthropic' ) ? 'claude' : $provider;
+            $model = ! empty( $bot['model'] ) ? sanitize_text_field($bot['model']) : aichat_get_default_model( $default_provider );
             
             // Obtener API keys (igual que en process_message)
             $openai_key = aichat_get_setting( 'aichat_openai_api_key' );
@@ -1310,7 +1311,7 @@ if ( ! class_exists( 'AIChat_Ajax' ) ) {
                 aichat_log_debug("[AIChat AJAX][$uid] process_tool_continuation: legacy path rejected provider={$provider} (only OpenAI supported in legacy)");
                 wp_send_json_error( [ 'message' => 'Continuation only supported for OpenAI Responses.' ], 400 );
             }
-            $model = ! empty( $bot['model'] ) ? sanitize_text_field($bot['model']) : 'gpt-4o-mini';
+            $model = ! empty( $bot['model'] ) ? sanitize_text_field($bot['model']) : aichat_get_default_model( 'openai' );
             if ( ! $this->is_openai_responses_model($model) ) {
                 wp_send_json_error( [ 'message' => 'Model is not a Responses (gpt-5*) model.' ], 400 );
             }
@@ -1888,7 +1889,8 @@ if ( ! class_exists( 'AIChat_Ajax' ) ) {
                 'messages'   => $claude_msgs,
             ];
             if ($system_text !== '') $payload['system'] = $system_text;
-            if ($temperature !== null && $temperature !== '') $payload['temperature'] = (float)$temperature;
+            $is_opus_47_plus = (strpos($model, 'claude-opus-4-7') === 0) || (strpos($model, 'claude-opus-4-8') === 0);
+            if (!$is_opus_47_plus && $temperature !== null && $temperature !== '') $payload['temperature'] = (float)$temperature;
 
             $json_payload = wp_json_encode($payload);
 
@@ -2029,7 +2031,7 @@ if ( ! class_exists( 'AIChat_Ajax' ) ) {
             // Normalización básica (mantener sincronizada con process_message)
             $provider     = ! empty( $bot['provider'] ) ? sanitize_key( $bot['provider'] ) : 'openai';
             if ($provider === 'anthropic') $provider = 'claude';
-            $model        = ! empty( $bot['model'] ) ? sanitize_text_field( $bot['model'] ) : ( $provider === 'claude' ? 'claude-3-haiku-20240307' : 'gpt-4o-mini' );
+            $model        = ! empty( $bot['model'] ) ? sanitize_text_field( $bot['model'] ) : aichat_get_default_model( $provider );
             if ($provider === 'claude') { $model = $this->normalize_claude_model($model); }
             $instructions = isset( $bot['instructions'] ) ? wp_kses_post( $bot['instructions'] ) : '';
             $temperature  = isset( $bot['temperature'] ) ? floatval( $bot['temperature'] ) : 0.7;

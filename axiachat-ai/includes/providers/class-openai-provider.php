@@ -1010,10 +1010,10 @@ class AIChat_OpenAI_Provider implements AIChat_Provider_Interface {
     }
     
     /**
-     * Detectar si el modelo es GPT-5 o GPT-5.x (Responses API)
-     * 
-     * Incluye: gpt-5, gpt-5-mini, gpt-5-nano, gpt-5.2, gpt-5.2-chat-latest, gpt-5.3-chat-latest, gpt-5.2-codex-max, etc.
-     * 
+     * Detectar si el modelo es GPT-5 o GPT-5.x (Responses API).
+     *
+     * Incluye variantes como gpt-5.5, gpt-5.5-pro, gpt-5.4-mini, gpt-5.2-chat-latest, etc.
+     *
      * @param string $model Nombre del modelo
      * @return bool True si es GPT-5 o GPT-5.x
      */
@@ -1022,17 +1022,45 @@ class AIChat_OpenAI_Provider implements AIChat_Provider_Interface {
     }
     
     /**
-     * Calcular coste de la llamada en microcents
-     * 
-     * Precios basados en documentación oficial de OpenAI (Nov 2025)
-     * https://openai.com/pricing
-     * 
+     * Calcular coste de la llamada en microcents.
+     *
+     * Toma pricing del registro central (includes/model-registry.php) para evitar
+     * desalineaciones al añadir nuevos modelos. Si un modelo antiguo no existe en
+     * el registro, usa una tabla legacy de respaldo.
+     *
      * @param array $usage Array con tokens: ['prompt_tokens', 'completion_tokens', 'total_tokens']
      * @param string $model ID del modelo usado
      * @return int|null Coste en microcents (1 cent = 10,000 micros), null si modelo desconocido
      */
     public function calculate_cost( $usage, $model ) {
-        // Tabla de precios (USD per 1K tokens)
+        $prompt_tokens     = (int) ( $usage['prompt_tokens'] ?? 0 );
+        $completion_tokens = (int) ( $usage['completion_tokens'] ?? 0 );
+
+        // 1) Primary source: central registry pricing (USD per 1M tokens)
+        $registry_pricing = function_exists( 'aichat_get_model_pricing' )
+            ? aichat_get_model_pricing( $model, 'openai' )
+            : null;
+
+        if ( is_array( $registry_pricing ) && isset( $registry_pricing['input'], $registry_pricing['output'] ) ) {
+            $cost_usd = ( $prompt_tokens / 1000000 * (float) $registry_pricing['input'] ) +
+                        ( $completion_tokens / 1000000 * (float) $registry_pricing['output'] );
+
+            $cost_microcents = (int) round( $cost_usd * 100 * 10000 );
+
+            if ( defined('AICHAT_DEBUG') && AICHAT_DEBUG ) {
+                aichat_log_debug( '[OpenAI Provider] Cost calculated from model registry', [
+                    'model' => $model,
+                    'prompt_tokens' => $prompt_tokens,
+                    'completion_tokens' => $completion_tokens,
+                    'cost_usd' => $cost_usd,
+                    'cost_microcents' => $cost_microcents
+                ], true );
+            }
+
+            return $cost_microcents;
+        }
+
+        // 2) Legacy fallback table (USD per 1M tokens)
         $pricing = [
             // GPT-5.3 (Mar 2026) - Latest generation
             'gpt-5.3-chat-latest' => [
@@ -1168,12 +1196,10 @@ class AIChat_OpenAI_Provider implements AIChat_Provider_Interface {
         }
         
         $rates = $pricing[ $model ];
-        $prompt_tokens = $usage['prompt_tokens'] ?? 0;
-        $completion_tokens = $usage['completion_tokens'] ?? 0;
         
-        // Calcular coste en USD
-        $cost_usd = ( $prompt_tokens / 1000 * $rates['prompt'] ) + 
-                    ( $completion_tokens / 1000 * $rates['completion'] );
+        // Calcular coste en USD (rates are per 1M tokens)
+        $cost_usd = ( $prompt_tokens / 1000000 * $rates['prompt'] ) +
+                ( $completion_tokens / 1000000 * $rates['completion'] );
         
         // Convertir a microcents
         // 1 USD = 100 cents = 1,000,000 microcents

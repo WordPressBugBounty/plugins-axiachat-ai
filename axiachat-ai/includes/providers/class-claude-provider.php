@@ -362,7 +362,8 @@ class AIChat_Claude_Provider implements AIChat_Provider_Interface {
             'messages'   => $claude_msgs,
         ];
         if ( $system_text !== '' ) $payload['system'] = $system_text;
-        if ( $temperature !== null && $temperature !== '' ) $payload['temperature'] = (float)$temperature;
+        $is_opus_47_plus = ( strpos( $model, 'claude-opus-4-7' ) === 0 ) || ( strpos( $model, 'claude-opus-4-8' ) === 0 );
+        if ( ! $is_opus_47_plus && $temperature !== null && $temperature !== '' ) $payload['temperature'] = (float)$temperature;
 
         $json_payload = wp_json_encode($payload);
 
@@ -921,7 +922,8 @@ class AIChat_Claude_Provider implements AIChat_Provider_Interface {
             $payload['system'] = $system_text;
         }
         
-        if ( $temperature !== null && $temperature !== '' ) {
+        $is_opus_47_plus = ( strpos( $model, 'claude-opus-4-7' ) === 0 ) || ( strpos( $model, 'claude-opus-4-8' ) === 0 );
+        if ( ! $is_opus_47_plus && $temperature !== null && $temperature !== '' ) {
             $payload['temperature'] = (float)$temperature;
         }
         
