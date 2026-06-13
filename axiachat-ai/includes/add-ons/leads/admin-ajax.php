@@ -560,6 +560,7 @@ function aichat_lead_form_ajax_submit() {
     if ( !check_ajax_referer( 'aichat_ajax', 'nonce', false ) ) {
         wp_send_json_error( [
             'message' => __( 'Security check failed.', 'axiachat-ai' ),
+            'code'    => 'invalid_nonce',
         ], 403 );
     }
     $list_slug = ( isset( $_POST['list_slug'] ) ? sanitize_key( $_POST['list_slug'] ) : '' );

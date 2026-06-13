@@ -644,13 +644,43 @@ if ( !function_exists( 'aichat_sanitize_cost_limit_behavior' ) ) {
         'aichat_footer_enabled',
         'aichat_footer_html'
     ];
-    foreach ( $cache_options as $opt ) {
-        add_action( "updated_option_{$opt}", function () {
-            if ( function_exists( 'aichat_purge_page_cache' ) ) {
-                aichat_purge_page_cache();
-            }
-        } );
-    }
+    $maybe_purge = function ( $option_name ) use($cache_options) {
+        static $did_purge = false;
+        if ( $did_purge ) {
+            return;
+        }
+        if ( !in_array( (string) $option_name, $cache_options, true ) ) {
+            return;
+        }
+        if ( function_exists( 'aichat_purge_page_cache' ) ) {
+            $did_purge = true;
+            aichat_purge_page_cache();
+        }
+    };
+    add_action(
+        'updated_option',
+        function ( $option_name, $old_value, $value ) use($maybe_purge) {
+            $maybe_purge( $option_name );
+        },
+        10,
+        3
+    );
+    add_action(
+        'added_option',
+        function ( $option_name, $value ) use($maybe_purge) {
+            $maybe_purge( $option_name );
+        },
+        10,
+        2
+    );
+    add_action(
+        'deleted_option',
+        function ( $option_name ) use($maybe_purge) {
+            $maybe_purge( $option_name );
+        },
+        10,
+        1
+    );
 })();
 // Email alerts sanitizers
 if ( !function_exists( 'aichat_sanitize_email_alerts_content' ) ) {

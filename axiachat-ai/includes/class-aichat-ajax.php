@@ -37,6 +37,20 @@ if ( ! class_exists( 'AIChat_Ajax' ) ) {
             add_action( 'wp_ajax_nopriv_aichat_process_message', [ $this, 'process_message' ] );
             add_action( 'wp_ajax_aichat_get_history', [ $this, 'get_history' ] );
             add_action( 'wp_ajax_nopriv_aichat_get_history', [ $this, 'get_history' ] );
+            add_action( 'wp_ajax_aichat_refresh_nonce', [ $this, 'refresh_nonce' ] );
+            add_action( 'wp_ajax_nopriv_aichat_refresh_nonce', [ $this, 'refresh_nonce' ] );
+        }
+
+        /**
+         * Returns a fresh chat nonce for frontend auto-recovery flows.
+         */
+        public function refresh_nonce() {
+            nocache_headers();
+            wp_send_json_success(
+                [
+                    'nonce' => wp_create_nonce( 'aichat_ajax' ),
+                ]
+            );
         }
 
         public function process_message() {
@@ -50,7 +64,13 @@ if ( ! class_exists( 'AIChat_Ajax' ) ) {
             $nonce = isset($_POST['nonce']) ? sanitize_text_field( wp_unslash($_POST['nonce']) ) : '';
             if ( empty($nonce) || ! wp_verify_nonce( $nonce, 'aichat_ajax' ) ) {
                 aichat_log_debug("[AIChat AJAX][$uid] nonce invalid");
-                wp_send_json_error( [ 'message' => __( 'Invalid nonce.', 'axiachat-ai' ) ], 403 );
+                wp_send_json_error(
+                    [
+                        'message' => __( 'Invalid nonce.', 'axiachat-ai' ),
+                        'code'    => 'invalid_nonce',
+                    ],
+                    403
+                );
             }
 
             // Extract optional request UUID once (nonce already verified).
@@ -1889,8 +1909,11 @@ if ( ! class_exists( 'AIChat_Ajax' ) ) {
                 'messages'   => $claude_msgs,
             ];
             if ($system_text !== '') $payload['system'] = $system_text;
-            $is_opus_47_plus = (strpos($model, 'claude-opus-4-7') === 0) || (strpos($model, 'claude-opus-4-8') === 0);
-            if (!$is_opus_47_plus && $temperature !== null && $temperature !== '') $payload['temperature'] = (float)$temperature;
+            $is_fixed_sampling = (strpos($model, 'claude-opus-4-7') === 0)
+                || (strpos($model, 'claude-opus-4-8') === 0)
+                || (strpos($model, 'claude-fable-5') === 0)
+                || (strpos($model, 'claude-mythos-5') === 0);
+            if (!$is_fixed_sampling && $temperature !== null && $temperature !== '') $payload['temperature'] = (float)$temperature;
 
             $json_payload = wp_json_encode($payload);
 
@@ -2308,7 +2331,13 @@ if ( ! class_exists( 'AIChat_Ajax' ) ) {
         public function get_history() {
             $nonce = isset($_POST['nonce']) ? sanitize_text_field( wp_unslash($_POST['nonce']) ) : '';
             if ( empty($nonce) || ! wp_verify_nonce( $nonce, 'aichat_ajax' ) ) {
-                wp_send_json_error( [ 'message' => __( 'Nonce inválido.', 'axiachat-ai' ) ], 403 );
+                wp_send_json_error(
+                    [
+                        'message' => __( 'Nonce inválido.', 'axiachat-ai' ),
+                        'code'    => 'invalid_nonce',
+                    ],
+                    403
+                );
             }
             $session_raw = isset( $_POST['session_id'] ) ? sanitize_text_field( wp_unslash( $_POST['session_id'] ) ) : '';
             $session  = aichat_sanitize_session_id( $session_raw );

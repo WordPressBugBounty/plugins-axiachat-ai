@@ -377,6 +377,23 @@ function aichat_get_model_registry() {
          *  ANTHROPIC (Claude)
          * ============================================================== */
 
+        // Claude Fable 5 (Jun 2026) — flagship model (Anthropic may vary access over time).
+        'claude-fable-5' => [
+            'provider'       => 'anthropic',
+            'label'          => 'Claude Fable 5',
+            'tags'           => [ 'new', 'advanced' ],
+            'ctx'            => 1000000,
+            'max_out'        => 128000,
+            'rec_out'        => 100000,
+            'thinking'       => true,
+            'multimodal'     => true,
+            'pricing'        => [ 'input' => 10.00, 'output' => 50.00 ],
+            'aliases'        => [],
+            'deprecated'     => [],
+            'is_default'     => false,
+            'fallback_order' => null,
+        ],
+
         // Claude Opus 4.8 (May 2026) — most capable model for complex reasoning and agentic coding.
         'claude-opus-4-8' => [
             'provider'       => 'anthropic',
@@ -599,7 +616,7 @@ function aichat_get_model_registry() {
          *  GEMINI
          * ============================================================== */
 
-        // Gemini 3.x (current lineup, May 2026)
+        // Gemini 3.x (current lineup, Jun 2026 docs)
         'gemini-3.5-flash' => [
             'provider'       => 'gemini',
             'label'          => 'Gemini 3.5 Flash',
@@ -610,7 +627,7 @@ function aichat_get_model_registry() {
             'thinking'       => true,
             'multimodal'     => true,
             'pricing'        => [ 'input' => 1.50, 'output' => 9.00 ],
-            'aliases'        => [],
+            'aliases'        => [ 'gemini-flash-latest' ],
             'deprecated'     => [],
             'is_default'     => false,
             'fallback_order' => 2,
@@ -627,7 +644,7 @@ function aichat_get_model_registry() {
             'thinking'       => true,
             'multimodal'     => true,
             'pricing'        => [ 'input' => 2.00, 'output' => 12.00 ],
-            'aliases'        => [],
+            'aliases'        => [ 'gemini-3.1-pro-preview-customtools' ],
             'deprecated'     => [],
             'is_default'     => false,
             'fallback_order' => null,
@@ -668,7 +685,7 @@ function aichat_get_model_registry() {
         ],
         'gemini-3.1-flash-lite-preview' => [
             'provider'       => 'gemini',
-            'label'          => 'Gemini 3.1 Flash-Lite Preview',
+            'label'          => 'Gemini 3.1 Flash-Lite Preview (Shut down)',
             'tags'           => [ 'legacy' ],
             'ctx'            => 1048576,
             'max_out'        => 65536,
@@ -744,10 +761,10 @@ function aichat_get_model_registry() {
             'fallback_order' => 4,
         ],
 
-        // Gemini 2.0 (legacy – deprecated Jun 2026)
+        // Gemini 2.0 (legacy – shut down Jun 1, 2026)
         'gemini-2.0-flash' => [
             'provider'       => 'gemini',
-            'label'          => 'Gemini 2.0 Flash',
+            'label'          => 'Gemini 2.0 Flash (Shut down)',
             'tags'           => [ 'legacy' ],
             'ctx'            => 1048576,
             'max_out'        => 8192,
@@ -762,7 +779,7 @@ function aichat_get_model_registry() {
         ],
         'gemini-2.0-flash-lite' => [
             'provider'       => 'gemini',
-            'label'          => 'Gemini 2.0 Flash-Lite',
+            'label'          => 'Gemini 2.0 Flash-Lite (Shut down)',
             'tags'           => [ 'legacy' ],
             'ctx'            => 1048576,
             'max_out'        => 8192,

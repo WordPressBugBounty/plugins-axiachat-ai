@@ -362,8 +362,11 @@ class AIChat_Claude_Provider implements AIChat_Provider_Interface {
             'messages'   => $claude_msgs,
         ];
         if ( $system_text !== '' ) $payload['system'] = $system_text;
-        $is_opus_47_plus = ( strpos( $model, 'claude-opus-4-7' ) === 0 ) || ( strpos( $model, 'claude-opus-4-8' ) === 0 );
-        if ( ! $is_opus_47_plus && $temperature !== null && $temperature !== '' ) $payload['temperature'] = (float)$temperature;
+        $is_fixed_sampling = ( strpos( $model, 'claude-opus-4-7' ) === 0 )
+            || ( strpos( $model, 'claude-opus-4-8' ) === 0 )
+            || ( strpos( $model, 'claude-fable-5' ) === 0 )
+            || ( strpos( $model, 'claude-mythos-5' ) === 0 );
+        if ( ! $is_fixed_sampling && $temperature !== null && $temperature !== '' ) $payload['temperature'] = (float)$temperature;
 
         $json_payload = wp_json_encode($payload);
 
@@ -922,8 +925,11 @@ class AIChat_Claude_Provider implements AIChat_Provider_Interface {
             $payload['system'] = $system_text;
         }
         
-        $is_opus_47_plus = ( strpos( $model, 'claude-opus-4-7' ) === 0 ) || ( strpos( $model, 'claude-opus-4-8' ) === 0 );
-        if ( ! $is_opus_47_plus && $temperature !== null && $temperature !== '' ) {
+        $is_fixed_sampling = ( strpos( $model, 'claude-opus-4-7' ) === 0 )
+            || ( strpos( $model, 'claude-opus-4-8' ) === 0 )
+            || ( strpos( $model, 'claude-fable-5' ) === 0 )
+            || ( strpos( $model, 'claude-mythos-5' ) === 0 );
+        if ( ! $is_fixed_sampling && $temperature !== null && $temperature !== '' ) {
             $payload['temperature'] = (float)$temperature;
         }
         

@@ -856,13 +856,13 @@
           fd.append('bot_slug', botSlug);
           fd.append('file', file);
 
-          $.ajax({
+          ajaxWithNonceRecovery({
             url: AIChatVars.ajax_url,
             method: 'POST',
             data: fd,
             processData: false,
             contentType: false,
-          })
+          }, fd)
           .done(function(resp){
             if (resp && resp.success && resp.data && resp.data.file_id) {
               $root.data('aichatPendingFileId', resp.data.file_id);
@@ -1076,6 +1076,99 @@
 
     // ---------- helpers de envío y UI ----------
 
+    var nonceRefreshRequest = null;
+
+    function parseAjaxJsonError(jqXHR) {
+      if (!jqXHR) return null;
+      if (jqXHR.responseJSON && typeof jqXHR.responseJSON === 'object') return jqXHR.responseJSON;
+      if (!jqXHR.responseText || typeof jqXHR.responseText !== 'string') return null;
+      try { return JSON.parse(jqXHR.responseText); } catch(e) { return null; }
+    }
+
+    function isInvalidNonceError(jqXHR) {
+      if (!jqXHR || jqXHR.status !== 403) return false;
+      var parsed = parseAjaxJsonError(jqXHR);
+      var code = parsed && parsed.data && parsed.data.code ? String(parsed.data.code).toLowerCase() : '';
+      if (code === 'invalid_nonce') return true;
+      var msg = parsed && parsed.data && parsed.data.message ? String(parsed.data.message).toLowerCase() : '';
+      return msg.indexOf('nonce') !== -1 || msg.indexOf('security check failed') !== -1;
+    }
+
+    function setPayloadNonce(payload, nonce) {
+      if (!payload) return;
+      if (typeof FormData !== 'undefined' && payload instanceof FormData) {
+        if (typeof payload.set === 'function') {
+          payload.set('nonce', nonce);
+        } else {
+          try { payload.delete('nonce'); } catch(_) {}
+          payload.append('nonce', nonce);
+        }
+        return;
+      }
+      if (typeof payload === 'object') {
+        payload.nonce = nonce;
+      }
+    }
+
+    function refreshChatNonce() {
+      if (nonceRefreshRequest) return nonceRefreshRequest;
+
+      var dfd = $.Deferred();
+      $.ajax({
+        url: AIChatVars.ajax_url,
+        method: 'POST',
+        data: { action: 'aichat_refresh_nonce' },
+        cache: false
+      }).done(function(res){
+        var freshNonce = res && res.success && res.data && res.data.nonce ? String(res.data.nonce) : '';
+        if (!freshNonce) {
+          dfd.reject(null, 'invalid_response', 'missing_nonce');
+          return;
+        }
+        AIChatVars.nonce = freshNonce;
+        if (DEBUG) console.log('[AIChat] nonce refreshed');
+        dfd.resolve(freshNonce);
+      }).fail(function(jqXHR, textStatus, errorThrown){
+        dfd.reject(jqXHR, textStatus, errorThrown);
+      }).always(function(){
+        nonceRefreshRequest = null;
+      });
+
+      nonceRefreshRequest = dfd.promise();
+      return nonceRefreshRequest;
+    }
+
+    function ajaxWithNonceRecovery(ajaxOptions, payloadRef) {
+      var dfd = $.Deferred();
+      var retried = false;
+
+      function execute() {
+        $.ajax(ajaxOptions)
+          .done(function(response, textStatus, jqXHR){
+            dfd.resolve(response, textStatus, jqXHR);
+          })
+          .fail(function(jqXHR, textStatus, errorThrown){
+            if (!retried && isInvalidNonceError(jqXHR)) {
+              retried = true;
+              if (DEBUG) console.warn('[AIChat] invalid nonce detected, refreshing and retrying once');
+              refreshChatNonce()
+                .done(function(newNonce){
+                  setPayloadNonce(payloadRef, newNonce);
+                  execute();
+                })
+                .fail(function(){
+                  dfd.reject(jqXHR, textStatus, errorThrown);
+                });
+              return;
+            }
+            dfd.reject(jqXHR, textStatus, errorThrown);
+          });
+      }
+
+      execute();
+      return dfd.promise();
+    }
+
     function sendMessage($root, $messages, $input, $sendBtn, botSlug, opts, sessionId) {
         // Si ya está limitado, no permitir más envíos
         var limitedInfo = $root.data('aichatLimited');
@@ -1159,11 +1252,11 @@
 
       if (DEBUG) payload.debug = 1;
 
-      $.ajax({
+      ajaxWithNonceRecovery({
         url:    AIChatVars.ajax_url,
         method: 'POST',
         data:   payload
-      })
+      }, payload)
       .done(function(response){
         if (DEBUG && response && response.data && response.data.debug) {
           console.info('[AIChat][debug]', response.data.debug);
@@ -1313,11 +1406,11 @@
         aichat_request_uuid: pendingData.request_uuid || '',
         session_id: sessionId
       };
-      $.ajax({
+      ajaxWithNonceRecovery({
         url: AIChatVars.ajax_url,
         method: 'POST',
         data: contPayload
-      }).done(function(res){
+      }, contPayload).done(function(res){
         finished = true;
         clearTimeout(afterToolsTimer);
         
@@ -1727,11 +1820,11 @@
         var customSuccessMsg = formData.form_success_msg || '';
         var customSubmitTxt  = formData.form_submit_text || __('Send', 'axiachat-ai');
 
-        $.ajax({
+        ajaxWithNonceRecovery({
           url: AIChatVars.ajax_url,
           method: 'POST',
           data: payload
-        }).done(function(res) {
+        }, payload).done(function(res) {
           if (res && res.success) {
             // Replace form with success message (keep dark styling)
             $form.find('.aichat-lf-inner').fadeOut(200, function() {
@@ -1944,11 +2037,19 @@
     }
     // Carga historial del servidor y lo pinta
     function loadHistory($messages, botSlug, sessionId, welcomeText){
-      $.ajax({
+      var historyPayload = {
+        action: 'aichat_get_history',
+        nonce: AIChatVars.nonce,
+        bot_slug: botSlug,
+        session_id: sessionId,
+        limit: 50
+      };
+
+      ajaxWithNonceRecovery({
         url: AIChatVars.ajax_url,
         method: 'POST',
-        data: { action: 'aichat_get_history', nonce: AIChatVars.nonce, bot_slug: botSlug, session_id: sessionId, limit: 50 }
-      }).done(function(res){
+        data: historyPayload
+      }, historyPayload).done(function(res){
         if (!res || !res.success || !Array.isArray(res.data.items)) return;
         res.data.items.forEach(function(it){
           var $um = appendUser($messages, String(it.q||''));

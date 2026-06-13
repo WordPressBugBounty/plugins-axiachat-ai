@@ -1,10 +1,10 @@
 ﻿=== AxiaChat AI – Free AI Chatbot (Answers Customers Automatically) ===
 Contributors: estebandezafra
 Tags: ai chatbot, chatgpt, woocommerce, customer support, google gemini
-Requires at least: 5.0
+Requires at least: 5.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 4.1.9
+Stable tag: 4.1.10
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -165,7 +165,7 @@ You stay in control while your chatbot works for you.
 Your chatbot can connect to:
 
 🟢 **OpenAI** — GPT-5.5, GPT-5.5 Pro, GPT-5.4, GPT-5.4 Mini (default fast/cheap), ChatGPT `chat-latest` and all current models
-🟢 **Anthropic Claude** — Sonnet 4.6 (recommended), Haiku 4.5 (fast), Opus 4.8 (premium) and more
+🟢 **Anthropic Claude** — Sonnet 4.6 (recommended), Haiku 4.5 (fast), Opus 4.8 (premium), Fable 5 (flagship) and more
 🟢 **Google Gemini** — 3.1 Flash-Lite (default fast/cheap), 3.5 Flash, 3.1 Pro, 3 Flash and more (free tier available)
 
 You choose the AI engine for your chatbot.  
@@ -252,6 +252,7 @@ GPT-3.5 Turbo
 Claude Sonnet 4.6 / 4.5 (recommended for chat)  
 Claude Haiku 4.5 (fast, lower cost)  
 Claude Opus 4.8 (premium)  
+Claude Fable 5 (flagship reasoning model)  
 Claude Opus 4.7 / 4.6  
 Claude Opus 4.5 / 4.1  
 Claude Sonnet 4 and Claude Opus 4 — legacy (deprecated, retirement scheduled Jun 2026)  
@@ -266,7 +267,7 @@ Gemini 3.1 Flash-Lite Preview / Gemini 3 Pro Preview — legacy (shut down)
 Gemini 2.5 Pro  
 Gemini 2.5 Flash  
 Gemini 2.5 Flash-Lite  
-Gemini 2.0 Flash / Flash-Lite — legacy (deprecated, retirement Jun 2026)  
+Gemini 2.0 Flash / Flash-Lite — legacy (shut down Jun 2026)  
 
 = Automation & Integrations =
 
@@ -324,6 +325,13 @@ Gemini 2.0 Flash / Flash-Lite — legacy (deprecated, retirement Jun 2026)
 
 
 == Changelog ==
+= 4.1.10 =
+* Fixed: Automatic nonce recovery for frontend AJAX requests — when a cached/expired nonce triggers `403`, the widget fetches a fresh nonce and retries once.
+* Improved: Added machine-readable `invalid_nonce` codes across chat, history, upload, and lead-form AJAX handlers for reliable frontend recovery.
+* Improved: Cache purge hooks now cover updated/added/deleted widget-affecting options with a single-purge-per-request guard.
+* Added: Anthropic Claude Fable 5 (`claude-fable-5`) in the model registry with current pricing metadata ($10 input / $50 output per 1M tokens).
+* Updated: Gemini metadata refreshed against current API docs (including `gemini-flash-latest` and `gemini-3.1-pro-preview-customtools` aliases plus shut-down labels for retired Gemini 2.0/preview entries).
+
 = 4.1.9 =
 * Added: New OpenAI models for advanced usage — `gpt-5.5-pro`, `gpt-5.4-pro`, and ChatGPT rolling alias `chat-latest`.
 * Updated: Model lists refreshed with current Claude/Gemini lineup, including Claude Opus 4.8 and Gemini 3.1 Flash-Lite (stable).

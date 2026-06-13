@@ -76,7 +76,13 @@ function aichat_handle_file_upload() {
 			'nonce_empty' => empty( $nonce ),
 			'user_id'     => get_current_user_id(),
 		] );
-		wp_send_json_error( [ 'message' => __( 'Invalid nonce.', 'axiachat-ai' ) ], 403 );
+		wp_send_json_error(
+			[
+				'message' => __( 'Invalid nonce.', 'axiachat-ai' ),
+				'code'    => 'invalid_nonce',
+			],
+			403
+		);
 	}
 
 	// ── Honeypot ──

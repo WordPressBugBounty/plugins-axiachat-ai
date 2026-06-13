@@ -4,8 +4,8 @@
  * Plugin Name:       AxiaChat AI – Free AI Chatbot (Answers Customers Automatically)
  * Plugin URI:        https://axiachat.org
  * Description:       A customizable AI chatbot for WordPress with contextual embeddings, multi‑provider support and upcoming action rules.
- * Version:           4.1.9
- * Requires at least: 5.0
+ * Version:           4.1.10
+ * Requires at least: 5.9
  * Requires PHP:      7.4
  * Author:            estebandezafra
  * Author URI:        https://axiachat.org
@@ -19,7 +19,7 @@ if ( !defined( 'ABSPATH' ) ) {
     // Exit if accessed directly.
 }
 // Definir constantes del plugin
-define( 'AICHAT_VERSION', '4.1.9' );
+define( 'AICHAT_VERSION', '4.1.10' );
 define( 'AICHAT_PLUGIN_FILE', __FILE__ );
 define( 'AICHAT_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'AICHAT_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
