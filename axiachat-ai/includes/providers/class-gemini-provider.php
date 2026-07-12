@@ -47,7 +47,7 @@ class AIChat_Gemini_Provider implements AIChat_Provider_Interface {
      * Default model
      * @var string
      */
-    private $default_model = 'gemini-3.1-flash-lite';
+    private $default_model = 'gemini-3.5-flash';
     
     /**
      * Configuration array

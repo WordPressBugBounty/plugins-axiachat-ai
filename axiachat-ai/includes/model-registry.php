@@ -34,6 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *   pricing        array   { input: $/1M tokens, output: $/1M tokens }
  *   aliases        array   Short-hand / undated aliases that resolve to this id.
  *   deprecated     array   Previously-valid ids that should redirect here.
+ *   redirect_to     string|null Canonical replacement when this entry must no longer be used directly.
  *   is_default     bool    Whether this is the provider's recommended default.
  *   fallback_order int|null  Lower = tried first in fallback chains  (null = not in chain).
  *
@@ -50,6 +51,61 @@ function aichat_get_model_registry() {
         /* ==============================================================
          *  OPENAI
          * ============================================================== */
+
+        // GPT-5.6 (Jul 2026) — current frontier family. Luna is the cost-sensitive chatbot default.
+        'gpt-5.6-sol' => [
+            'provider'       => 'openai',
+            'label'          => 'GPT-5.6 Sol',
+            'tags'           => [ 'new', 'advanced' ],
+            'ctx'            => 1050000,
+            'max_out'        => 131072,
+            'rec_out'        => 65536,
+            'thinking'       => true,
+            'multimodal'     => true,
+            'pricing'        => [ 'input' => 5.00, 'output' => 30.00 ],
+            'aliases'        => [ 'gpt-5.6' ],
+            'deprecated'     => [],
+            'redirect_to'    => null,
+            'is_default'     => false,
+            'fallback_order' => null,
+        ],
+        'gpt-5.6-terra' => [
+            'provider'       => 'openai',
+            'label'          => 'GPT-5.6 Terra',
+            'tags'           => [ 'new', 'recommended' ],
+            'ctx'            => 1050000,
+            'max_out'        => 131072,
+            'rec_out'        => 65536,
+            'thinking'       => true,
+            'multimodal'     => true,
+            'pricing'        => [ 'input' => 2.50, 'output' => 15.00 ],
+            'aliases'        => [],
+            'deprecated'     => [],
+            'redirect_to'    => null,
+            'is_default'     => false,
+            'fallback_order' => null,
+        ],
+        'gpt-5.6-luna' => [
+            'provider'       => 'openai',
+            'label'          => 'GPT-5.6 Luna',
+            'tags'           => [ 'new', 'recommended', 'efficient', 'fastest' ],
+            'ctx'            => 1050000,
+            'max_out'        => 131072,
+            'rec_out'        => 65536,
+            'thinking'       => true,
+            'multimodal'     => true,
+            'pricing'        => [ 'input' => 1.00, 'output' => 6.00 ],
+            'aliases'        => [],
+            'deprecated'     => [
+                'gpt-5.2-chat-latest',
+                'gpt-5.3-chat-latest',
+                'gpt-5-chat-latest',
+                'gpt-5.1-chat-latest',
+            ],
+            'redirect_to'    => null,
+            'is_default'     => true,
+            'fallback_order' => 1,
+        ],
 
         // GPT-5.5 (Apr 2026) — flagship for complex reasoning & coding (premium pricing).
         'gpt-5.5' => [
@@ -119,7 +175,7 @@ function aichat_get_model_registry() {
         'gpt-5.4-mini' => [
             'provider'       => 'openai',
             'label'          => 'GPT-5.4 Mini',
-            'tags'           => [ 'new', 'recommended', 'efficient' ],
+            'tags'           => [ 'legacy', 'efficient' ],
             'ctx'            => 400000,
             'max_out'        => 131072,
             'rec_out'        => 65536,
@@ -128,8 +184,9 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 0.75, 'output' => 4.50 ],
             'aliases'        => [],
             'deprecated'     => [],
-            'is_default'     => true,
-            'fallback_order' => null,
+            'redirect_to'    => null,
+            'is_default'     => false,
+            'fallback_order' => 2,
         ],
         'gpt-5.4-nano' => [
             'provider'       => 'openai',
@@ -167,8 +224,8 @@ function aichat_get_model_registry() {
         // GPT-5.3 (Mar 2026)
         'gpt-5.3-chat-latest' => [
             'provider'       => 'openai',
-            'label'          => 'GPT-5.3 Instant (Mar 2026)',
-            'tags'           => [],
+            'label'          => 'GPT-5.3 Instant (Deprecated Aug 2026)',
+            'tags'           => [ 'legacy' ],
             'ctx'            => 256000,
             'max_out'        => 65536,
             'rec_out'        => 32768,
@@ -177,6 +234,7 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 1.75, 'output' => 14.00 ],
             'aliases'        => [],
             'deprecated'     => [],
+            'redirect_to'    => 'gpt-5.6-luna',
             'is_default'     => false,
             'fallback_order' => null,
         ],
@@ -184,8 +242,8 @@ function aichat_get_model_registry() {
         // GPT-5.2 (Dec 2025)
         'gpt-5.2-chat-latest' => [
             'provider'       => 'openai',
-            'label'          => 'GPT-5.2 Instant (Dec 2025)',
-            'tags'           => [],
+            'label'          => 'GPT-5.2 Instant (Deprecated Aug 2026)',
+            'tags'           => [ 'legacy' ],
             'ctx'            => 256000,
             'max_out'        => 65536,
             'rec_out'        => 32768,
@@ -194,6 +252,7 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 1.75, 'output' => 14.00 ],
             'aliases'        => [],
             'deprecated'     => [],
+            'redirect_to'    => 'gpt-5.6-luna',
             'is_default'     => false,
             'fallback_order' => null,
         ],
@@ -326,7 +385,7 @@ function aichat_get_model_registry() {
         'gpt-4o-mini' => [
             'provider'       => 'openai',
             'label'          => 'GPT-4o Mini',
-            'tags'           => [],
+            'tags'           => [ 'legacy', 'efficient' ],
             'ctx'            => 128000,
             'max_out'        => 12288,
             'rec_out'        => 8000,
@@ -336,13 +395,13 @@ function aichat_get_model_registry() {
             'aliases'        => [],
             'deprecated'     => [],
             'is_default'     => false,
-            'fallback_order' => null,
+            'fallback_order' => 3,
         ],
 
         // GPT-4 Turbo (legacy)
         'gpt-4-turbo' => [
             'provider'       => 'openai',
-            'label'          => 'GPT-4 Turbo',
+            'label'          => 'GPT-4 Turbo (Deprecated Oct 2026)',
             'tags'           => [ 'legacy' ],
             'ctx'            => 128000,
             'max_out'        => 4096,
@@ -352,6 +411,7 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 10.00, 'output' => 30.00 ],
             'aliases'        => [],
             'deprecated'     => [],
+            'redirect_to'    => 'gpt-5.6-luna',
             'is_default'     => false,
             'fallback_order' => null,
         ],
@@ -359,7 +419,7 @@ function aichat_get_model_registry() {
         // GPT-3.5 (legacy)
         'gpt-3.5-turbo' => [
             'provider'       => 'openai',
-            'label'          => 'GPT-3.5 Turbo',
+            'label'          => 'GPT-3.5 Turbo (Deprecated Oct 2026)',
             'tags'           => [ 'legacy' ],
             'ctx'            => 16384,
             'max_out'        => 4096,
@@ -369,6 +429,7 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 0.50, 'output' => 1.50 ],
             'aliases'        => [],
             'deprecated'     => [],
+            'redirect_to'    => 'gpt-5.6-luna',
             'is_default'     => false,
             'fallback_order' => null,
         ],
@@ -411,6 +472,24 @@ function aichat_get_model_registry() {
             'fallback_order' => null,
         ],
 
+        // Claude Sonnet 5 (Jun 2026) — current fast balanced model; optional upgrade from Haiku for richer chats.
+        'claude-sonnet-5' => [
+            'provider'       => 'anthropic',
+            'label'          => 'Claude Sonnet 5',
+            'tags'           => [ 'new', 'recommended' ],
+            'ctx'            => 1000000,
+            'max_out'        => 128000,
+            'rec_out'        => 64000,
+            'thinking'       => true,
+            'multimodal'     => true,
+            'pricing'        => [ 'input' => 3.00, 'output' => 15.00 ],
+            'aliases'        => [],
+            'deprecated'     => [],
+            'redirect_to'    => null,
+            'is_default'     => false,
+            'fallback_order' => 2,
+        ],
+
         // Claude Opus 4.7 (Apr 2026)
         'claude-opus-4-7' => [
             'provider'       => 'anthropic',
@@ -447,7 +526,7 @@ function aichat_get_model_registry() {
         'claude-sonnet-4-6' => [
             'provider'       => 'anthropic',
             'label'          => 'Claude Sonnet 4.6',
-            'tags'           => [ 'recommended' ],
+            'tags'           => [],
             'ctx'            => 1000000,
             'max_out'        => 64000,
             'rec_out'        => 50000,
@@ -456,8 +535,9 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 3.00, 'output' => 15.00 ],
             'aliases'        => [],
             'deprecated'     => [],
-            'is_default'     => true,
-            'fallback_order' => 1,
+            'redirect_to'    => null,
+            'is_default'     => false,
+            'fallback_order' => 3,
         ],
 
         // Claude 4.5 (2025)
@@ -486,8 +566,8 @@ function aichat_get_model_registry() {
         'claude-haiku-4-5-20251001' => [
             'provider'       => 'anthropic',
             'label'          => 'Claude Haiku 4.5',
-            'tags'           => [ 'fastest' ],
-            'ctx'            => 1000000,
+            'tags'           => [ 'recommended', 'fastest', 'efficient' ],
+            'ctx'            => 200000,
             'max_out'        => 64000,
             'rec_out'        => 50000,
             'thinking'       => true,
@@ -495,8 +575,9 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 1.00, 'output' => 5.00 ],
             'aliases'        => [ 'claude-haiku-4-5' ],
             'deprecated'     => [],
-            'is_default'     => false,
-            'fallback_order' => 3,
+            'redirect_to'    => null,
+            'is_default'     => true,
+            'fallback_order' => 1,
         ],
         'claude-opus-4-5-20251101' => [
             'provider'       => 'anthropic',
@@ -521,7 +602,7 @@ function aichat_get_model_registry() {
         // Claude 4 / 4.1 (deprecated and active snapshots)
         'claude-sonnet-4-20250514' => [
             'provider'       => 'anthropic',
-            'label'          => 'Claude Sonnet 4',
+            'label'          => 'Claude Sonnet 4 (Retired)',
             'tags'           => [ 'legacy' ],
             'ctx'            => 200000,
             'max_out'        => 64000,
@@ -531,13 +612,14 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 3.00, 'output' => 15.00 ],
             'aliases'        => [ 'claude-sonnet-4' ],
             'deprecated'     => [],
+            'redirect_to'    => 'claude-sonnet-5',
             'is_default'     => false,
             'fallback_order' => null,
         ],
         'claude-opus-4-1-20250805' => [
             'provider'       => 'anthropic',
-            'label'          => 'Claude Opus 4.1',
-            'tags'           => [],
+            'label'          => 'Claude Opus 4.1 (Deprecated Aug 2026)',
+            'tags'           => [ 'legacy' ],
             'ctx'            => 200000,
             'max_out'        => 32000,
             'rec_out'        => 25000,
@@ -546,12 +628,13 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 15.00, 'output' => 75.00 ],
             'aliases'        => [ 'claude-opus-4-1' ],
             'deprecated'     => [],
+            'redirect_to'    => 'claude-opus-4-8',
             'is_default'     => false,
             'fallback_order' => null,
         ],
         'claude-opus-4-20250514' => [
             'provider'       => 'anthropic',
-            'label'          => 'Claude Opus 4',
+            'label'          => 'Claude Opus 4 (Retired)',
             'tags'           => [ 'legacy' ],
             'ctx'            => 200000,
             'max_out'        => 32000,
@@ -561,6 +644,7 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 15.00, 'output' => 75.00 ],
             'aliases'        => [ 'claude-opus-4' ],
             'deprecated'     => [],
+            'redirect_to'    => 'claude-opus-4-8',
             'is_default'     => false,
             'fallback_order' => null,
         ],
@@ -568,7 +652,7 @@ function aichat_get_model_registry() {
         // Claude 3.x (legacy)
         'claude-3-7-sonnet-20250219' => [
             'provider'       => 'anthropic',
-            'label'          => 'Claude Sonnet 3.7',
+            'label'          => 'Claude Sonnet 3.7 (Retired)',
             'tags'           => [ 'legacy' ],
             'ctx'            => 200000,
             'max_out'        => 8192,
@@ -578,12 +662,13 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 3.00, 'output' => 15.00 ],
             'aliases'        => [ 'claude-3-7-sonnet' ],
             'deprecated'     => [],
+            'redirect_to'    => 'claude-sonnet-5',
             'is_default'     => false,
             'fallback_order' => null,
         ],
         'claude-3-5-haiku-20241022' => [
             'provider'       => 'anthropic',
-            'label'          => 'Claude Haiku 3.5',
+            'label'          => 'Claude Haiku 3.5 (Retired)',
             'tags'           => [ 'legacy' ],
             'ctx'            => 200000,
             'max_out'        => 8192,
@@ -593,12 +678,13 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 0.80, 'output' => 4.00 ],
             'aliases'        => [ 'claude-3-5-haiku', 'claude-3-5-haiku-latest' ],
             'deprecated'     => [],
+            'redirect_to'    => 'claude-haiku-4-5-20251001',
             'is_default'     => false,
             'fallback_order' => null,
         ],
         'claude-3-haiku-20240307' => [
             'provider'       => 'anthropic',
-            'label'          => 'Claude Haiku 3',
+            'label'          => 'Claude Haiku 3 (Retired)',
             'tags'           => [ 'legacy' ],
             'ctx'            => 200000,
             'max_out'        => 4096,
@@ -608,6 +694,7 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 0.25, 'output' => 1.25 ],
             'aliases'        => [ 'claude-3-haiku' ],
             'deprecated'     => [],
+            'redirect_to'    => 'claude-haiku-4-5-20251001',
             'is_default'     => false,
             'fallback_order' => null,
         ],
@@ -620,7 +707,7 @@ function aichat_get_model_registry() {
         'gemini-3.5-flash' => [
             'provider'       => 'gemini',
             'label'          => 'Gemini 3.5 Flash',
-            'tags'           => [ 'new', 'recommended' ],
+            'tags'           => [ 'new', 'recommended', 'fastest' ],
             'ctx'            => 1048576,
             'max_out'        => 65536,
             'rec_out'        => 50000,
@@ -629,8 +716,9 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 1.50, 'output' => 9.00 ],
             'aliases'        => [ 'gemini-flash-latest' ],
             'deprecated'     => [],
-            'is_default'     => false,
-            'fallback_order' => 2,
+            'redirect_to'    => null,
+            'is_default'     => true,
+            'fallback_order' => 1,
         ],
 
         // Gemini 3.1 Pro (preview)
@@ -654,7 +742,7 @@ function aichat_get_model_registry() {
         'gemini-3.1-flash-lite' => [
             'provider'       => 'gemini',
             'label'          => 'Gemini 3.1 Flash-Lite',
-            'tags'           => [ 'recommended', 'fastest', 'efficient' ],
+            'tags'           => [ 'recommended', 'efficient' ],
             'ctx'            => 1048576,
             'max_out'        => 65536,
             'rec_out'        => 50000,
@@ -663,14 +751,15 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 0.25, 'output' => 1.50 ],
             'aliases'        => [],
             'deprecated'     => [],
-            'is_default'     => true,
-            'fallback_order' => 1,
+            'redirect_to'    => null,
+            'is_default'     => false,
+            'fallback_order' => 2,
         ],
 
         // Gemini 3.x legacy/deprecated previews
         'gemini-3-flash-preview' => [
             'provider'       => 'gemini',
-            'label'          => 'Gemini 3 Flash Preview',
+            'label'          => 'Gemini 3 Flash Preview (Deprecated)',
             'tags'           => [ 'legacy' ],
             'ctx'            => 1048576,
             'max_out'        => 65536,
@@ -680,6 +769,7 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 0.50, 'output' => 3.00 ],
             'aliases'        => [],
             'deprecated'     => [],
+            'redirect_to'    => 'gemini-3.5-flash',
             'is_default'     => false,
             'fallback_order' => null,
         ],
@@ -695,6 +785,7 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 0.25, 'output' => 1.50 ],
             'aliases'        => [],
             'deprecated'     => [],
+            'redirect_to'    => 'gemini-3.1-flash-lite',
             'is_default'     => false,
             'fallback_order' => null,
         ],
@@ -710,6 +801,7 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 0.50, 'output' => 2.00 ],
             'aliases'        => [],
             'deprecated'     => [],
+            'redirect_to'    => 'gemini-3.1-pro-preview',
             'is_default'     => false,
             'fallback_order' => null,
         ],
@@ -717,8 +809,8 @@ function aichat_get_model_registry() {
         // Gemini 2.5 (stable)
         'gemini-2.5-pro' => [
             'provider'       => 'gemini',
-            'label'          => 'Gemini 2.5 Pro (Reasoning)',
-            'tags'           => [],
+            'label'          => 'Gemini 2.5 Pro (Deprecated Oct 2026)',
+            'tags'           => [ 'legacy' ],
             'ctx'            => 1048576,
             'max_out'        => 65536,
             'rec_out'        => 50000,
@@ -727,13 +819,14 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 1.25, 'output' => 10.00 ],
             'aliases'        => [],
             'deprecated'     => [],
+            'redirect_to'    => 'gemini-3.1-pro-preview',
             'is_default'     => false,
             'fallback_order' => null,
         ],
         'gemini-2.5-flash' => [
             'provider'       => 'gemini',
-            'label'          => 'Gemini 2.5 Flash (Balanced)',
-            'tags'           => [],
+            'label'          => 'Gemini 2.5 Flash (Deprecated Oct 2026)',
+            'tags'           => [ 'legacy' ],
             'ctx'            => 1048576,
             'max_out'        => 65536,
             'rec_out'        => 50000,
@@ -742,13 +835,14 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 0.30, 'output' => 2.50 ],
             'aliases'        => [],
             'deprecated'     => [],
+            'redirect_to'    => 'gemini-3.5-flash',
             'is_default'     => false,
-            'fallback_order' => 3,
+            'fallback_order' => null,
         ],
         'gemini-2.5-flash-lite' => [
             'provider'       => 'gemini',
-            'label'          => 'Gemini 2.5 Flash-Lite (Fast)',
-            'tags'           => [ 'efficient' ],
+            'label'          => 'Gemini 2.5 Flash-Lite (Deprecated Oct 2026)',
+            'tags'           => [ 'legacy', 'efficient' ],
             'ctx'            => 1048576,
             'max_out'        => 65536,
             'rec_out'        => 50000,
@@ -757,8 +851,9 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 0.10, 'output' => 0.40 ],
             'aliases'        => [],
             'deprecated'     => [],
+            'redirect_to'    => 'gemini-3.1-flash-lite',
             'is_default'     => false,
-            'fallback_order' => 4,
+            'fallback_order' => null,
         ],
 
         // Gemini 2.0 (legacy – shut down Jun 1, 2026)
@@ -774,8 +869,9 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 0.10, 'output' => 0.40 ],
             'aliases'        => [],
             'deprecated'     => [],
+            'redirect_to'    => 'gemini-3.5-flash',
             'is_default'     => false,
-            'fallback_order' => 5,
+            'fallback_order' => null,
         ],
         'gemini-2.0-flash-lite' => [
             'provider'       => 'gemini',
@@ -789,8 +885,9 @@ function aichat_get_model_registry() {
             'pricing'        => [ 'input' => 0.075, 'output' => 0.30 ],
             'aliases'        => [],
             'deprecated'     => [],
+            'redirect_to'    => 'gemini-3.1-flash-lite',
             'is_default'     => false,
-            'fallback_order' => 6,
+            'fallback_order' => null,
         ],
     ];
 
@@ -840,7 +937,7 @@ function aichat_build_alias_map() {
 /**
  * Resolve any model string to its canonical id.
  *
- * 1. If the string matches a canonical id exactly → return it.
+ * 1. If the string matches a canonical id exactly → return it or its active replacement.
  * 2. If it matches an alias or deprecated key → return the canonical target.
  * 3. Prefix fallback: try matching by longest prefix in the same provider.
  * 4. Otherwise → return the provider default (or global default).
@@ -858,15 +955,31 @@ function aichat_resolve_model( $model, $provider = null ) {
         $provider = 'anthropic';
     }
 
+    $resolve_redirect = static function( $id ) use ( $reg, $provider ) {
+        $seen = [];
+        while ( isset( $reg[ $id ]['redirect_to'] ) && $reg[ $id ]['redirect_to'] ) {
+            $target = strtolower( (string) $reg[ $id ]['redirect_to'] );
+            if ( isset( $seen[ $target ] ) || ! isset( $reg[ $target ] ) ) {
+                break;
+            }
+            if ( $provider && $reg[ $target ]['provider'] !== $provider ) {
+                break;
+            }
+            $seen[ $target ] = true;
+            $id              = $target;
+        }
+        return $id;
+    };
+
     // 1. Exact canonical match
     if ( isset( $reg[ $m ] ) ) {
-        return $m;
+        return $resolve_redirect( $m );
     }
 
     // 2. Alias / deprecated
     $alias_map = aichat_build_alias_map();
     if ( isset( $alias_map[ $m ] ) ) {
-        return $alias_map[ $m ];
+        return $resolve_redirect( $alias_map[ $m ] );
     }
 
     // 3. Prefix fallback (longest match within same provider)
@@ -882,7 +995,7 @@ function aichat_resolve_model( $model, $provider = null ) {
         }
     }
     if ( $best_id !== '' ) {
-        return $best_id;
+        return $resolve_redirect( $best_id );
     }
 
     // 4. Provider default
@@ -932,11 +1045,11 @@ function aichat_get_default_model( $provider = null ) {
     }
     // Hard fallbacks in case filter removed defaults
     $fallbacks = [
-        'openai'    => 'gpt-5.4-mini',
-        'anthropic' => 'claude-sonnet-4-6',
-        'gemini'    => 'gemini-3.1-flash-lite',
+        'openai'    => 'gpt-5.6-luna',
+        'anthropic' => 'claude-haiku-4-5-20251001',
+        'gemini'    => 'gemini-3.5-flash',
     ];
-    return $fallbacks[ $provider ] ?? 'gpt-5.4-mini';
+    return $fallbacks[ $provider ] ?? 'gpt-5.6-luna';
 }
 
 /**

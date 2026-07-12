@@ -179,8 +179,13 @@ function aichat_extract_txt($path){
     }
     $txt = $fs->get_contents( $path );
     if ($txt === false) return new WP_Error('read_txt','Could not read TXT file');
-    // Normaliza UTF-8 (wp_is_valid_utf8 desde WP 6.9, fallback a mb_check_encoding)
-    $is_utf8 = function_exists( 'wp_is_valid_utf8' ) ? wp_is_valid_utf8( $txt ) : mb_check_encoding( $txt, 'UTF-8' );
+    // Normaliza UTF-8 (usa wp_is_valid_utf8 solo si existe en esta instalación).
+    $utf8_validator = 'wp_is_valid_utf8';
+    if ( function_exists( $utf8_validator ) ) {
+        $is_utf8 = $utf8_validator( $txt );
+    } else {
+        $is_utf8 = mb_check_encoding( $txt, 'UTF-8' );
+    }
     if ( ! $is_utf8 ) {
         $txt = mb_convert_encoding($txt, 'UTF-8', 'auto');
     }

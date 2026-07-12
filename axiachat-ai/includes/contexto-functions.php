@@ -665,7 +665,7 @@ function aichat_generate_embedding( $text, $task = 'document', $provider = '' ) 
             aichat_log_debug( '[AIChat] Gemini embedding error: API key not configured' );
             return null;
         }
-        $endpoint = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent?key=' . rawurlencode( $gemini_key );
+        $endpoint = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2:embedContent?key=' . rawurlencode( $gemini_key );
         $body = wp_json_encode( [
             'content'  => [ 'parts' => [ [ 'text' => $text ] ] ],
             'taskType' => ( $task === 'query' ) ? 'RETRIEVAL_QUERY' : 'RETRIEVAL_DOCUMENT',
@@ -1737,7 +1737,7 @@ function aichat_get_available_embedding_providers() {
         'name'       => 'Google Gemini',
         'has_key'    => ! empty( $gemini_key ),
         'is_default' => ( $default_provider === 'gemini' ),
-        'model'      => 'gemini-embedding-001',
+        'model'      => 'gemini-embedding-2',
     ];
     
     return $providers;

@@ -364,6 +364,7 @@ class AIChat_Claude_Provider implements AIChat_Provider_Interface {
         if ( $system_text !== '' ) $payload['system'] = $system_text;
         $is_fixed_sampling = ( strpos( $model, 'claude-opus-4-7' ) === 0 )
             || ( strpos( $model, 'claude-opus-4-8' ) === 0 )
+            || ( strpos( $model, 'claude-sonnet-5' ) === 0 )
             || ( strpos( $model, 'claude-fable-5' ) === 0 )
             || ( strpos( $model, 'claude-mythos-5' ) === 0 );
         if ( ! $is_fixed_sampling && $temperature !== null && $temperature !== '' ) $payload['temperature'] = (float)$temperature;
@@ -927,6 +928,7 @@ class AIChat_Claude_Provider implements AIChat_Provider_Interface {
         
         $is_fixed_sampling = ( strpos( $model, 'claude-opus-4-7' ) === 0 )
             || ( strpos( $model, 'claude-opus-4-8' ) === 0 )
+            || ( strpos( $model, 'claude-sonnet-5' ) === 0 )
             || ( strpos( $model, 'claude-fable-5' ) === 0 )
             || ( strpos( $model, 'claude-mythos-5' ) === 0 );
         if ( ! $is_fixed_sampling && $temperature !== null && $temperature !== '' ) {

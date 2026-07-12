@@ -4,7 +4,7 @@ Tags: ai chatbot, chatgpt, woocommerce, customer support, google gemini
 Requires at least: 5.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 4.1.10
+Stable tag: 4.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -164,9 +164,9 @@ You stay in control while your chatbot works for you.
 
 Your chatbot can connect to:
 
-🟢 **OpenAI** — GPT-5.5, GPT-5.5 Pro, GPT-5.4, GPT-5.4 Mini (default fast/cheap), ChatGPT `chat-latest` and all current models
-🟢 **Anthropic Claude** — Sonnet 4.6 (recommended), Haiku 4.5 (fast), Opus 4.8 (premium), Fable 5 (flagship) and more
-🟢 **Google Gemini** — 3.1 Flash-Lite (default fast/cheap), 3.5 Flash, 3.1 Pro, 3 Flash and more (free tier available)
+🟢 **OpenAI** — GPT-5.6 Luna (default efficient chat), GPT-5.6 Terra/Sol, GPT-5.5, GPT-5.4 and legacy-compatible aliases
+🟢 **Anthropic Claude** — Haiku 4.5 (default fast/cheap), Sonnet 5 (balanced), Opus 4.8 (premium), Fable 5 (flagship) and more
+🟢 **Google Gemini** — 3.5 Flash (default fast chat), 3.1 Flash-Lite (lowest cost), 3.1 Pro and legacy-compatible 2.5 redirects
 
 You choose the AI engine for your chatbot.  
 You control how your chatbot behaves.  
@@ -230,6 +230,9 @@ Install the best AI chatbot for WordPress today — your own ChatGPT working exc
 = Supported AI Models =
 
 **OpenAI (GPT)**
+GPT-5.6 Luna (default efficient chat)  
+GPT-5.6 Terra  
+GPT-5.6 Sol  
 GPT-5.5  
 GPT-5.5 Pro  
 GPT-5.4  
@@ -249,8 +252,9 @@ GPT-4 Turbo
 GPT-3.5 Turbo  
 
 **Anthropic (Claude)**
-Claude Sonnet 4.6 / 4.5 (recommended for chat)  
-Claude Haiku 4.5 (fast, lower cost)  
+Claude Haiku 4.5 (default fast, lower cost)  
+Claude Sonnet 5 (balanced chat and reasoning)  
+Claude Sonnet 4.6 / 4.5  
 Claude Opus 4.8 (premium)  
 Claude Fable 5 (flagship reasoning model)  
 Claude Opus 4.7 / 4.6  
@@ -259,14 +263,12 @@ Claude Sonnet 4 and Claude Opus 4 — legacy (deprecated, retirement scheduled J
 Claude Sonnet 3.7 / Haiku 3.5 / 3 — legacy (retired)  
 
 **Google Gemini**
-Gemini 3.1 Flash-Lite (stable, default fast/cheap)  
-Gemini 3.5 Flash (stable, quality-focused)  
+Gemini 3.5 Flash (stable, default fast chat)  
+Gemini 3.1 Flash-Lite (stable, lowest cost fallback)  
 Gemini 3.1 Pro Preview  
 Gemini 3 Flash Preview — legacy (deprecated, use 3.5 Flash)  
 Gemini 3.1 Flash-Lite Preview / Gemini 3 Pro Preview — legacy (shut down)  
-Gemini 2.5 Pro  
-Gemini 2.5 Flash  
-Gemini 2.5 Flash-Lite  
+Gemini 2.5 Pro / Flash / Flash-Lite — legacy (deprecated, retirement scheduled Oct 2026)  
 Gemini 2.0 Flash / Flash-Lite — legacy (shut down Jun 2026)  
 
 = Automation & Integrations =
@@ -325,10 +327,17 @@ Gemini 2.0 Flash / Flash-Lite — legacy (shut down Jun 2026)
 
 
 == Changelog ==
+= 4.2.0 =
+* Updated: AI model catalog refreshed across OpenAI, Anthropic Claude, and Google Gemini, including new defaults optimized for fast and cost-efficient chatbot usage.
+* Updated: Legacy/deprecated model routing improved so older configured model IDs automatically resolve to current supported replacements.
+
 = 4.1.10 =
 * Fixed: Automatic nonce recovery for frontend AJAX requests — when a cached/expired nonce triggers `403`, the widget fetches a fresh nonce and retries once.
 * Improved: Added machine-readable `invalid_nonce` codes across chat, history, upload, and lead-form AJAX handlers for reliable frontend recovery.
 * Improved: Cache purge hooks now cover updated/added/deleted widget-affecting options with a single-purge-per-request guard.
+* Updated: Chat defaults refreshed for current fast/cost-conscious models — OpenAI `gpt-5.6-luna`, Claude `claude-haiku-4-5-20251001`, and Gemini `gemini-3.5-flash`.
+* Updated: Deprecated model routing now moves saved legacy IDs to active replacements, including Gemini 2.5 Flash to Gemini 3.5 Flash and retiring OpenAI chat snapshots to GPT-5.6 Luna.
+* Updated: Gemini embeddings now use `gemini-embedding-2` instead of the retiring `gemini-embedding-001`.
 * Added: Anthropic Claude Fable 5 (`claude-fable-5`) in the model registry with current pricing metadata ($10 input / $50 output per 1M tokens).
 * Updated: Gemini metadata refreshed against current API docs (including `gemini-flash-latest` and `gemini-3.1-pro-preview-customtools` aliases plus shut-down labels for retired Gemini 2.0/preview entries).
 
