@@ -159,7 +159,7 @@
       } else {
         // Reset to defaults when no saved options
         $('#aichat-ctx-idx-excerpt').prop('checked', false);
-        $('#aichat-ctx-idx-url').prop('checked', true);
+        $('#aichat-ctx-idx-url').prop('checked', false);
         $('#aichat-ctx-idx-featured-image').prop('checked', false);
         $('#aichat-ctx-idx-wc-short-desc').prop('checked', false);
         $('#aichat-ctx-idx-wc-attributes').prop('checked', false);

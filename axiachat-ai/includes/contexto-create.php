@@ -448,7 +448,7 @@ function aichat_contexto_create_page() {
                                 <label class="form-check-label" for="aichat-idx-excerpt"><?php esc_html_e('Include excerpt / summary','axiachat-ai'); ?></label>
                             </div>
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="aichat-idx-url" checked />
+                                <input class="form-check-input" type="checkbox" id="aichat-idx-url" />
                                 <label class="form-check-label" for="aichat-idx-url"><?php esc_html_e('Include post URL','axiachat-ai'); ?></label>
                             </div>
                             <div class="form-check mb-2">

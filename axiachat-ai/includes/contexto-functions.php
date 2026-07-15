@@ -184,7 +184,7 @@ function aichat_split_text_into_chunks( $full_text, $target_words = 1000, $overl
 function aichat_default_indexing_options() {
     return [
         'include_excerpt'              => false,
-        'include_url'                  => true,
+        'include_url'                  => false,
         'include_featured_image'       => false,
         'include_taxonomies'           => [],    // e.g. ['category','post_tag','product_cat','product_tag']
         'include_wc_short_description' => false,
@@ -221,6 +221,44 @@ function aichat_get_indexing_options( $context_id ) {
         return $defaults;
     }
     return wp_parse_args( $opts, $defaults );
+}
+
+/**
+ * Whether the retrieved context explicitly includes source URLs, allowing [LINK:N] markers.
+ *
+ * @param array $contexts Context rows returned by aichat_get_context_for_question().
+ * @return bool
+ */
+function aichat_contexts_allow_link_markers( $contexts ) {
+    $allow = false;
+
+    foreach ( (array) $contexts as $context ) {
+        if ( ! empty( $context['link_markers_enabled'] ) ) {
+            $allow = true;
+            break;
+        }
+
+        foreach ( [ 'source_url', 'url', 'permalink', 'link' ] as $field ) {
+            if ( ! empty( $context[ $field ] ) && preg_match( '~https?://~i', (string) $context[ $field ] ) ) {
+                $allow = true;
+                break 2;
+            }
+        }
+
+        $content = isset( $context['content'] ) ? (string) $context['content'] : '';
+        if ( '' === $content || ! preg_match( '~https?://~i', $content ) ) {
+            continue;
+        }
+
+        foreach ( preg_split( '/\R/', $content ) as $line ) {
+            if ( preg_match( '~https?://~i', $line ) && ! preg_match( '/^\s*(?:image|featured image)\s*:/i', $line ) ) {
+                $allow = true;
+                break 2;
+            }
+        }
+    }
+
+    return (bool) apply_filters( 'aichat_contexts_allow_link_markers', $allow, $contexts );
 }
 
 /**
@@ -841,6 +879,12 @@ function aichat_get_context_for_question( $question, $args = [] ) {
         return [];
     }
 
+    $context_link_markers_enabled = false;
+    if ( $context_id > 0 ) {
+        $context_indexing_options       = aichat_get_indexing_options( $context_id );
+        $context_link_markers_enabled = ! empty( $context_indexing_options['include_url'] );
+    }
+
     // --------- Page content (contenido de la página/post actual) ----------
     if ( $mode === 'page' ) {
         $pid = intval($args['page_id']);
@@ -944,13 +988,14 @@ function aichat_get_context_for_question( $question, $args = [] ) {
         }
 
         $data = json_decode( wp_remote_retrieve_body( $response ), true );
-        $rows = array_map( function( $m ) {
+        $rows = array_map( function( $m ) use ( $context_link_markers_enabled ) {
             return [
-                'post_id' => isset( $m['id'] ) ? $m['id'] : 0,
-                'title'   => $m['metadata']['title']  ?? '',
-                'content' => $m['metadata']['content']?? '',
-                'score'   => $m['score']              ?? 0,
-                'type'    => $m['metadata']['type']   ?? '',
+                'post_id'              => isset( $m['id'] ) ? $m['id'] : 0,
+                'title'                => $m['metadata']['title']  ?? '',
+                'content'              => $m['metadata']['content']?? '',
+                'score'                => $m['score']              ?? 0,
+                'type'                 => $m['metadata']['type']   ?? '',
+                'link_markers_enabled' => $context_link_markers_enabled,
             ];
         }, $data['matches'] ?? [] );
 
@@ -986,13 +1031,14 @@ function aichat_get_context_for_question( $question, $args = [] ) {
         $rows = array_slice( $rows, 0, $limit );
 
         // Normaliza claves como en pinecone
-        $norm = array_map( function($r){
+        $norm = array_map( function($r) use ( $context_link_markers_enabled ){
             return [
-                'post_id' => $r['post_id'] ?? 0,
-                'title'   => $r['title']    ?? '',
-                'content' => $r['content']  ?? '',
-                'score'   => $r['score']    ?? 0,
-                'type'    => $r['type']     ?? '',
+                'post_id'              => $r['post_id'] ?? 0,
+                'title'                => $r['title']    ?? '',
+                'content'              => $r['content']  ?? '',
+                'score'                => $r['score']    ?? 0,
+                'type'                 => $r['type']     ?? '',
+                'link_markers_enabled' => $context_link_markers_enabled,
             ];
         }, $rows );
 
@@ -1201,7 +1247,7 @@ function aichat_build_messages( $question, $contexts = [], $instructions = '', $
             $parts[] = $file_text_block;
         }
         $parts[] = "QUESTION:\n" . $question;
-        if ( $context_text !== '' ) {
+        if ( $context_text !== '' && aichat_contexts_allow_link_markers( $contexts ) ) {
             $parts[] = __( 'When referencing a specific item from context, include the marker [LINK:N] where N is the context number shown in brackets (e.g. [LINK:1], [LINK:2]). The [LINK:N] marker will be converted to a proper link automatically.', 'axiachat-ai' );
         }
         $user_text = implode( "\n", $parts );
@@ -1261,6 +1307,10 @@ function aichat_replace_link_placeholder( $answer ) {
     }
 
     $contexts = $GLOBALS['aichat_contexts'] ?? [];
+    if ( ! aichat_contexts_allow_link_markers( $contexts ) ) {
+        return preg_replace( '/\[LINK(?::\d+)?\]/', '', $answer );
+    }
+
     if ( empty( $contexts ) ) {
         $answer = preg_replace( '/\[LINK(?::\d+)?\]/', __( 'Link not available', 'axiachat-ai' ), $answer );
         return $answer;

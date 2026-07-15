@@ -35,7 +35,7 @@ const { __, sprintf } = wp.i18n;
         manualText: '',
         uploadedFiles: [],
         useAiVision: true, // AI Vision fallback for PDFs
-        includeUrl: true, // Include post/page/product URL in indexing
+        includeUrl: false, // Include post/page/product URL in indexing
         // Step 3 data
         provider: 'gemini',
         providerStatus: {},

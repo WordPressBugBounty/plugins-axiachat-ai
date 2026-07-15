@@ -589,7 +589,7 @@ function aichat_training_context_page() {
                             <label style="cursor:pointer;"><input type="checkbox" class="aichat-ctx-idx aichat-ctx-adv-field" id="aichat-ctx-idx-excerpt" style="margin-right:6px;"><?php esc_html_e( 'Include post summary (excerpt)', 'axiachat-ai' ); ?></label>
                         </div>
                         <div class="mb-2">
-                            <label style="cursor:pointer;"><input type="checkbox" class="aichat-ctx-idx aichat-ctx-adv-field" id="aichat-ctx-idx-url" checked style="margin-right:6px;"><?php esc_html_e( 'Include page/post URL', 'axiachat-ai' ); ?></label>
+                            <label style="cursor:pointer;"><input type="checkbox" class="aichat-ctx-idx aichat-ctx-adv-field" id="aichat-ctx-idx-url" style="margin-right:6px;"><?php esc_html_e( 'Include page/post URL', 'axiachat-ai' ); ?></label>
                         </div>
                         <div class="mb-2">
                             <label style="cursor:pointer;"><input type="checkbox" class="aichat-ctx-idx aichat-ctx-adv-field" id="aichat-ctx-idx-featured-image" style="margin-right:6px;"><?php esc_html_e( 'Include featured image', 'axiachat-ai' ); ?></label>

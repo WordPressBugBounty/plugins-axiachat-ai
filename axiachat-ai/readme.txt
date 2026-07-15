@@ -4,7 +4,7 @@ Tags: ai chatbot, chatgpt, woocommerce, customer support, google gemini
 Requires at least: 5.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 4.2.0
+Stable tag: 4.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -327,6 +327,11 @@ Gemini 2.0 Flash / Flash-Lite — legacy (shut down Jun 2026)
 
 
 == Changelog ==
+= 4.3.0 =
+* Changed: Removed default link-marker prompting in RAG responses. The `[LINK:N]` instruction is now added only when context URLs are enabled/present.
+* Changed: Link placeholder replacement (`[LINK]` / `[LINK:N]`) is now gated by context URL availability; when links are disabled, residual markers are stripped from the final answer.
+* Changed: URL indexing defaults are now disabled in both Advanced Training Context settings and Easy Setup Wizard context creation.
+
 = 4.2.0 =
 * Updated: AI model catalog refreshed across OpenAI, Anthropic Claude, and Google Gemini, including new defaults optimized for fast and cost-efficient chatbot usage.
 * Updated: Legacy/deprecated model routing improved so older configured model IDs automatically resolve to current supported replacements.

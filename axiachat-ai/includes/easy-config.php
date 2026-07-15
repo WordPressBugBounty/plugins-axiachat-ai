@@ -536,8 +536,8 @@ add_action( 'wp_ajax_aichat_easycfg_create_context', function() {
     $provider_raw = isset( $_POST['provider'] ) ? sanitize_key( wp_unslash( $_POST['provider'] ) ) : 'openai';
     $provider     = ( 'gpt' === $provider_raw ) ? 'openai' : $provider_raw;
 
-    // Indexing option: include URL (defaults to true).
-    $include_url = isset( $_POST['include_url'] ) ? absint( wp_unslash( $_POST['include_url'] ) ) : 1;
+    // Indexing option: include URL (disabled by default).
+    $include_url = isset( $_POST['include_url'] ) ? absint( wp_unslash( $_POST['include_url'] ) ) : 0;
 
     /**
      * Persist indexing_options for a context from the wizard.
