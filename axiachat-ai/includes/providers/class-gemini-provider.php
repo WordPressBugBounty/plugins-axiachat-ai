@@ -151,6 +151,10 @@ class AIChat_Gemini_Provider implements AIChat_Provider_Interface {
             $params['model'] = $this->default_model;
             aichat_log_debug('[Gemini Provider] Using default model: ' . $this->default_model);
         }
+
+        if ( function_exists( 'aichat_resolve_model' ) ) {
+            $params['model'] = aichat_resolve_model( $params['model'], 'gemini' );
+        }
         
         // ALWAYS route to chat_with_tools even if tools array is empty
         // This allows filters (like aichat_gemini_tools) to inject server-side tools like googleSearch

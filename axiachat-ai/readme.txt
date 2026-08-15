@@ -2,9 +2,9 @@
 Contributors: estebandezafra
 Tags: ai chatbot, chatgpt, woocommerce, customer support, google gemini
 Requires at least: 5.9
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 4.3.0
+Stable tag: 4.3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -240,9 +240,8 @@ GPT-5.4 Pro
 GPT-5.4 Mini  
 GPT-5.4 Nano  
 ChatGPT chat-latest  
-GPT-5.3 Instant  
-GPT-5.2 Instant  
 GPT-5.2 Thinking  
+Legacy aliases GPT-5.1/5.2/5.3 Chat Latest are auto-migrated to GPT-5.6 Luna  
 GPT-5  
 GPT-5 Mini  
 GPT-5 Nano  
@@ -327,6 +326,14 @@ Gemini 2.0 Flash / Flash-Lite — legacy (shut down Jun 2026)
 
 
 == Changelog ==
+= 4.3.1 =
+* Compatibility: Tested up to WordPress 7.1.
+* Updated: OpenAI model pricing metadata aligned with official API pricing for GPT-5.6 Terra and GPT-5.6 Luna.
+* Updated: Anthropic pricing metadata aligned with current API promotional pricing for Claude Sonnet 5.
+* Changed: Retired OpenAI chat snapshot IDs are now hidden from admin model selectors while remaining auto-resolved for legacy bot configs.
+* Improved: Provider runtime model resolution now normalizes legacy/deprecated IDs before API calls across OpenAI, Claude, and Gemini adapters.
+* Updated libraries: `symfony/polyfill-mbstring` from 1.37.0 to 1.38.2.
+
 = 4.3.0 =
 * Changed: Removed default link-marker prompting in RAG responses. The `[LINK:N]` instruction is now added only when context URLs are enabled/present.
 * Changed: Link placeholder replacement (`[LINK]` / `[LINK:N]`) is now gated by context URL availability; when links are disabled, residual markers are stripped from the final answer.

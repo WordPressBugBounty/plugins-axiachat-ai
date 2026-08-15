@@ -78,7 +78,7 @@ function aichat_get_model_registry() {
             'rec_out'        => 65536,
             'thinking'       => true,
             'multimodal'     => true,
-            'pricing'        => [ 'input' => 2.50, 'output' => 15.00 ],
+            'pricing'        => [ 'input' => 2.00, 'output' => 12.00 ],
             'aliases'        => [],
             'deprecated'     => [],
             'redirect_to'    => null,
@@ -94,7 +94,7 @@ function aichat_get_model_registry() {
             'rec_out'        => 65536,
             'thinking'       => true,
             'multimodal'     => true,
-            'pricing'        => [ 'input' => 1.00, 'output' => 6.00 ],
+            'pricing'        => [ 'input' => 0.20, 'output' => 1.20 ],
             'aliases'        => [],
             'deprecated'     => [
                 'gpt-5.2-chat-latest',
@@ -472,7 +472,7 @@ function aichat_get_model_registry() {
             'fallback_order' => null,
         ],
 
-        // Claude Sonnet 5 (Jun 2026) — current fast balanced model; optional upgrade from Haiku for richer chats.
+        // Claude Sonnet 5 (Jun 2026) — current fast balanced model; promotional API rate active through Aug 31, 2026.
         'claude-sonnet-5' => [
             'provider'       => 'anthropic',
             'label'          => 'Claude Sonnet 5',
@@ -482,7 +482,7 @@ function aichat_get_model_registry() {
             'rec_out'        => 64000,
             'thinking'       => true,
             'multimodal'     => true,
-            'pricing'        => [ 'input' => 3.00, 'output' => 15.00 ],
+            'pricing'        => [ 'input' => 2.00, 'output' => 10.00 ],
             'aliases'        => [],
             'deprecated'     => [],
             'redirect_to'    => null,
@@ -1165,6 +1165,7 @@ function aichat_registry_js_payload() {
     $models  = [];
     $tokens  = [];
     $defaults = [];
+    $include_redirected = (bool) apply_filters( 'aichat_registry_js_include_redirected', false );
 
     // Tag → select label suffix
     $tag_labels = [
@@ -1177,6 +1178,12 @@ function aichat_registry_js_payload() {
     ];
 
     foreach ( $reg as $id => $m ) {
+        // Redirected entries are retired/shut-down models kept for backward compatibility.
+        // Keep them resolvable server-side, but hide them from selectors by default.
+        if ( ! $include_redirected && ! empty( $m['redirect_to'] ) ) {
+            continue;
+        }
+
         $prov = $m['provider'];
 
         // Build select label

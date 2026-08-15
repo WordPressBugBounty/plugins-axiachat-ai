@@ -75,6 +75,10 @@ class AIChat_OpenAI_Provider implements AIChat_Provider_Interface {
         
         // Extraer parámetros
         $model = $params['model'] ?? aichat_get_default_model('openai');
+        if ( function_exists( 'aichat_resolve_model' ) ) {
+            $model = aichat_resolve_model( $model, 'openai' );
+            $params['model'] = $model;
+        }
         $tools = $params['tools'] ?? null;
         $has_tools = !empty($tools) && is_array($tools);
         
@@ -1062,32 +1066,46 @@ class AIChat_OpenAI_Provider implements AIChat_Provider_Interface {
 
         // 2) Legacy fallback table (USD per 1M tokens)
         $pricing = [
-            // GPT-5.3 (Mar 2026) - Latest generation
-            'gpt-5.3-chat-latest' => [
+            // GPT-5.6 family (Jul 2026)
+            'gpt-5.6-sol' => [
+                'prompt' => 5.00,
+                'completion' => 30.00
+            ],
+            'gpt-5.6-terra' => [
                 'prompt' => 2.00,
-                'completion' => 8.00
+                'completion' => 12.00
+            ],
+            'gpt-5.6-luna' => [
+                'prompt' => 0.20,
+                'completion' => 1.20
+            ],
+
+            // GPT-5.3 / GPT-5.2 legacy aliases
+            'gpt-5.3-chat-latest' => [
+                'prompt' => 1.75,
+                'completion' => 14.00
             ],
             // GPT-5.2 (Dec 2025)
             'gpt-5.2-chat-latest' => [
-                'prompt' => 2.00,
-                'completion' => 8.00
+                'prompt' => 1.75,
+                'completion' => 14.00
             ],
             'gpt-5.2' => [
-                'prompt' => 3.00,
-                'completion' => 12.00
+                'prompt' => 1.75,
+                'completion' => 14.00
             ],
             
             // GPT-5 (2025)
             'gpt-5' => [
-                'prompt' => 2.50,
+                'prompt' => 1.25,
                 'completion' => 10.00
             ],
             'gpt-5-mini' => [
-                'prompt' => 0.30,
-                'completion' => 1.20
+                'prompt' => 0.25,
+                'completion' => 2.00
             ],
             'gpt-5-nano' => [
-                'prompt' => 0.10,
+                'prompt' => 0.05,
                 'completion' => 0.40
             ],
             

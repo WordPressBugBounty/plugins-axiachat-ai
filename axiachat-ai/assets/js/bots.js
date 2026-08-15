@@ -211,7 +211,7 @@ const { __, sprintf } = wp.i18n;
   };
 
   const defaults = ()=>{
-    const defModel = _REG_DEFAULTS['openai'] || 'gpt-5.3-chat-latest';
+    const defModel = _REG_DEFAULTS['openai'] || 'gpt-5.6-luna';
     return {
     id: null,
     name: 'Default',

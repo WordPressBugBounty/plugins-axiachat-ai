@@ -71,6 +71,12 @@ class AIChat_Claude_Provider implements AIChat_Provider_Interface {
         }
         
         // Detectar si hay tools
+        $model = $params['model'] ?? aichat_get_default_model('anthropic');
+        if ( function_exists( 'aichat_resolve_model' ) ) {
+            $model = aichat_resolve_model( $model, 'anthropic' );
+        }
+        $params['model'] = $model;
+
         $tools = $params['tools'] ?? null;
         $has_tools = !empty($tools) && is_array($tools);
         

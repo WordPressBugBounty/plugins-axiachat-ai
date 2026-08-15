@@ -274,6 +274,7 @@ if ( ! class_exists( 'AIChat_Ajax' ) ) {
                 }
                 aichat_log_debug( "[AIChat AJAX][$uid] provider overridden to: {$provider}, model: {$model}" );
             }
+            $model = $this->resolve_model_for_provider( $model, $provider );
             $instructions = isset( $bot['instructions'] ) ? wp_kses_post( $bot['instructions'] ) : '';
             $temperature  = isset( $bot['temperature'] ) ? floatval( $bot['temperature'] ) : 0.7;
             if ( $temperature < 0 ) $temperature = 0;
@@ -477,10 +478,8 @@ if ( ! class_exists( 'AIChat_Ajax' ) ) {
             // Normalizar alias de proveedor
             if ($provider === 'anthropic') { $provider = 'claude'; }
 
-            // Normalizar modelo Claude (alias → versión fechada conocida)
-            if ($provider === 'claude') {
-                $model = $this->normalize_claude_model($model);
-            }
+            // Resolver aliases/deprecados a modelo canónico activo.
+            $model = $this->resolve_model_for_provider( $model, $provider );
 
             $agency_enabled = ( function_exists('aichat_agency_is_configured') && aichat_agency_is_configured() )
                 || (bool) get_option( 'aichat_agency_enabled', false );
@@ -1064,6 +1063,7 @@ if ( ! class_exists( 'AIChat_Ajax' ) ) {
             $provider = ! empty( $bot['provider'] ) ? sanitize_key($bot['provider']) : 'openai';
             $default_provider = ( $provider === 'anthropic' ) ? 'claude' : $provider;
             $model = ! empty( $bot['model'] ) ? sanitize_text_field($bot['model']) : aichat_get_default_model( $default_provider );
+            $model = $this->resolve_model_for_provider( $model, $provider );
             
             // Obtener API keys (igual que en process_message)
             $openai_key = aichat_get_setting( 'aichat_openai_api_key' );
@@ -1332,6 +1332,7 @@ if ( ! class_exists( 'AIChat_Ajax' ) ) {
                 wp_send_json_error( [ 'message' => 'Continuation only supported for OpenAI Responses.' ], 400 );
             }
             $model = ! empty( $bot['model'] ) ? sanitize_text_field($bot['model']) : aichat_get_default_model( 'openai' );
+            $model = $this->resolve_model_for_provider( $model, 'openai' );
             if ( ! $this->is_openai_responses_model($model) ) {
                 wp_send_json_error( [ 'message' => 'Model is not a Responses (gpt-5*) model.' ], 400 );
             }
@@ -1850,12 +1851,36 @@ if ( ! class_exists( 'AIChat_Ajax' ) ) {
         }
 
         /**
+         * Resolve model IDs to active canonical IDs for built-in providers.
+         *
+         * @param string $model    Raw model id.
+         * @param string $provider Provider id.
+         * @return string
+         */
+        protected function resolve_model_for_provider( $model, $provider ) {
+            if ( ! function_exists( 'aichat_resolve_model' ) ) {
+                return (string) $model;
+            }
+
+            $provider_key = sanitize_key( (string) $provider );
+            if ( $provider_key === 'claude' ) {
+                $provider_key = 'anthropic';
+            }
+
+            if ( ! in_array( $provider_key, [ 'openai', 'anthropic', 'gemini' ], true ) ) {
+                return (string) $model;
+            }
+
+            return aichat_resolve_model( (string) $model, $provider_key );
+        }
+
+        /**
          * Normaliza nombres de modelo Claude a identificadores oficiales versionados.
          * Acepta alias sin fecha y devuelve siempre uno datado.
          */
         protected function normalize_claude_model($model) {
             // Delegates to centralised model registry (includes/model-registry.php).
-            return aichat_resolve_model( $model, 'anthropic' );
+            return $this->resolve_model_for_provider( $model, 'anthropic' );
         }
 
         /**
@@ -2055,7 +2080,7 @@ if ( ! class_exists( 'AIChat_Ajax' ) ) {
             $provider     = ! empty( $bot['provider'] ) ? sanitize_key( $bot['provider'] ) : 'openai';
             if ($provider === 'anthropic') $provider = 'claude';
             $model        = ! empty( $bot['model'] ) ? sanitize_text_field( $bot['model'] ) : aichat_get_default_model( $provider );
-            if ($provider === 'claude') { $model = $this->normalize_claude_model($model); }
+            $model        = $this->resolve_model_for_provider( $model, $provider );
             $instructions = isset( $bot['instructions'] ) ? wp_kses_post( $bot['instructions'] ) : '';
             $temperature  = isset( $bot['temperature'] ) ? floatval( $bot['temperature'] ) : 0.7;
             if ($temperature < 0) $temperature = 0; if ($temperature > 2) $temperature = 2;
